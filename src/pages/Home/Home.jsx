@@ -3,7 +3,7 @@ export default function Home() {
     return (
         <>
             <Navigation />
-            <h1>Home</h1>
+            <h1>Home 2</h1>
         </>
     )
 }
