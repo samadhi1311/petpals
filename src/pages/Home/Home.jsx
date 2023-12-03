@@ -2,8 +2,14 @@ import Navigation from '../../global/components/Navigation/Navigation'
 export default function Home() {
     return (
         <>
-            <Navigation />
-            <h1>Home</h1>
+            <header>
+                <Navigation />
+            </header>
+
+            <main>
+                <h1>Home</h1>
+                TODO: Sajitha - design the Home Page
+            </main>
         </>
     )
 }
