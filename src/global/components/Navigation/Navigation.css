@@ -31,3 +31,50 @@ img {
 Link {
     text-decoration: none;
 }
+
+.menu-icon {
+    display: none; /* Initially hide the menu icon for larger screens */
+    cursor: pointer;
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.menu-icon.spin {
+    animation: spin 1s linear; /* Add a spin animation when the 'spin' class is applied */
+}
+
+.menu-icon.anticlockwise {
+    animation: spinAnticlockwise 1s linear; /* Add an anticlockwise spin animation */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spinAnticlockwise {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #f8f8f8;
+        z-index: 1;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .menu-icon {
+            display: block; /* Show the menu icon for smaller screens */
+    }
+    
+}
