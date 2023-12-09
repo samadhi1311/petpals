@@ -1,0 +1,88 @@
+/* Login.css */
+
+.login-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  text-align: center; /* Center text in the form */
+}
+
+.login-form h1 {
+  margin-bottom: 20px; /* Add some space below the heading */
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.login-form a {
+  color: #000;
+  text-decoration: none;
+  display: block; /* Make the link a block element to center it */
+  margin-bottom: 20px; /* Add some space below the link */
+}
+
+.horizontal-bar {
+  text-align: center; /* Center text in the horizontal bar */
+  border: none; /* Remove border for horizontal bar */
+}
+
+.social-login {
+  display: flex;
+  flex-direction: column; /* Display buttons in a column layout */
+}
+
+.social-login button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #ccc;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+
+.button-padding {
+  width: 10px; /* Adjust the width as needed for the desired padding */
+}
+
+.or-login-with {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.horizontal-line {
+  display: inline-block;
+  width: 50px; /* Adjust the width of the lines */
+  height: 1px;
+  background-color: #ccc; /* Adjust the color of the lines */
+  margin: 0 10px; /* Adjust the margin between the lines and the text */
+}
+
+/* Media query for screens below 768 pixels */
+@media (min-width: 768px) {
+  .social-login {
+    flex-direction: row; /* Display buttons in a row layout */
+  }
+}
