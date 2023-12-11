@@ -1,4 +1,6 @@
 import Navigation from '../../global/components/Navigation/Navigation';
+import './Home.css'
+import HeroImage from '../../global/assets/Adopt a pet-bro.svg';
 
 export default function Home() {
     return (
@@ -10,10 +12,29 @@ export default function Home() {
             </header>
 
             <main>
+                <section className='hero-section'>
+                    <div className='hero-div-left'>
+                        <h1 className='hero-heading'>Don't shop. Adopt a pet!</h1>
+                        <p className='hero-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos dolores sit aut excepturi mollitia natus aspernatur autem libero, reiciendis ab eius, dolorem iste cupiditate voluptatem blanditiis. Nisi earum praesentium inventore.</p>
+                        <div className='hero-buttons'>
+                            <button>Adopt now</button>
+                            <button>Rescue</button>
+                        </div>
+                    </div>
 
-                <h1>Home</h1>
-                TODO: Sajintha - design the Home Page
+                    <div className='hero-div-right'>
+                        <img src={HeroImage} style={{ width: "100%" }}></img>
+                    </div>
+                </section>
             </main>
+
+            <section className='discover-section'>
+                <div>
+                    <h1>Welcome to PetPals</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
+                    <button>Learn More</button>
+                </div>
+            </section>
         </>
     )
 }

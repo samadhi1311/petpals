@@ -3,8 +3,10 @@ nav {
     justify-content: space-between;
     align-items: center;
     max-width: 90%;
-    margin: auto;
+    margin: 0 auto;
     padding: 1rem 1rem;
+    background-color: white;
+    border-radius: 12px;
 }
 
 img {
@@ -33,28 +35,41 @@ Link {
 }
 
 .menu-icon {
-    display: none; /* Initially hide the menu icon for larger screens */
+    display: none;
+    /* Initially hide the menu icon for larger screens */
     cursor: pointer;
     font-size: 2rem;
     transition: transform 0.3s ease;
 }
 
 .menu-icon.spin {
-    animation: spin 1s linear; /* Add a spin animation when the 'spin' class is applied */
+    animation: spin 1s linear;
+    /* Add a spin animation when the 'spin' class is applied */
 }
 
 .menu-icon.anticlockwise {
-    animation: spinAnticlockwise 1s linear; /* Add an anticlockwise spin animation */
+    animation: spinAnticlockwise 1s linear;
+    /* Add an anticlockwise spin animation */
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes spinAnticlockwise {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(-360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -74,7 +89,8 @@ Link {
     }
 
     .menu-icon {
-            display: block; /* Show the menu icon for smaller screens */
+        display: block;
+        /* Show the menu icon for smaller screens */
     }
-    
+
 }

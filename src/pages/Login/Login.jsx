@@ -23,7 +23,7 @@ export default function Login() {
             <header>
                 <Navigation></Navigation>
             </header>
-            <section>x
+            <section>
                 <div className="login-page">
                     <div className="login-form box-shadow">
                         <h2>Continue to petpals, </h2>
