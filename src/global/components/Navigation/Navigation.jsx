@@ -20,38 +20,38 @@ export default function Navigation() {
 
     return (
         <html>
-        <head>
-                        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+            <head>
+                <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
-        </head>
-        <nav>
-            {/* Logo and link to the home page */}
-            <Link to="/" className="logo">
-                <img src={Logo} alt='PetPals' />
-                PetPals
-            </Link>
-
-            {/* Menu icon using box-icon */}
-            <div
-                className={`menu-icon ${clickCount % 2 === 0 ? "spin" : "anticlockwise"}`}
-                onClick={handleMenuClick}
-            >
-                <i className='bx bx-menu'></i>
-            </div>
-
-            {/* Dropdown menu */}
-            <div className={`nav-links ${showMenu ? "show" : ""}`}>
-                <Link to="/add">Add</Link>
-                <Link to="/discover">Discover</Link>
-                <Link to="/about">About</Link>
-                <Link to="/login">
-                    <button>
-                        <i className='bx bxs-log-in-circle bx-sm' ></i>
-                        Login
-                    </button>
+            </head>
+            <nav>
+                {/* Logo and link to the home page */}
+                <Link to="/" className="logo">
+                    <img src={Logo} alt='PetPals' />
+                    PetPals
                 </Link>
-            </div>
-        </nav>
+
+                {/* Menu icon using box-icon */}
+                <div
+                    className={`menu-icon ${clickCount % 2 === 0 ? "spin" : "anticlockwise"}`}
+                    onClick={handleMenuClick}
+                >
+                    <i className='bx bx-menu'></i>
+                </div>
+
+                {/* Dropdown menu */}
+                <div className={`nav-links ${showMenu ? "show" : ""}`}>
+                    <Link to="/add">Add</Link>
+                    <Link to="/discover">Discover</Link>
+                    <Link to="/about">About</Link>
+                    <Link to="/login">
+                        <button>
+                            <i className='bx bxs-log-in-circle bx-sm' ></i>
+                            Login
+                        </button>
+                    </Link>
+                </div>
+            </nav>
         </html>
     );
 }
