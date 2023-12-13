@@ -1,7 +1,7 @@
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
-    font-weight: 400;
+    font-weight: 500;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -43,11 +43,6 @@ body {
     padding: 0;
     margin: 0;
     overflow: hidden;
-}
-
-header {
-    margin: auto;
-    padding: 1rem;
 }
 
 h1 {
@@ -102,13 +97,4 @@ input {
 input:focus {
     outline: none;
     border: 1px solid black;
-}
-
-/* Utility classes */
-.text-shadow {
-    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
-}
-
-.box-shadow {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
 }
