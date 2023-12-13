@@ -1,24 +1,15 @@
 nav {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    max-width: 90%;
-    margin: 0 auto;
     padding: 1rem 1rem;
     background-color: white;
-    border-radius: 12px;
+    border-radius: 0 0 24px 24px;
 }
 
 img {
     width: 36px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
 }
 
 .logo {
@@ -28,69 +19,222 @@ img {
     gap: 1rem;
     font-size: 2.5rem;
     font-weight: 800;
+    padding: 0 1.5rem;
 }
 
-Link {
-    text-decoration: none;
-}
-
-.menu-icon {
-    display: none;
-    /* Initially hide the menu icon for larger screens */
+nav ul li button {
+    display: inline-flex;
     cursor: pointer;
-    font-size: 2rem;
-    transition: transform 0.3s ease;
 }
 
-.menu-icon.spin {
-    animation: spin 1s linear;
-    /* Add a spin animation when the 'spin' class is applied */
+.nav-btn {
+    position: relative;
+    right: 0.6rem;
+    top: 0.6rem;
+    display: none;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    z-index: 9999;
+    border-radius: 50%;
 }
 
-.menu-icon.anticlockwise {
-    animation: spinAnticlockwise 1s linear;
-    /* Add an anticlockwise spin animation */
+.nav-btn i {
+    display: block;
+    width: 1.3rem;
+    height: 0.15rem;
+    background: black;
+    border-radius: 0.15rem;
+    margin-left: 0.9rem;
 }
 
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
+.nav-btn i:nth-child(1) {
+    margin-top: 1rem;
+}
+
+.nav-btn i:nth-child(2) {
+    margin-top: 0.3rem;
+    opacity: 1;
+}
+
+.nav-btn i:nth-child(3) {
+    margin-top: 0.3rem;
+}
+
+nav ul {
+    float: none;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li:not(:first-child) {
+    margin-left: 3rem;
+}
+
+nav ul li:last-child {
+    margin-right: 1.5rem;
+}
+
+nav ul li Link {
+    display: inline-block;
+    outline: none;
+}
+
+nav ul li a:hover {
+    color: grey;
+    transition: 0.2s ease-in-out;
+}
+
+nav ul li a:active {
+    color: grey;
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        padding: 0;
     }
 
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes spinAnticlockwise {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(-360deg);
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
+    .nav-wrapper {
+        position: fixed;
+        top: 0;
         left: 0;
         width: 100%;
-        background-color: #f8f8f8;
-        z-index: 1;
+        height: 100%;
+        z-index: -1;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(9px);
     }
 
-    .nav-links.show {
-        display: flex;
+    .nav-wrapper ul {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        padding-inline-start: 0;
     }
 
-    .menu-icon {
+    .nav-wrapper ul li {
         display: block;
-        /* Show the menu icon for smaller screens */
+        float: none;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
     }
 
+    .nav-wrapper ul li:nth-child(1) Link {
+        transition-delay: 0.2s;
+    }
+
+    .nav-wrapper ul li:nth-child(2) Link {
+        transition-delay: 0.3s;
+    }
+
+    .nav-wrapper ul li:nth-child(3) Link {
+        transition-delay: 0.4s;
+    }
+
+    .nav-wrapper ul li:nth-child(4) Link {
+        transition-delay: 0.5s;
+    }
+
+    .nav-wrapper ul li:not(:first-child) {
+        margin-left: 0;
+    }
+
+    .nav-wrapper ul li Link {
+        padding: 1.5rem 1.5rem;
+        opacity: 0;
+        transform: translateX(-1.3rem);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .nav-btn {
+        position: relative;
+        right: 0.6rem;
+        top: 0.6rem;
+        display: block;
+        width: 3rem;
+        height: 3rem;
+        cursor: pointer;
+        z-index: 9999;
+        border-radius: 50%;
+    }
+
+    .nav-btn i {
+        display: block;
+        width: 1.3rem;
+        height: 0.15rem;
+        background: black;
+        border-radius: 0.15rem;
+        margin-left: 0.9rem;
+    }
+
+    .nav-btn i:nth-child(1) {
+        margin-top: 1rem;
+    }
+
+    .nav-btn i:nth-child(2) {
+        margin-top: 0.3rem;
+        opacity: 1;
+    }
+
+    .nav-btn i:nth-child(3) {
+        margin-top: 0.3rem;
+    }
+
+}
+
+#nav:checked+.nav-btn {
+    transform: rotate(45deg);
+}
+
+#nav:checked+.nav-btn i {
+    background: black;
+    transition: transform 0.2s ease;
+}
+
+#nav:checked+.nav-btn i:nth-child(1) {
+    transform: translateY(0.4rem) rotate(180deg);
+}
+
+#nav:checked+.nav-btn i:nth-child(2) {
+    opacity: 0;
+}
+
+#nav:checked+.nav-btn i:nth-child(3) {
+    transform: translateY(-0.4rem) rotate(90deg);
+}
+
+#nav:checked~.nav-wrapper {
+    z-index: 9990;
+    opacity: 1;
+}
+
+#nav:checked~.nav-wrapper ul li Link {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Set the duration of the animation */
+.transition {
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Hide the new page */
+.new-page {
+    opacity: 0;
+}
+
+/* Show the new page after the transition is complete */
+.new-page.show {
+    opacity: 1;
 }
