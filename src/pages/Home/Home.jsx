@@ -14,8 +14,8 @@ export default function Home() {
             <main>
                 <section className='hero-section'>
                     <div className='hero-div-left'>
-                        <h1 className='hero-heading'>Don't shop. Adopt a pet!</h1>
-                        <p className='hero-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos dolores sit aut excepturi mollitia natus aspernatur autem libero, reiciendis ab eius, dolorem iste cupiditate voluptatem blanditiis. Nisi earum praesentium inventore.</p>
+                        <h1 className='hero-heading'>Don't shop.<br />Adopt a pet!</h1>
+                        <p className='hero-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         <div className='hero-buttons'>
                             <button>Adopt now</button>
                             <button>Rescue</button>
