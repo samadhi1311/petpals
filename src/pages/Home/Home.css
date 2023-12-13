@@ -53,6 +53,7 @@ main {
     }
 
     .hero-div-left {
+        padding: 1rem;
         text-align: center;
     }
 
@@ -80,9 +81,6 @@ main {
         justify-content: center;
     }
 
-    .discover-section {
-        width: 100%;
-    }
 }
 
 .discover-section {
