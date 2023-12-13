@@ -11,25 +11,24 @@ main {
     justify-content: center;
     align-items: center;
     min-height: 90vh;
-}
-
-.hero-div-left,
-.hero-div-right {
-    width: 50%;
-    margin: 0;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .hero-div-left {
-    padding: 2rem;
+    width: 45%;
+    padding-left: 4rem;
 }
 
 .hero-div-right {
-    padding: 2rem;
+    width: 55%;
+    padding-right: 4rem;
 }
 
 .hero-heading {
     font-size: 4rem;
     color: white;
+    text-shadow: 0px 0px 24px rgba(0, 0, 0, 0.05);
 }
 
 .hero-text {
@@ -44,32 +43,41 @@ main {
     gap: 1rem;
 }
 
-/* Media query for screens with a maximum width of 768px (typical for mobile devices) */
+@media only screen and (min-width: 640px) {
+    .hero-heading {
+        font-size: 1rem;
+    }
+
+    .hero-text {
+        font-size: .5rem;
+    }
+
+}
+
 @media only screen and (max-width: 768px) {
 
     .hero-div-left,
     .hero-div-right {
         width: 100%;
+        padding: 1rem;
     }
 
     .hero-div-left {
-        padding: 1rem;
         text-align: center;
     }
 
     .hero-div-right {
-        padding: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
     .hero-heading {
-        font-size: 3rem;
+        font-size: 4rem;
     }
 
     .hero-text {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
     .hero-section {
@@ -81,6 +89,26 @@ main {
         justify-content: center;
     }
 
+}
+
+@media screen and (min-width: 1024px) {
+    .hero-div-right {
+        width: 60%;
+        padding-right: 4rem;
+    }
+
+    .hero-div-left {
+        width: 40%;
+        padding-left: 4rem;
+    }
+
+    .hero-heading {
+        font-size: 6rem;
+    }
+
+    .hero-text {
+        font-size: 2rem;
+    }
 }
 
 .discover-section {
