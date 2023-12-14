@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@600&display=swap');
+
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -46,13 +48,16 @@ body {
 }
 
 h1 {
+    font-family: 'Kalnia', serif;
     font-size: 3.2em;
-    line-height: 1.1;
+    line-height: 0.9;
+    margin: 0;
 }
 
 h2 {
     font-size: 1.8em;
     line-height: 1.1;
+    margin: 0;
 }
 
 button {
