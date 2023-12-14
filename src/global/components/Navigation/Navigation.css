@@ -82,14 +82,6 @@ nav ul li Link {
     outline: none;
 }
 
-nav ul li a:hover {
-    color: grey;
-    transition: 0.2s ease-in-out;
-}
-
-nav ul li a:active {
-    color: grey;
-}
 
 @media screen and (max-width: 768px) {
     .logo {
@@ -104,7 +96,7 @@ nav ul li a:active {
         height: 100%;
         z-index: -1;
         opacity: 0;
-        transition: all 0.2s ease-in-out;
+        transition: all 300ms ease-in-out;
         background: rgba(255, 255, 255, 0.8);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(9px);
@@ -126,22 +118,6 @@ nav ul li a:active {
         margin-bottom: 1rem;
     }
 
-    .nav-wrapper ul li:nth-child(1) Link {
-        transition-delay: 0.2s;
-    }
-
-    .nav-wrapper ul li:nth-child(2) Link {
-        transition-delay: 0.3s;
-    }
-
-    .nav-wrapper ul li:nth-child(3) Link {
-        transition-delay: 0.4s;
-    }
-
-    .nav-wrapper ul li:nth-child(4) Link {
-        transition-delay: 0.5s;
-    }
-
     .nav-wrapper ul li:not(:first-child) {
         margin-left: 0;
     }
@@ -150,7 +126,7 @@ nav ul li a:active {
         padding: 1.5rem 1.5rem;
         opacity: 0;
         transform: translateX(-1.3rem);
-        transition: all 0.2s ease-in-out;
+        transition: all 300ms ease-in-out;
     }
 
     .nav-btn {
@@ -187,6 +163,11 @@ nav ul li a:active {
         margin-top: 0.3rem;
     }
 
+    li {
+        font-size: large;
+        padding: 1rem 0;
+    }
+
 }
 
 #nav:checked+.nav-btn {
@@ -195,7 +176,7 @@ nav ul li a:active {
 
 #nav:checked+.nav-btn i {
     background: black;
-    transition: transform 0.2s ease;
+    transition: transform 300ms ease;
 }
 
 #nav:checked+.nav-btn i:nth-child(1) {
@@ -222,19 +203,4 @@ nav ul li a:active {
 
 .hidden {
     display: none;
-}
-
-/* Set the duration of the animation */
-.transition {
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* Hide the new page */
-.new-page {
-    opacity: 0;
-}
-
-/* Show the new page after the transition is complete */
-.new-page.show {
-    opacity: 1;
 }
