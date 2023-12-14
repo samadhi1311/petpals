@@ -26,7 +26,6 @@ main {
 }
 
 .hero-heading {
-    font-size: 4rem;
     color: white;
     text-shadow: 0px 0px 24px rgba(0, 0, 0, 0.05);
 }
@@ -52,6 +51,11 @@ main {
         font-size: .5rem;
     }
 
+    .hero-div-left {
+
+        max-width: 500px;
+    }
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -73,7 +77,7 @@ main {
     }
 
     .hero-heading {
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     .hero-text {
@@ -94,38 +98,52 @@ main {
 @media screen and (min-width: 1024px) {
     .hero-div-right {
         width: 60%;
-        padding-right: 4rem;
+        padding-right: 3rem;
     }
 
     .hero-div-left {
         width: 40%;
-        padding-left: 4rem;
+        padding-left: 3rem;
     }
 
     .hero-heading {
-        font-size: 6rem;
+        font-size: 5rem;
     }
 
     .hero-text {
-        font-size: 2rem;
+        font-size: 1.2rem;
     }
 }
 
-.discover-section {
+.sub-section {
     width: 100%;
-    border-radius: 12px;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(64px);
+    display: grid;
+    place-items: center;
+    padding: 3rem 0;
+    margin-bottom: 4rem;
+    outline: 1px solid gray;
 }
 
-.discover-section div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.sub-section div {
+    display: grid;
+    place-items: center;
     flex-direction: column;
     gap: 1rem;
     max-width: 32rem;
     text-align: center;
+    padding: 1rem 0;
+}
+
+.sub-section h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+footer {
+    padding: 1rem;
+    border-radius: 24px 24px 0 0;
+    background-color: white;
 }

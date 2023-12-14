@@ -28,13 +28,46 @@ export default function Home() {
                 </section>
             </main>
 
-            <section className='discover-section'>
+            <section className='sub-section discover-section'>
                 <div>
-                    <h1>Welcome to PetPals</h1>
+                    <h1>Discover Section</h1>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
                     <button>Learn More</button>
                 </div>
             </section>
+
+            <div className="empty"></div>
+
+            <section className='sub-section add-section'>
+                <div>
+                    <h1>Add Section</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
+                    <button>Learn More</button>
+                </div>
+            </section>
+
+            <section className='sub-section blog-section'>
+                <div>
+                    <h1>Blog Section</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
+                    <button>Learn More</button>
+                </div>
+            </section>
+
+            <section className='sub-section about-section'>
+                <div>
+                    <h1>About Section</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
+                    <button>Learn More</button>
+                </div>
+            </section>
+
+            <footer>
+                <div>
+                    <h1>Footer Section</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
+                </div>
+            </footer>
         </>
     )
 }
