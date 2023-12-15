@@ -11,6 +11,7 @@ main {
     justify-content: center;
     align-items: center;
     min-height: 90vh;
+    max-height: 90vh;
     width: 80%;
     margin: 0 auto;
 }
@@ -51,10 +52,7 @@ main {
         font-size: .5rem;
     }
 
-    .hero-div-left {
 
-        max-width: 500px;
-    }
 
 }
 
@@ -74,6 +72,7 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 0;
     }
 
     .hero-heading {
@@ -91,6 +90,15 @@ main {
 
     .hero-buttons {
         justify-content: center;
+    }
+
+    .hero-div-left {
+
+        max-width: 380px;
+    }
+
+    .sub-section div {
+        margin: 0 1rem;
     }
 
 }
@@ -113,6 +121,10 @@ main {
     .hero-text {
         font-size: 1.2rem;
     }
+
+    footer div {
+        padding: 0 5rem;
+    }
 }
 
 .sub-section {
@@ -125,6 +137,8 @@ main {
     padding: 3rem 0;
     margin-bottom: 4rem;
     outline: 1px solid gray;
+    min-height: 50vh;
+    max-height: 100vh;
 }
 
 .sub-section div {
@@ -143,7 +157,7 @@ main {
 }
 
 footer {
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 24px 24px 0 0;
     background-color: white;
 }
