@@ -6,6 +6,7 @@ import './Home.css'
 import HeroImage from '../../global/assets/Adopt a pet-bro.svg';
 
 
+
 export default function Home() {
 
     const controlsDiscover = useAnimation();
@@ -134,10 +135,37 @@ export default function Home() {
                 </motion.div>
             </section>
 
-            <footer>
-                <div>
-                    <h1>Footer Section</h1>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
+            <footer className="footer">
+                <div className="footer-container">
+                    <div className="footer-info">
+                        <h2>Your Company</h2>
+                        <p>A brief description of your company or website goes here. This can be a slightly longer text describing your vision, mission, or values.</p>
+                    </div>
+                    <div className="footer-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/services">Services</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div className="footer-contact">
+                        <h3>Contact Us</h3>
+                        <p>Email: info@yourcompany.com</p>
+                        <p>Phone: +1234567890</p>
+                        <p>Address: 123 Main Street, City, Country</p>
+                        <div className="social-icons">
+                            <a href="#"><i className="fab fa-facebook-f"></i></a>
+                            <a href="#"><i className="fab fa-twitter"></i></a>
+                            <a href="#"><i className="fab fa-instagram"></i></a>
+                            <a href="#"><i className="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div className="footer-bottom">
+                    <p>&copy; {new Date().getFullYear()} Your Company. All Rights Reserved.</p>
                 </div>
             </footer>
         </>
