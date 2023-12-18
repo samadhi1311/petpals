@@ -1,0 +1,128 @@
+/* signup.css */
+
+.signup-page {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .signup-form {
+    max-width: 20rem;
+    margin: auto auto;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 12px;
+    background-color: hsla(0, 100%, 100%, 0.5);
+    backdrop-filter: blur(64px);
+  }
+  
+  .signup-form h2 {
+    margin-bottom: 2rem;
+    /* Add some space below the heading */
+  }
+  
+  .signup-form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .signup-form button {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .signup-form a {
+    display: block;
+    margin: 0 1.5 rem;
+  }
+  
+  .horizontal-bar {
+    text-align: center;
+    border: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .action-signup {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 0;
+  }
+  
+  .action-signup button {
+    margin-bottom: 10px;
+  }
+  
+  .button-padding {
+    width: .5rem;
+    /* Adjust the width as needed for the desired padding */
+  }
+  
+  .or-signup-with {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  .horizontal-line {
+    display: inline-block;
+    width: 50px;
+    /* Adjust the width of the lines */
+    height: 1px;
+    background-color: #ccc;
+    /* Adjust the color of the lines */
+    margin: 0 10px;
+    /* Adjust the margin between the lines and the text */
+  }
+  
+  /* Media query for screens below 768 pixels */
+  @media (min-width: 768px) {
+    .social-signup {
+      flex-direction: column;
+      /* Display buttons in a row layout */
+    }
+  }
+  
+  .radio-inputs {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    background-color: #EEE;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 300px;
+    font-size: 14px;
+  }
+  
+  .radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  
+  .radio-inputs .radio input {
+    display: none;
+  }
+  
+  .radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    padding: .5rem 0;
+    color: rgba(51, 65, 85, 1);
+    transition: all .15s ease-in-out;
+  }
+  
+  .radio-inputs .radio input:checked + .name {
+    background-color: #fff;
+    font-weight: 600;
+  }
