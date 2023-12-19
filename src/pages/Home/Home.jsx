@@ -135,39 +135,41 @@ export default function Home() {
                 </motion.div>
             </section>
 
-            <footer className="footer">
+            <footer>
+
                 <div className="footer-container">
+
                     <div className="footer-info">
-                        <h2>Your Company</h2>
-                        <p>A brief description of your company or website goes here. This can be a slightly longer text describing your vision, mission, or values.</p>
-                    </div>
-                    <div className="footer-links">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/about">About</a></li>
-                            <li><a href="/services">Services</a></li>
-                            <li><a href="/blog">Blog</a></li>
-                            <li><a href="/contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div className="footer-contact">
-                        <h3>Contact Us</h3>
-                        <p>Email: info@yourcompany.com</p>
-                        <p>Phone: +1234567890</p>
-                        <p>Address: 123 Main Street, City, Country</p>
-                        <div className="social-icons">
-                            <a href="#"><i className="fab fa-facebook-f"></i></a>
-                            <a href="#"><i className="fab fa-twitter"></i></a>
-                            <a href="#"><i className="fab fa-instagram"></i></a>
-                            <a href="#"><i className="fab fa-linkedin-in"></i></a>
+
+                        <h3>
+                            <img src={Logo} style={{ width: '2.3rem', paddingRight: '1rem' }} />
+                            PetPals
+                        </h3>
+                        <div className="info-text">
+                            <p>A brief description of your company or website goes here. This can be a slightly longer text describing your vision, mission, or values.</p>
                         </div>
                     </div>
+
+                    <div className="footer-links">
+                        <h3>Quick Links</h3>
+                        <Link to="/">Home</Link>
+                        <Link to="/about">About</Link>
+                        <Link to="/services">Services</Link>
+                        <Link to="/blog">Blog</Link>
+                        <Link to="/contact">Contact</Link>
+                    </div>
+
+                    <div className="footer-support">
+                        <h3>Support Us</h3>
+                        <Link>Donate</Link>
+                        <Link>Contribute on GitHub</Link>
+                    </div>
                 </div>
-                <div className="footer-bottom">
-                    <p>&copy; {new Date().getFullYear()} Your Company. All Rights Reserved.</p>
+
+                <div className="footer-copyright">
+                    <p>&copy; {new Date().getFullYear()} PetPals Team. All Rights Reserved.</p>
                 </div>
-            </footer>
+            </footer >
         </>
     )
 }
