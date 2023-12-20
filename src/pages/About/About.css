@@ -1,0 +1,31 @@
+.content-row {
+    display: flex;
+}
+
+.text-content {
+    width: 50%; /* Adjust as needed */
+    padding: 10%;
+}
+
+.image-content img {
+    max-width: 100%; /* Ensure the image doesn't exceed its container */
+    padding: 10%;
+}
+
+
+@media (max-width: 768px) {
+    .content-row {
+        flex-direction: column;
+        align-items: center; /* Optional: Center the content in the column */
+    }
+
+    .text-content, .image-content {
+        padding:0;
+    }
+    .image-content{
+        position: relative;
+        padding-right: 12%;
+    }
+}
+
+

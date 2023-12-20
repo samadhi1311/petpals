@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Navigation from '../../global/components/Navigation/Navigation';
 import './Login.css';
 import GoogleIcon from '../../global/assets/icons8-google.svg';
 
@@ -16,12 +15,7 @@ export default function Login() {
         // If login is successful, redirect to the home page
     };
     return (
-        <>
 
-            <div className="gradient-background"></div>
-            <header>
-                <Navigation></Navigation>
-            </header>
             <section>
                 <div className="form-container">
 
@@ -54,8 +48,9 @@ export default function Login() {
                     <div className="sign-up">
                         <p>Not a member yet? <Link to="/signup">Sign up</Link></p>
                     </div>
-                </div>
-            </section>
-        </>
+                        
+            </div>
+        </section>
+
     );
 }

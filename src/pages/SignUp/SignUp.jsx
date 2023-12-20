@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Navigation from "../../global/components/Navigation/Navigation";
 import './SignUp.css';
 import GoogleIcon from '../../global/assets/icons8-google.svg';
 
 export default function SignUp() {
+
 	const [step, setStep] = useState(1);
 	const [authMethod, setAuthMethod] = useState('');
 	const [accountType, setAccountType] = useState('individual');
@@ -47,11 +47,7 @@ export default function SignUp() {
 
 	return (
 		<>
-			<div className="gradient-background"></div>
-			<header>
-				<Navigation />
-			</header>
-			<section>
+
 
 				{step === 1 && (
 					<div className='form-container'>
@@ -135,4 +131,3 @@ export default function SignUp() {
 			</section>
 		</>
 	);
-}
