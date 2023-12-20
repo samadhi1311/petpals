@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navigation from './global/components/Navigation/Navigation';
 import About from './pages/About/About';
 import Add from './pages/Add/Add';
 import Blog from './pages/Blog/Blog';
@@ -11,7 +12,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></link>
+      <div className="gradient-background"></div>
+      <header>
+        <Navigation />
+      </header>
+
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
