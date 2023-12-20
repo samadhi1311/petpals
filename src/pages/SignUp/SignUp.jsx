@@ -46,88 +46,88 @@ export default function SignUp() {
 
 
 	return (
-		<>
 
+		<section>
+			{step === 1 && (
+				<div className='form-container'>
 
-				{step === 1 && (
-					<div className='form-container'>
+					<h2>Welcome to PetPals</h2>
 
-						<h2>Welcome to PetPals</h2>
+					<form>
+						<input type="email" placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)} />
 
-						<form>
-							<input type="email" placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)} />
+						<input type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
 
-							<input type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
+						<input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} />
 
-							<input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} />
-
-							<div className="submit">
-								<button onClick={handleContinueClick}>Continue</button>
-							</div>
-						</form>
-
-						<div className="seperator">
-							<hr />
-							<span>or continue with</span>
-							<hr />
+						<div className="submit">
+							<button onClick={handleContinueClick}>Continue</button>
 						</div>
+					</form>
 
-						<div className="social">
-							<button className="google" style={{}}>
-								<img src={GoogleIcon} alt='Google' style={{ width: '1rem', height: '1rem', paddingRight: '1rem' }} onClick={nextStep} /> Google
-							</button>
-						</div>
-
+					<div className="seperator">
+						<hr />
+						<span>or continue with</span>
+						<hr />
 					</div>
-				)}
 
-				{step === 2 && (
-					<div className='form-container'>
+					<div className="social">
+						<button className="google" style={{}}>
+							<img src={GoogleIcon} alt='Google' style={{ width: '1rem', height: '1rem', paddingRight: '1rem' }} onClick={nextStep} /> Google
+						</button>
+					</div>
 
-						<form>
+				</div>
+			)}
 
-							<div className="description">
-								<p>Before you can start using PetPals, we would like to know about you a little bit.</p>
-							</div>
+			{step === 2 && (
+				<div className='form-container'>
 
-							<div className="account-toggle">
+					<form>
 
-								<div className="account-type">
-									<p>I'm an: </p>
+						<div className="description">
+							<p>Before you can start using PetPals, we would like to know about you a little bit.</p>
+						</div>
 
-									<div className="radio-inputs">
-										<label className="radio">
-											<input type="radio" name="individual" checked={accountType === 'individual'}
-												onChange={() => setAccountType('individual')} />
-											<span className="name">Individual</span>
-										</label>
+						<div className="account-toggle">
 
-										<label className="radio">
-											<input type="radio" name="organization" checked={accountType === 'organization'}
-												onChange={() => setAccountType('organization')} />
-											<span className="name">Organization</span>
-										</label>
-									</div>
+							<div className="account-type">
+								<p>I'm an: </p>
 
+								<div className="radio-inputs">
+									<label className="radio">
+										<input type="radio" name="individual" checked={accountType === 'individual'}
+											onChange={() => setAccountType('individual')} />
+										<span className="name">Individual</span>
+									</label>
+
+									<label className="radio">
+										<input type="radio" name="organization" checked={accountType === 'organization'}
+											onChange={() => setAccountType('organization')} />
+										<span className="name">Organization</span>
+									</label>
 								</div>
+
 							</div>
-
-							<input type="text" value={name} placeholder='Name' onChange={(e) => setName(e.target.value)} />
-
-							<input type="text" value={address} placeholder='Address' onChange={(e) => setAddress(e.target.value)} />
-
-							<input type="text" value={contact} placeholder='Contact' onChange={(e) => setContact(e.target.value)} />
-
-						</form>
-
-						<div className='action-buttons'>
-							<a onClick={prevStep} sty>Previous</a>
-							<button onClick={handleSubmit}>Submit</button>
 						</div>
 
+						<input type="text" value={name} placeholder='Name' onChange={(e) => setName(e.target.value)} />
+
+						<input type="text" value={address} placeholder='Address' onChange={(e) => setAddress(e.target.value)} />
+
+						<input type="text" value={contact} placeholder='Contact' onChange={(e) => setContact(e.target.value)} />
+
+					</form>
+
+					<div className='action-buttons'>
+						<a onClick={prevStep} sty>Previous</a>
+						<button onClick={handleSubmit}>Submit</button>
 					</div>
 
-				)}
-			</section>
-		</>
+				</div>
+
+			)}
+		</section>
 	);
+
+}
