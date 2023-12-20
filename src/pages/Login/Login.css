@@ -1,89 +1,70 @@
-/* Login.css */
+section {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
-.login-page {
-  height: 100vh;
+.form-container {
+  width: 90%;
+  max-width: 512px;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 12px;
+  background-color: hsla(0, 100%, 100%, 0.5);
+  backdrop-filter: blur(64px);
+  border: 1px solid #ccc;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.form-container h2 {
+  padding: 3rem 0;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem 0;
+  padding: 1rem;
+}
+
+input {
+  padding: .5rem .5rem;
+  width: 80%;
+  max-width: 480px;
+}
+
+.submit {
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.login-form {
-  max-width: 20rem;
-  margin: autos auto;
-  padding: 1.5rem;
-  border: 1px solid #ccc;
-  text-align: center;
-  border-radius: 12px;
-  background-color: hsla(0, 100%, 100%, 0.5);
-  backdrop-filter: blur(64px);
-}
-
-.login-form h2 {
-  margin-bottom: 2rem;
-  /* Add some space below the heading */
-}
-
-.login-form input {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.login-form button {
-  width: 60%;
-  margin: auto;
-  margin-bottom: 1rem;
-}
-
-.login-form a {
-  display: block;
-  margin: 0 1.5 rem;
-}
-
-.horizontal-bar {
-  text-align: center;
-  border: none;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.social-login {
+.seperator {
   display: flex;
-  flex-direction: column;
-  padding: 1rem 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 1.5rem;
 }
 
-.social-login button {
-  margin-bottom: 10px;
+.seperator hr {
+  width: 20%;
 }
 
-.button-padding {
-  width: 1rem;
-  /* Adjust the width as needed for the desired padding */
+.social {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.or-login-with {
-  text-align: center;
-  margin: 1rem 0;
-}
-
-.horizontal-line {
-  display: inline-block;
-  width: 50px;
-  /* Adjust the width of the lines */
-  height: 1px;
-  background-color: #ccc;
-  /* Adjust the color of the lines */
-  margin: 0 10px;
-  /* Adjust the margin between the lines and the text */
-}
-
-/* Media query for screens below 768 pixels */
-@media (min-width: 768px) {
-  .social-login {
-    flex-direction: row;
-    /* Display buttons in a row layout */
-  }
+.sign-up {
+  padding: 1rem;
 }
