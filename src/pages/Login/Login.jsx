@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from '../../global/components/Navigation/Navigation';
 import './Login.css';
-import '../../global/styles/global.css';
 import GoogleIcon from '../../global/assets/icons8-google.svg';
 
 export default function Login() {
@@ -24,34 +23,35 @@ export default function Login() {
                 <Navigation></Navigation>
             </header>
             <section>
-                <div className="login-page">
-                    <div className="login-form box-shadow">
-                        <h2>Continue to petpals, </h2>
+                <div className="form-container">
 
-                        <input type="email" style={{ width: "280px" }} placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)} />
+                    <h2>Continue to petpals, </h2>
 
-                        <input type="password" style={{ width: "280px" }} placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
+                    <form>
+                        <input type="email" placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)} />
 
-                        <button onClick={handleSubmit}>Continue</button>
+                        <input type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
+
+                        <div className="submit">
+                            <button onClick={handleSubmit}>Continue</button>
+                        </div>
 
                         <Link to="/forgot-password">Forgot password?</Link>
+                    </form>
 
-                        <hr className="horizontal-bar" style={{ paddingTop: "1rem" }} />
-                        <p className="or-login-with">
-                            <span className="horizontal-line"></span> or continue with <span className="horizontal-line"></span>
-                        </p>
+                    <div className="seperator">
+                        <hr />
+                        <span>or continue with</span>
+                        <hr />
+                    </div>
 
-                        <div className="social-login">
-                            <button className="facebook" style={{ backgroundColor: '#0866FF', color: '#fff' }}>
-                                <i className='bx bxl-facebook-circle' style={{ color: '#fff' }}></i> Facebook
-                            </button>
+                    <div className="social">
+                        <button className="google" style={{}}>
+                            <img src={GoogleIcon} alt='Google' style={{ width: '1rem', height: '1rem', paddingRight: '1rem' }} /> Google
+                        </button>
+                    </div>
 
-                            <div className="button-padding"></div>
-
-                            <button className="google" style={{}}>
-                                <img src={GoogleIcon} alt='Google' style={{ width: '1rem', height: '1rem' }} /> Google
-                            </button>
-                        </div>
+                    <div className="sign-up">
                         <p>Not a member yet? <Link to="/signup">Sign up</Link></p>
                     </div>
                 </div>
