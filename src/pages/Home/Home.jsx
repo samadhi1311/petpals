@@ -1,9 +1,11 @@
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Navigation from '../../global/components/Navigation/Navigation';
 import './Home.css'
 import HeroImage from '../../global/assets/Adopt a pet-bro.svg';
+import Logo from '../../global/assets/logo.svg';
 
 
 
