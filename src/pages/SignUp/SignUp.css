@@ -23,13 +23,13 @@ section {
   padding: 3rem 0;
 }
 
-form {
+.form {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 2rem 0;
+  gap: .6rem 0;
   padding: 1rem;
 }
 
@@ -133,4 +133,25 @@ input {
   width: 80%;
   max-width: 480px;
   text-align: left;
+}
+
+.animated-fields {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: .6rem 0;
+  width: 100%;
+}
+
+.warning {
+  width: 80%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #707070;
+  font-size: smaller;
+  top: -.5rem;
 }
