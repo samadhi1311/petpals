@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@600&display=swap');
-
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.5;
     font-weight: 500;
     font-synthesis: none;
