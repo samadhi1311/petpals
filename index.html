@@ -4,13 +4,45 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="./src/global/assets/logo.svg" />
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Kalnia:wght@600&display=swap"
+    rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    .loader-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .logo-outline {
+      width: 5rem;
+      animation: blink 400ms ease-in-out alternate infinite;
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+
   <title>PetPals</title>
 </head>
 
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <section class="loader-section">
+      <img src="src//global//assets/LogoOutline.svg" alt="loader" class='logo-outline' />
+    </section>
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
