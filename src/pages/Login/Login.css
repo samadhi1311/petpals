@@ -23,13 +23,13 @@ section {
   padding: 3rem 0;
 }
 
-form {
+.form {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 2rem 0;
+  gap: .6rem 0;
   padding: 1rem;
 }
 
@@ -44,6 +44,14 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.forgot-password {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .seperator {
@@ -67,4 +75,91 @@ input {
 
 .sign-up {
   padding: 1rem;
+}
+
+.radio-inputs {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 12px;
+  background-color: #EEE;
+  box-sizing: border-box;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+  padding: 0.25rem;
+  width: 250px;
+}
+
+.radio-inputs .radio {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.radio-inputs .radio input {
+  display: none;
+}
+
+.radio-inputs .radio .name {
+  display: flex;
+  cursor: pointer;
+  color: #555;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: none;
+  padding: .5rem 0;
+  transition: all 300ms;
+}
+
+.radio-inputs .radio input:checked+.name {
+  background-color: black;
+  color: white;
+}
+
+.account-toggle {
+  width: 80%;
+  max-width: 480px;
+}
+
+.account-type {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.description {
+  width: 80%;
+  max-width: 480px;
+  text-align: left;
+}
+
+.animated-fields {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: .6rem 0;
+  width: 100%;
+}
+
+.warning {
+  width: 80%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #707070;
+  font-size: smaller;
+  top: -.5rem;
 }
