@@ -12,13 +12,13 @@ main {
     align-items: center;
     min-height: 90vh;
     max-height: 90vh;
-    width: 80%;
-    margin: 0 auto;
+    width: 95%;
+    margin: 1rem auto;
 }
 
 .hero-div-left {
     width: 45%;
-    padding-left: 4rem;
+    padding-left: 1rem;
 }
 
 .hero-div-right {
@@ -27,8 +27,9 @@ main {
 }
 
 .hero-heading {
+    font-size: 7rem;
     color: white;
-    text-shadow: 0px 0px 24px rgba(0, 0, 0, 0.05);
+    text-shadow: 0px 0px 24px rgba(0, 0, 0, 0.1);
 }
 
 .hero-text {
@@ -115,7 +116,7 @@ main {
     }
 
     .hero-heading {
-        font-size: 5rem;
+        font-size: 7rem;
     }
 
     .hero-text {
@@ -155,6 +156,7 @@ main {
     margin: 0;
     font-size: 3rem;
 }
+
 footer {
     display: flex;
     justify-content: center;
@@ -221,4 +223,3 @@ footer {
         padding: .5rem;
     }
 }
-  

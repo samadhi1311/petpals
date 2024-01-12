@@ -1,4 +1,4 @@
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, stagger } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -68,7 +68,6 @@ export default function Home() {
                 <section className='hero-section'>
                     <div className='hero-div-left'>
                         <h1 className='hero-heading'>Don't shop.<br />Adopt a pet!</h1>
-                        <p className='hero-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         <div className='hero-buttons'>
                             <button>Adopt now</button>
                             <button>Rescue</button>
@@ -98,12 +97,12 @@ export default function Home() {
                 <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={controlsAdd}
+                    transition={{ staggerChildren: 0.5 }}
                 >
-                    <div>
-                        <h1>Add Section</h1>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
-                        <button>Learn More</button>
-                    </div>
+                    <h1>Add Section</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
+                    <button>Learn More</button>
+
                 </motion.div>
             </section>
 
@@ -112,22 +111,22 @@ export default function Home() {
                     initial={{ opacity: 0, x: 50 }}
                     animate={controlsBlog}
                 >
-                    <div>
-                        <h1>Blog Section</h1>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
-                        <button>Learn More</button>
-                    </div>
+
+                    <h1>Blog Section</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
+                    <button>Learn More</button>
+
                 </motion.div>
             </section>
 
             <section ref={refAbout} className='sub-section about-section'>
                 <motion.div initial={{ opacity: 0, x: 50 }}
                     animate={controlsAbout}>
-                    <div>
-                        <h1>About Section</h1>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
-                        <button>Learn More</button>
-                    </div>
+
+                    <h1>About Section</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
+                    <button>Learn More</button>
+
                 </motion.div>
             </section>
 
