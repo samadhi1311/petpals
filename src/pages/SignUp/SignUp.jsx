@@ -6,6 +6,8 @@ import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { collection, addDoc } from "firebase/firestore";
 import { db } from '../../../firebase.config';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import MiniLoader from '../../global/components/MiniLoader/MiniLoader';
 import './SignUp.css';
 import GoogleIcon from '../../global/assets/icons8-google.svg';
 
@@ -17,6 +19,10 @@ export default function SignUp() {
 		password: '',
 		confirmPassword: '',
 	});
+
+	const [loading, setLoading] = useState(false);
+
+	const navigate = useNavigate();
 
 	// Object to store personal data
 	const [personalData, setPersonalData] = useState({
@@ -73,17 +79,9 @@ export default function SignUp() {
 		setCurrentStep(currentStep + 1);
 	}
 
-	function handlePrev() {
-		setCurrentStep(currentStep - 1);
-	}
-
-	// Create user with provided email and password
-	async function signUpWithEmail() {
-		await createUserWithEmailAndPassword(auth, authCredentials.email, authCredentials.password);
-	}
-
 	// Create user with Google account
 	async function signUpWithGoogle() {
+		setLoading(true);
 		setAuthMethod("google");
 		await signInWithPopup(auth, googleAuthProvider);
 		handleNext();
@@ -93,6 +91,7 @@ export default function SignUp() {
 	function StepOne() {
 
 		async function stepOneHandleSubmit(values) {
+			setLoading(true);
 			setAuthData(values);
 			console.log("step 1 - auth: ", authData);
 			if (values.email && values.password && values.confirmPassword) {
@@ -100,6 +99,7 @@ export default function SignUp() {
 				await createUserWithEmailAndPassword(auth, values.email, values.password);
 			}
 			handleNext();
+			setLoading(false);
 		}
 
 		return (
@@ -164,6 +164,7 @@ export default function SignUp() {
 	function StepTwo() {
 
 		async function stepTwoHandleSubmit(values) {
+			setLoading(true);
 			const uid = auth.currentUser.uid;
 			setPersonalData(values);
 			console.log("step 2 - personal: ", personalData);
@@ -201,6 +202,9 @@ export default function SignUp() {
 			} catch (e) {
 				console.error("Error adding document: ", e);
 			}
+
+			navigate('/');
+			setLoading(false);
 		}
 
 		return (
@@ -306,7 +310,6 @@ export default function SignUp() {
 							</div>
 
 							<div className="action-buttons">
-								{/* {<a onClick={() => { handlePrev(); }}>Previous</a>} */}
 								<button type="submit">Submit</button>
 							</div>
 						</Form>
@@ -315,12 +318,19 @@ export default function SignUp() {
 			</Formik>
 		);
 	}
-
 	const steps = [<StepOne />, <StepTwo />];
 
 	return (
 		<section>
-			<AnimatePresence mode="wait">{steps[currentStep]}</AnimatePresence>
+			<AnimatePresence mode="wait">
+				{
+					loading ? (
+						<MiniLoader title="Please wait." message="We are configuring your account..." />
+					) : (
+						steps[currentStep]
+					)
+				}
+			</AnimatePresence>
 		</section>
 	);
 }
