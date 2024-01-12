@@ -8,8 +8,7 @@
 
 1. Git for Windows.
 2. GitHub for desktop.
-3. NodeJS
-4. MongoDB Atlas Community Edition
+3. Visual Studio Code
 
 ### Create a development workspace:
 
