@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { auth } from '../firebase.config';
-import Loader from './global/components/Loader/Loader';
+import Scrollbar from "react-perfect-scrollbar-z";
+import "react-perfect-scrollbar-z/build/styles.css";
 import Navigation from './global/components/Navigation/Navigation';
 import About from './pages/About/About';
 import Add from './pages/Add/Add';
@@ -11,6 +11,7 @@ import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import ResetPassword from './pages/Login/components/ResetPassword';
 import SignUp from './pages/SignUp/SignUp';
+import PageNotFound from './global/components/PageNotFound/PageNotFound';
 
 
 function App() {
@@ -38,7 +39,11 @@ function App() {
         }, []);
     */
     return (
-        <div>
+        <Scrollbar
+            always
+            options={{ scrollingThreshold: 1000 }}
+            height='100vh'
+        >
 
             <BrowserRouter>
                 <div className="gradient-background"></div>
@@ -48,6 +53,7 @@ function App() {
 
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/*" element={<PageNotFound />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/add" element={<Add />} />
                     <Route path="/blog" element={<Blog />} />
@@ -58,7 +64,7 @@ function App() {
                 </Routes>
             </BrowserRouter>
 
-        </div>
+        </Scrollbar>
     );
 }
 
