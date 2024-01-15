@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../../../firebase.config";
-import { signOut } from 'firebase/auth';
 import 'boxicons/css/boxicons.min.css';
 import Logo from '../../assets/logo.svg';
 import '../../styles/global.css';
@@ -12,8 +11,6 @@ export default function Navigation() {
     const [showMenu, setShowMenu] = useState(false);
     const [clickCount, setClickCount] = useState(0);
     const [isLoggedIn, setIsLoggedIn] = useState(!!auth.currentUser);
-
-    const navigate = useNavigate();
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
@@ -27,11 +24,6 @@ export default function Navigation() {
         setShowMenu(!showMenu);
         setClickCount((prevClickCount) => prevClickCount + 1);
     };
-
-    const handleLogOut = async () => {
-        await signOut(auth);
-        navigate("/login");
-    }
 
     return (
         <>
@@ -56,10 +48,12 @@ export default function Navigation() {
                         <li><Link to="/about">About</Link></li>
                         <li>
                             {isLoggedIn ? (
-                                <button onClick={handleLogOut}>
-                                    <i className='bx bxs-log-out-circle bx-sm'></i>
-                                    {auth.currentUser.displayName || auth.currentUser.email}
-                                </button>
+                                <Link to="/user/me">
+                                    <button>
+                                        <i className='bx bxs-log-out-circle bx-sm'></i>
+                                        {auth.currentUser.displayName || auth.currentUser.email}
+                                    </button>
+                                </Link>
                             ) : (
                                 <Link to="/login">
                                     <button>

@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Scrollbar from "react-perfect-scrollbar-z";
-import "react-perfect-scrollbar-z/build/styles.css";
 import Navigation from './global/components/Navigation/Navigation';
 import About from './pages/About/About';
 import Add from './pages/Add/Add';
@@ -12,38 +10,14 @@ import Login from './pages/Login/Login';
 import ResetPassword from './pages/Login/components/ResetPassword';
 import SignUp from './pages/SignUp/SignUp';
 import PageNotFound from './global/components/PageNotFound/PageNotFound';
+import Profile from './pages/Profile/Profile';
+import MyProfile from './pages/Profile/MyProfile';
 
 
 function App() {
-    /*    const [loading, setLoading] = useState(true);
-    
-        useEffect(() => {
-            const initializeApp = async () => {
-                // Set loading to false after the initialization process (e.g., fetching data, etc.)
-                await new Promise(resolve => setTimeout(resolve, 2000));
-    
-                // Check local storage for a flag indicating whether the app has been loaded before
-                const hasAppBeenLoaded = localStorage.getItem('hasAppBeenLoaded');
-    
-                if (!hasAppBeenLoaded) {
-                    // If it's the first time loading the app, set the flag in local storage
-                    localStorage.setItem('hasAppBeenLoaded', 'true');
-                }
-    
-                // App initialization is complete
-                setLoading(false);
-            };
-    
-            // Start the initialization process
-            initializeApp();
-        }, []);
-    */
+
     return (
-        <Scrollbar
-            always
-            options={{ scrollingThreshold: 1000 }}
-            height='100vh'
-        >
+        <>
 
             <BrowserRouter>
                 <div className="gradient-background"></div>
@@ -54,6 +28,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/*" element={<PageNotFound />} />
+                    <Route path="/user/:uid" element={<Profile />} />
+                    <Route path="/user/me" element={<MyProfile />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/add" element={<Add />} />
                     <Route path="/blog" element={<Blog />} />
@@ -64,7 +40,7 @@ function App() {
                 </Routes>
             </BrowserRouter>
 
-        </Scrollbar>
+        </>
     );
 }
 
