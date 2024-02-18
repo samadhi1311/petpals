@@ -1,6 +1,6 @@
 .blog-container {
     max-width: 100%;
-    height: 500px;
+    height: auto;
     background-color: pink;
     justify-content: center;
     display: flex;
@@ -10,7 +10,6 @@
 .content-heading {
     color: white;
     text-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
-    
 }
 
 .form-row {
@@ -47,8 +46,68 @@
 .form-container:hover .dog-icon-container {
     border: 1px solid white; /* Change border color on hover */
     filter: brightness(0) invert(1); /* Apply the same filter as dogicon */
-    
 }
+
+.content-card {
+    border-radius: 12px;
+    background-color: hsla(0, 100%, 51%, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%; /* Set width to 100% */
+    max-width: 97.3vw; /* Set max-width to 100vw to avoid overflow */
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+
+.content-card-2 {
+    border-radius: 12px;
+    background-color: hsla(0, 100%, 100%, 0.5);
+    backdrop-filter: blur(64px);
+    border: 1px solid #ccc;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    margin-top: 2rem;
+}
+
+.dog-shelter-text,
+.dog-shelter-img {
+    background-color: lightblue;
+    flex: 1;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding:5%;
+}
+
+.dog-shelter-div {
+    background-color: lightblue;
+    display: flex;
+    flex-direction: row; /* Set to row for two columns */
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column; /* Change to column for screen width < 768 pixels */
+    }
+}
+
+
+
+
 
 @media screen and (max-width: 768px) {
     .content-text {
@@ -60,11 +119,6 @@
         font-size: 2rem;
         line-height: 1.1;
         padding-bottom: 1rem;
-        margin-top:200px;
-    }
-
-    .blog-container {
-        margin-top:200px;
     }
 
     .form-row {
@@ -75,6 +129,10 @@
     .form-container {
         width: 100%;
         margin: 5% 2%; /* Optional: adjust margin for spacing between forms in the column */
+    }
+
+    .content-image {
+        width: 100%;
     }
 }
 
@@ -87,11 +145,14 @@
         text-align: center;
         font-size: 3rem;
         line-height: 1.1;
-        margin-top:200px;
     }
 
     .form-container {
         margin-left: 5%;
+    }
+
+    .content-image {
+        width: 100%;
     }
 }
 
