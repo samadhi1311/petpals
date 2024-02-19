@@ -3,6 +3,7 @@ import './Blog.css';
 import 'boxicons';
 import DogShelter from '../../global/assets/Dog paw-rafiki.svg';
 import DogFood from '../../global/assets/Cat and dog-amico.svg';
+import DogPlay from '../../global/assets/A day at the park-amico.svg';
 
 export default function Blog() {
     const [displayText, setDisplayText] = useState('');
@@ -63,6 +64,18 @@ export default function Blog() {
                     <p style={{ textAlign: 'left' }}>Dogs must have healthy, balanced diets and access to fresh water at all times.</p><br/>
                     <p style={{ textAlign: 'left' }}>The person you are adopting from will tell you what they are feeding the dog. But still, ask your vet or a nutritionist for advice as their current diet might not be appropriate.</p><br/>
                     <p style={{ textAlign: 'left' }}>Even if you do end up switching your dog food, you will have to do this gradually. So stock up on whatever food they are used to until you have spoken to your vet.</p><br/>
+                </div>
+            </div>
+            <div className="dog-shelter-div">
+                <div className="dog-shelter-text">
+                    <h2>3. Buy toys and games</h2><br/>
+                    <p style={{ textAlign: 'left' }}>Dogs must be allowed to behave like dogs and do things that come naturally to them, like walking, playing and chasing within reason!</p><br/>
+                    <p style={{ textAlign: 'left' }}>Getting some toys and games for when they arrive will help to keep them happy, active and mentally stimulated. It is also a great way for you to bond and get to know each other. They will still need their regular walks, though!</p>
+                </div>
+                <div className="dog-shelter-img">
+                    <div className='content-image'>
+                        <img src={DogPlay} style={{ width: "100%" }} alt="Adoption Image" />
+                    </div>
                 </div>
             </div>
         </div>
