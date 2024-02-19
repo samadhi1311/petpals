@@ -1,7 +1,6 @@
 .blog-container {
     max-width: 100%;
     height: auto;
-    background-color: pink;
     justify-content: center;
     display: flex;
     align-items: center;
@@ -48,18 +47,19 @@
     filter: brightness(0) invert(1); /* Apply the same filter as dogicon */
 }
 
-.content-card {
+.content-card-1 {
     border-radius: 12px;
-    background-color: hsla(0, 100%, 51%, 0.5);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
     width: 100%; /* Set width to 100% */
-    max-width: 97.3vw; /* Set max-width to 100vw to avoid overflow */
+    max-width: 89.1vw; /* Set max-width to 100vw to avoid overflow */
     height: auto;
     margin-bottom: 2rem;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 
@@ -80,34 +80,39 @@
     margin-top: 2rem;
 }
 
+.dog-shelter-div {
+    display: flex;
+    flex-direction: column; /* Set to column for screen width < 768 pixels */
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
+
+    @media screen and (min-width: 769px) {
+        flex-direction: row; /* Change to row for screen width >= 769 pixels */
+    }
+}
+
 .dog-shelter-text,
 .dog-shelter-img {
-    background-color: lightblue;
     flex: 1;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding:5%;
+    padding: 5%;
+    width: 100%; /* Set width to 100% to take up the full width in column layout */
 }
 
-.dog-shelter-div {
-    background-color: lightblue;
-    display: flex;
-    flex-direction: row; /* Set to row for two columns */
-    height: auto;
-    width: 100%;
-    box-sizing: border-box;
+@media screen and (max-width: 768px) {
+    .dog-shelter-div {
+        flex-direction: column; /* Ensure column layout for small screens */
+    }
 
-    @media screen and (max-width: 768px) {
-        flex-direction: column; /* Change to column for screen width < 768 pixels */
+    .dog-shelter-img {
+        order: -1; /* Move image to the top of the column */
     }
 }
-
-
-
-
 
 @media screen and (max-width: 768px) {
     .content-text {
