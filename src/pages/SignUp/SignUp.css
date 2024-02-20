@@ -1,4 +1,4 @@
-section {
+.signup-page {
   width: 100%;
   height: 80vh;
   display: flex;
@@ -7,7 +7,7 @@ section {
   overflow: hidden;
 }
 
-.form-container {
+.signup-form-container {
   width: 90%;
   max-width: 512px;
   padding: 1rem;
@@ -19,11 +19,11 @@ section {
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.form-container h2 {
+.signup-form-container h2 {
   padding: 3rem 0;
 }
 
-.form {
+.signup-form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,14 +39,14 @@ input {
   max-width: 480px;
 }
 
-.submit {
+.signup-submit {
   width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.seperator {
+.signup-seperator {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,22 +54,22 @@ input {
   padding: 1.5rem;
 }
 
-.seperator hr {
+.signup-seperator hr {
   width: 20%;
 }
 
-.social {
+.signup-social {
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.sign-up {
+.signup-sign-up {
   padding: 1rem;
 }
 
-.radio-inputs {
+.signup-radio-inputs {
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -81,16 +81,16 @@ input {
   width: 250px;
 }
 
-.radio-inputs .radio {
+.signup-radio-inputs .signup-radio {
   flex: 1 1 auto;
   text-align: center;
 }
 
-.radio-inputs .radio input {
+.signup-radio-inputs .signup-radio input {
   display: none;
 }
 
-.radio-inputs .radio .name {
+.signup-radio-inputs .signup-radio .signup-name {
   display: flex;
   cursor: pointer;
   color: #555;
@@ -102,17 +102,17 @@ input {
   transition: all 300ms;
 }
 
-.radio-inputs .radio input:checked+.name {
+.signup-radio-inputs .signup-radio input:checked+.signup-name {
   background-color: black;
   color: white;
 }
 
-.account-toggle {
+.signup-account-toggle {
   width: 80%;
   max-width: 480px;
 }
 
-.account-type {
+.signup-account-type {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -120,7 +120,7 @@ input {
   gap: 1rem;
 }
 
-.action-buttons {
+.signup-action-buttons {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,13 +129,13 @@ input {
   padding: 1rem 0;
 }
 
-.description {
+.signup-description {
   width: 80%;
   max-width: 480px;
   text-align: left;
 }
 
-.animated-fields {
+.signup-animated-fields {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,7 +145,7 @@ input {
   width: 100%;
 }
 
-.warning {
+.signup-warning {
   width: 80%;
   position: relative;
   display: flex;

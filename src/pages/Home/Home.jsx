@@ -1,4 +1,4 @@
-import { motion, useAnimation, stagger } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -64,36 +64,35 @@ export default function Home() {
 
     return (
         <>
-            <main>
-                <section className='hero-section'>
-                    <div className='hero-div-left'>
-                        <h1 className='hero-heading'>Don't shop.<br />Adopt a pet!</h1>
-                        <div className='hero-buttons'>
+            <main className='home-page'>
+                <section className='home-hero-section'>
+                    <div className='home-hero-div-left'>
+                        <h1 className='home-hero-heading'>Don't shop.<br />Adopt a pet!</h1>
+                        <div className='home-hero-buttons'>
                             <button>Adopt now</button>
                             <button>Rescue</button>
                         </div>
                     </div>
 
-                    <div className='hero-div-right'>
+                    <div className='home-hero-div-right'>
                         <img src={HeroImage} style={{ width: "100%" }}></img>
                     </div>
                 </section>
             </main>
 
-            <section ref={refDiscover} className='sub-section discover-section'>
+            <section ref={refDiscover} className='home-sub-section home-discover-section'>
                 <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={controlsDiscover}
                 >
-                    <div>
-                        <h1>Discover Section</h1>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
-                        <button>Learn More</button>
-                    </div>
+                    <h1>Discover Section</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
+                    <button>Learn More</button>
+
                 </motion.div>
             </section>
 
-            <section ref={refAdd} className='sub-section add-section'>
+            <section ref={refAdd} className='home-sub-section home-add-section'>
                 <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={controlsAdd}
@@ -106,7 +105,7 @@ export default function Home() {
                 </motion.div>
             </section>
 
-            <section ref={refBlog} className='sub-section blog-section'>
+            <section ref={refBlog} className='home-sub-section home-blog-section'>
                 <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={controlsBlog}
@@ -119,7 +118,7 @@ export default function Home() {
                 </motion.div>
             </section>
 
-            <section ref={refAbout} className='sub-section about-section'>
+            <section ref={refAbout} className='home-sub-section home-about-section'>
                 <motion.div initial={{ opacity: 0, x: 50 }}
                     animate={controlsAbout}>
 
@@ -130,22 +129,22 @@ export default function Home() {
                 </motion.div>
             </section>
 
-            <footer>
+            <footer className='home-footer'>
 
-                <div className="footer-container">
+                <div className="home-footer-container">
 
-                    <div className="footer-info">
+                    <div className="home-footer-info">
 
                         <h3>
                             <img src={Logo} style={{ width: '2.3rem', paddingRight: '1rem' }} />
                             PetPals
                         </h3>
-                        <div className="info-text">
+                        <div className="home-info-text">
                             <p>A brief description of your company or website goes here. This can be a slightly longer text describing your vision, mission, or values.</p>
                         </div>
                     </div>
 
-                    <div className="footer-links">
+                    <div className="home-footer-links">
                         <h3>Quick Links</h3>
                         <Link to="/">Home</Link>
                         <Link to="/about">About</Link>
@@ -154,14 +153,14 @@ export default function Home() {
                         <Link to="/contact">Contact</Link>
                     </div>
 
-                    <div className="footer-support">
+                    <div className="home-footer-support">
                         <h3>Support Us</h3>
                         <Link>Donate</Link>
                         <Link>Contribute on GitHub</Link>
                     </div>
                 </div>
 
-                <div className="footer-copyright">
+                <div className="home-footer-copyright">
                     <p>&copy; {new Date().getFullYear()} PetPals Team. All Rights Reserved.</p>
                 </div>
             </footer >

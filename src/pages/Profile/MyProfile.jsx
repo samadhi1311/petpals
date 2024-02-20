@@ -18,6 +18,16 @@ export default function MyProfile() {
     const q = query(usersCollection, where("uid", "==", uid));
     const ProfilePhoto = user?.accountType === "individual" ? Pet : PetHouse;
 
+    const [isLoggedIn, setIsLoggedIn] = useState(!!auth.currentUser);
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            setIsLoggedIn(!!user);
+        });
+
+        return () => unsubscribe();
+    }, []);
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -50,16 +60,16 @@ export default function MyProfile() {
     }, [uid]);
 
     return (
-        <main className='profile'>
+        <main className='profile-page'>
             {
                 user ?
                     (
-                        <div className='profile-container'>
-                            <div className="main-profile-container">
+                        <div className='profile-profile-container'>
+                            <div className="profile-main-profile-container">
                                 <h2>{user ? user.firstName + " " + user.lastName : ""}</h2>
-                                <img src={ProfilePhoto} alt="profile" className='profile-photo' />
+                                <img src={ProfilePhoto} alt="profile" className='profile-profile-photo' />
                             </div>
-                            <div className="sub-profile-container">
+                            <div className="profile-sub-profile-container">
                                 <p>Account type: {user ? user.accountType : ""}</p>
                                 <p>Contact: {user ? user.contactNumber : ""}</p>
                                 <p>Address: {user ? user.buildingNumber + ", " + user.street + ", " + user.city + ", " + user.zipCode : ""}</p>

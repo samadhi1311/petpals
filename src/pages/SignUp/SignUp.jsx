@@ -85,6 +85,7 @@ export default function SignUp() {
 		setAuthMethod("google");
 		await signInWithPopup(auth, googleAuthProvider);
 		handleNext();
+		setLoading(false);
 	}
 
 	// 1st step
@@ -94,10 +95,13 @@ export default function SignUp() {
 			setLoading(true);
 			setAuthData(values);
 			console.log("step 1 - auth: ", authData);
+
 			if (values.email && values.password && values.confirmPassword) {
 				setAuthMethod("email");
+				console.log("step 1 - auth: ", authData);
 				await createUserWithEmailAndPassword(auth, values.email, values.password);
 			}
+
 			handleNext();
 			setLoading(false);
 		}
@@ -107,7 +111,7 @@ export default function SignUp() {
 				{() => (
 					<motion.div
 						layout
-						className="form-container"
+						className="signup-form-container"
 						initial={{ opacity: 0, x: '-5%' }}
 						animate={{ opacity: 1, x: 0 }}
 						exit={{ opacity: 0, x: '5%' }}
@@ -120,37 +124,37 @@ export default function SignUp() {
 					>
 						<h2>Welcome to PetPals</h2>
 
-						<Form className="form">
+						<Form className="signup-form">
 							<Field name="email" placeholder="Email" />
-							<div className="warning">
+							<div className="signup-warning">
 								<ErrorMessage name="email" />
 							</div>
 
 							<Field type="password" name="password" placeholder="Password" />
-							<div className="warning">
+							<div className="signup-warning">
 								<ErrorMessage name="password" />
 							</div>
 
 							<Field type="password" name="confirmPassword" placeholder="Confirm password" />
-							<div className="warning">
+							<div className="signup-warning">
 								<ErrorMessage name="confirmPassword" />
 							</div>
 
-							<div className="submit">
+							<div className="signup-submit">
 								<button type="submit">
 									Continue
 								</button>
 							</div>
 						</Form>
 
-						<div className="seperator">
+						<div className="signup-seperator">
 							<hr />
 							<span>or continue with</span>
 							<hr />
 						</div>
 
-						<div className="social">
-							<button className="google" onClick={signUpWithGoogle}>
+						<div className="signup-social">
+							<button className="signup-google" onClick={signUpWithGoogle}>
 								<img src={GoogleIcon} alt="Google" style={{ width: '1rem', height: '1rem', paddingRight: '1rem' }} /> Google
 							</button>
 						</div>
@@ -212,7 +216,7 @@ export default function SignUp() {
 				{({ values }) => (
 					<motion.div
 						layout
-						className="form-container"
+						className="signup-form-container"
 						initial={{ opacity: 0, x: '-5%' }}
 						animate={{ opacity: 1, x: 0 }}
 						exit={{ opacity: 0, x: '5%' }}
@@ -223,47 +227,47 @@ export default function SignUp() {
 						}}
 						key={currentStep}
 					>
-						<Form className="form">
-							<div className="description">
+						<Form className="signup-form">
+							<div className="signup-description">
 								<p>Before you can start using PetPals, we would like to know about you a little bit.</p>
 							</div>
 
-							<div className="account-toggle">
-								<div className="account-type">
+							<div className="signup-account-toggle">
+								<div className="signup-account-type">
 									<p>I'm an: </p>
 
-									<div className="radio-inputs">
-										<label className="radio">
+									<div className="signup-radio-inputs">
+										<label className="signup-radio">
 											<Field type="radio" name="accountType" value="individual" />
-											<span className="name">Individual</span>
+											<span className="signup-name">Individual</span>
 										</label>
 
-										<label className="radio">
-											<Field type="radio" name="accountType" value="organization" />
-											<span className="name">Organization</span>
+										<label className="signup-radio">
+											<Field type="radio" name="signup-accountType" value="organization" />
+											<span className="signup-name">Organization</span>
 										</label>
 									</div>
 								</div>
-								<div className="warning">
+								<div className="signup-warning">
 									<ErrorMessage name="accountType" />
 								</div>
 							</div>
 
 							{values.accountType === 'individual' && (
 								<motion.div
-									className="animated-fields"
+									className="signup-animated-fields"
 									initial={{ opacity: 0 }}
 									transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.1 }}
 									animate={{ opacity: 1 }}
 									exit={{ opacity: 0 }}
 								>
 									<Field name="firstName" placeholder="First name" />
-									<div className="warning">
+									<div className="signup-warning">
 										<ErrorMessage name="firstName" />
 									</div>
 
 									<Field name="lastName" placeholder="Last name" />
-									<div className="warning">
+									<div className="signup-warning">
 										<ErrorMessage name="lastName" />
 									</div>
 								</motion.div>
@@ -271,45 +275,45 @@ export default function SignUp() {
 
 							{values.accountType === 'organization' && (
 								<motion.div
-									className="animated-fields"
+									className="signup-animated-fields"
 									initial={{ opacity: 0 }}
 									transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.1 }}
 									animate={{ opacity: 1 }}
 									exit={{ opacity: 0 }}
 								>
 									<Field name="orgName" placeholder="Organization name" />
-									<div className="warning">
+									<div className="signup-warning">
 										<ErrorMessage name="orgName" />
 									</div>
 								</motion.div>
 							)}
 
 							<Field name="buildingNumber" placeholder="Building/House number" />
-							<div className="warning">
+							<div className="signup-warning">
 								<ErrorMessage name="buildingNumber" />
 							</div>
 
 							<Field name="street" placeholder="Street name" />
-							<div className="warning">
+							<div className="signup-warning">
 								<ErrorMessage name="street" />
 							</div>
 
 							<Field name="city" placeholder="City" />
-							<div className="warning">
+							<div className="signup-warning">
 								<ErrorMessage name="city" />
 							</div>
 
 							<Field name="zipCode" placeholder="Zip/Postal code" />
-							<div className="warning">
+							<div className="signup-warning">
 								<ErrorMessage name="zipCode" />
 							</div>
 
 							<Field name="contactNumber" placeholder="Contact number" />
-							<div className="warning">
+							<div className="signup-warning">
 								<ErrorMessage name="contactNumber" />
 							</div>
 
-							<div className="action-buttons">
+							<div className="signup-action-buttons">
 								<button type="submit">Submit</button>
 							</div>
 						</Form>
@@ -321,7 +325,7 @@ export default function SignUp() {
 	const steps = [<StepOne />, <StepTwo />];
 
 	return (
-		<section>
+		<section className='signup-page'>
 			<AnimatePresence mode="wait">
 				{
 					loading ? (

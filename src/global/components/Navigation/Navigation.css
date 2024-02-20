@@ -5,10 +5,9 @@ nav {
     align-items: center;
     padding: 1rem 1rem;
     background-color: white;
-    border-radius: 0 0 24px 24px;
 }
 
-img {
+.nav-logo {
     width: 36px;
 }
 
@@ -28,15 +27,7 @@ nav ul li button {
 }
 
 .nav-btn {
-    position: relative;
-    right: 0.6rem;
-    top: 0.6rem;
     display: none;
-    width: 3rem;
-    height: 3rem;
-    cursor: pointer;
-    z-index: 9999;
-    border-radius: 50%;
 }
 
 .nav-btn i {
@@ -131,11 +122,10 @@ nav ul li Link {
 
     .nav-btn {
         position: relative;
-        right: 0.6rem;
-        top: 0.6rem;
         display: block;
-        width: 3rem;
+        align-self: center;
         height: 3rem;
+        width: 3rem;
         cursor: pointer;
         z-index: 9999;
         border-radius: 50%;

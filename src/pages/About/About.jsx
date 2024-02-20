@@ -7,31 +7,31 @@ export default function About() {
     return (
         <>
             <main>
-                <div className="content-panel">
+                <div className="about-content-panel">
 
-                    <div className="content-text">
-                        <h1 className='content-heading'>
+                    <div className="about-content-text">
+                        <h1 className='about-content-heading'>
                             Connecting potential adopters, animal rescuers, and shelters.
                         </h1>
                     </div>
 
-                    <div className='content-image'>
+                    <div className='about-content-image'>
                         <img src={Shelter} style={{ width: "100%" }} alt="Adoption Image" />
                     </div>
 
                 </div>
 
-                <p className='content-description'>
+                <p className='about-content-description'>
                     PetPals was launched to address the growing issue of homeless animals, aiming to create a meaningful impact on their lives and alleviate their hardships.
                 </p>
 
-                <div className="content-panel">
+                <div className="about-content-panel">
 
-                    <div className="content-card">
+                    <div className="about-content-card">
 
-                        <div className="card-text">
+                        <div className="about-card-text">
 
-                            <h3 className='card-title'>Why PetPals?</h3>
+                            <h3 className='about-card-title'>Why PetPals?</h3>
 
                             <p>It is estimated that there are over 3 million strays, many of whom suffer from starvation, malnutrition, diseases and severe injuries. <br /><br />
                                 Our platform connects potential adopters with people who need to rehome their pets, initially starting with the Sri Lanka's most popular pets; dogs, cats.<br /><br />

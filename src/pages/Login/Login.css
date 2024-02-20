@@ -1,4 +1,4 @@
-section {
+.login-page {
   width: 100%;
   height: 80vh;
   display: flex;
@@ -7,7 +7,7 @@ section {
   overflow: hidden;
 }
 
-.form-container {
+.login-form-container {
   width: 90%;
   max-width: 512px;
   padding: 1rem;
@@ -19,11 +19,11 @@ section {
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.form-container h2 {
+.login-form-container h2 {
   padding: 3rem 0;
 }
 
-.form {
+.login-form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,14 +39,14 @@ input {
   max-width: 480px;
 }
 
-.submit {
+.login-submit {
   width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.forgot-password {
+.login-forgot-password {
   width: 90%;
   display: flex;
   align-items: center;
@@ -54,7 +54,7 @@ input {
   padding: 1rem;
 }
 
-.seperator {
+.login-seperator {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,98 +62,22 @@ input {
   padding: 1.5rem;
 }
 
-.seperator hr {
+.login-seperator hr {
   width: 20%;
 }
 
-.social {
+.login-social {
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.sign-up {
+.login-sign-up {
   padding: 1rem;
 }
 
-.radio-inputs {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: 12px;
-  background-color: #EEE;
-  box-sizing: border-box;
-  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
-  padding: 0.25rem;
-  width: 250px;
-}
-
-.radio-inputs .radio {
-  flex: 1 1 auto;
-  text-align: center;
-}
-
-.radio-inputs .radio input {
-  display: none;
-}
-
-.radio-inputs .radio .name {
-  display: flex;
-  cursor: pointer;
-  color: #555;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  border: none;
-  padding: .5rem 0;
-  transition: all 300ms;
-}
-
-.radio-inputs .radio input:checked+.name {
-  background-color: black;
-  color: white;
-}
-
-.account-toggle {
-  width: 80%;
-  max-width: 480px;
-}
-
-.account-type {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
-  gap: 1rem;
-}
-
-.action-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 1rem;
-  padding: 1rem 0;
-}
-
-.description {
-  width: 80%;
-  max-width: 480px;
-  text-align: left;
-}
-
-.animated-fields {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: .6rem 0;
-  width: 100%;
-}
-
-.warning {
+.login-warning {
   width: 80%;
   position: relative;
   display: flex;

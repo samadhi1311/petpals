@@ -21,6 +21,7 @@ function App() {
 
             <BrowserRouter>
                 <div className="gradient-background"></div>
+                <div className='white-overlay'></div>
                 <header>
                     <Navigation />
                 </header>

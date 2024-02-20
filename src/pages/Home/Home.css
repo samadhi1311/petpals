@@ -1,11 +1,11 @@
-main {
+.home-page {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.hero-section {
+.home-hero-section {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -16,27 +16,27 @@ main {
     margin: 1rem auto;
 }
 
-.hero-div-left {
+.home-hero-div-left {
     width: 45%;
     padding-left: 1rem;
 }
 
-.hero-div-right {
+.home-hero-div-right {
     width: 55%;
     padding-right: 4rem;
 }
 
-.hero-heading {
+.home-hero-heading {
     font-size: 7rem;
     color: white;
     text-shadow: 0px 0px 24px rgba(0, 0, 0, 0.1);
 }
 
-.hero-text {
+.home-hero-text {
     font-size: 1rem;
 }
 
-.hero-buttons {
+.home-hero-buttons {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -45,90 +45,85 @@ main {
 }
 
 @media only screen and (min-width: 640px) {
-    .hero-heading {
+    .home-hero-heading {
         font-size: 1rem;
     }
 
-    .hero-text {
+    .home-hero-text {
         font-size: .5rem;
     }
-
-
 
 }
 
 @media only screen and (max-width: 768px) {
 
-    .hero-div-left,
-    .hero-div-right {
+    .home-hero-div-left,
+    .home-hero-div-right {
         width: 100%;
         padding: 1rem;
     }
 
-    .hero-div-left {
+    .home-hero-div-left {
         text-align: center;
     }
 
-    .hero-div-right {
+    .home-hero-div-right {
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 0;
     }
 
-    .hero-heading {
+    .home-hero-heading {
         font-size: 3rem;
     }
 
-    .hero-text {
+    .home-hero-text {
         font-size: 1.5rem;
     }
 
-    .hero-section {
+    .home-hero-section {
         flex-direction: column-reverse;
         text-align: center;
     }
 
-    .hero-buttons {
+    .home-hero-buttons {
         justify-content: center;
     }
 
-    .hero-div-left {
+    .home-hero-div-left {
 
         max-width: 380px;
     }
 
-    .sub-section div {
+    .home-sub-section div {
         margin: 0 1rem;
     }
 
 }
 
 @media screen and (min-width: 1024px) {
-    .hero-div-right {
+    .home-hero-div-right {
         width: 60%;
         padding-right: 3rem;
     }
 
-    .hero-div-left {
+    .home-hero-div-left {
         width: 40%;
         padding-left: 3rem;
     }
 
-    .hero-heading {
+    .home-hero-heading {
         font-size: 7rem;
     }
 
-    .hero-text {
+    .home-hero-text {
         font-size: 1.2rem;
     }
 
-    footer div {
-        padding: 0 5rem;
-    }
 }
 
-.sub-section {
+.home-sub-section {
     width: 100%;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
@@ -142,7 +137,7 @@ main {
     max-height: 100vh;
 }
 
-.sub-section div {
+.home-sub-section div {
     display: grid;
     place-items: center;
     flex-direction: column;
@@ -152,74 +147,77 @@ main {
     padding: 1rem 0;
 }
 
-.sub-section h1 {
+.home-sub-section h1 {
     margin: 0;
     font-size: 3rem;
 }
 
-footer {
+.home-footer {
     display: flex;
     justify-content: center;
     flex-direction: column;
     background-color: white;
     border-radius: 24px 24px 0 0;
-    padding: 2rem;
+    padding: 5rem;
 }
 
-.footer-container {
+.home-footer-container {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
 }
 
-.footer-info,
-.footer-links,
-.footer-support {
+.home-footer-info,
+.home-footer-links,
+.home-footer-support {
     max-width: max-content;
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 2rem;
 }
 
-.footer-info {
+.home-footer-info {
     align-items: flex-start;
 }
 
-.footer-info h3 {
+.home-footer-info h3 {
     font-size: 3rem;
     margin: 0;
 }
 
-.info-text {
+.home-info-text {
     max-width: 400px;
     margin: 0;
     padding: 0;
     padding-top: 1rem;
 }
 
-.footer-info p {
+.home-footer-info p {
     margin: 0;
+    align-self: start;
 }
 
-.footer-links a,
-.footer-support a {
+.home-footer-links a,
+.home-footer-support a {
     padding-left: 1rem;
 }
 
-.footer-copyright {
+.home-footer-copyright {
     padding: 4rem;
+    margin-top: 2rem;
     text-align: center;
 }
 
 @media screen and (max-width: 1024px) {
 
-    .footer-container {
+    .home-footer-container {
         flex-direction: column;
     }
 
-    .footer-info,
-    .footer-links,
-    .footer-support {
+    .home-footer-info,
+    .home-footer-links,
+    .home-footer-support {
         padding: .5rem;
     }
 }

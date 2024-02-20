@@ -9,7 +9,6 @@ import { useState, useEffect } from "react";
 
 export default function Navigation() {
     const [showMenu, setShowMenu] = useState(false);
-    const [clickCount, setClickCount] = useState(0);
     const [isLoggedIn, setIsLoggedIn] = useState(!!auth.currentUser);
 
     useEffect(() => {
@@ -21,20 +20,23 @@ export default function Navigation() {
     }, []);
 
     const handleMenuClick = () => {
-        setShowMenu(!showMenu);
-        setClickCount((prevClickCount) => prevClickCount + 1);
+        setShowMenu((prevShowMenu) => !prevShowMenu);
+    };
+
+    const handleLinkClick = () => {
+        document.getElementById("nav").click(); // Trigger a click on the checkbox with id "nav"
     };
 
     return (
         <>
             <nav>
                 <Link to="/" className="logo">
-                    <img src={Logo} alt='PetPals' />
+                    <img src={Logo} className="nav-logo" alt='PetPals' />
                     PetPals
                 </Link>
 
-                <input type="checkbox" id="nav" className="hidden" />
-                <label htmlFor="nav" className={`nav-btn ${clickCount % 2 === 0 ? "" : "open"}`} onClick={handleMenuClick}>
+                <input type="checkbox" id="nav" className="hidden" onChange={handleMenuClick} />
+                <label htmlFor="nav" className={`nav-btn ${showMenu ? "open" : ""}`}>
                     <i></i>
                     <i></i>
                     <i></i>
@@ -42,22 +44,22 @@ export default function Navigation() {
 
                 <div className={`nav-wrapper ${showMenu ? "show" : ""}`}>
                     <ul>
-                        <li><Link to="/add">Add</Link></li>
-                        <li><Link to="/discover">Discover</Link></li>
-                        <li><Link to="/blog">Blog</Link></li>
-                        <li><Link to="/about">About</Link></li>
+                        <li><Link to="/add" onClick={handleLinkClick}>Add</Link></li>
+                        <li><Link to="/discover" onClick={handleLinkClick}>Discover</Link></li>
+                        <li><Link to="/blog" onClick={handleLinkClick}>Blog</Link></li>
+                        <li><Link to="/about" onClick={handleLinkClick}>About</Link></li>
                         <li>
                             {isLoggedIn ? (
-                                <Link to="/user/me">
+                                <Link to="/user/me" onClick={handleLinkClick}>
                                     <button>
-                                        <i className='bx bxs-log-out-circle bx-sm'></i>
+                                        <i className='bx bxs-cat bx-sm'></i>
                                         {auth.currentUser.displayName || auth.currentUser.email}
                                     </button>
                                 </Link>
                             ) : (
-                                <Link to="/login">
+                                <Link to="/login" onClick={handleLinkClick}>
                                     <button>
-                                        <i className='bx bxs-log-in-circle bx-sm' ></i>
+                                        <i className='bx bxs-log-in-circle bx-sm'></i>
                                         Login
                                     </button>
                                 </Link>

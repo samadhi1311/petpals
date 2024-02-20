@@ -36,13 +36,13 @@ export default function Login() {
     }
     return (
 
-        <section>
+        <section className="login-page">
             <AnimatePresence mode="wait">
                 <Formik initialValues={loginData} validationSchema={validationSchema} onSubmit={handleSubmit}>
                     {() => (
                         <motion.div
                             layout
-                            className="form-container"
+                            className="login-form-container"
                             initial={{ opacity: 0, x: '-5%' }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: '5%' }}
@@ -55,39 +55,39 @@ export default function Login() {
 
                             <h2>Continue to petpals, </h2>
 
-                            <Form className="form">
+                            <Form className="login-form">
                                 <Field name="email" placeholder="Email" />
-                                <div className="warning">
+                                <div className="login-warning">
                                     <ErrorMessage name="email" />
                                 </div>
 
                                 <Field type="password" name="password" placeholder="Password" />
-                                <div className="warning">
+                                <div className="login-warning">
                                     <ErrorMessage name="password" />
                                 </div>
 
-                                <div className="submit">
+                                <div className="login-submit">
                                     <button type="submit">Continue</button>
                                 </div>
 
-                                <div className="forgot-password">
+                                <div className="login-forgot-password">
                                     <Link to="/forgot-password">Forgot password?</Link>
                                 </div>
                             </Form>
 
-                            <div className="seperator">
+                            <div className="login-seperator">
                                 <hr />
                                 <span>or continue with</span>
                                 <hr />
                             </div>
 
-                            <div className="social">
-                                <button className="google" onClick={signUpWithGoogle}>
+                            <div className="login-social">
+                                <button className="login-google" onClick={signUpWithGoogle}>
                                     <img src={GoogleIcon} alt='Google' style={{ width: '1rem', height: '1rem', paddingRight: '1rem' }} /> Google
                                 </button>
                             </div>
 
-                            <div className="sign-up">
+                            <div className="login-sign-up">
                                 <p>Not a member yet? <Link to="/signup">Sign up</Link></p>
                             </div>
 
