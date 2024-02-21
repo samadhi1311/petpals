@@ -86,7 +86,7 @@ export default function Home() {
                     animate={controlsDiscover}
                 >
                     <h1>Discover Section</h1>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
+                    <p>Explore PetPals for your ideal furry companion. Discover diverse cats and dogs through heartwarming posts. Utilize user-friendly categorizations to find the perfect match. Adopt today and welcome perfection into your life, one paw at a time</p>
                     <button>Learn More</button>
 
                 </motion.div>
@@ -99,7 +99,7 @@ export default function Home() {
                     transition={{ staggerChildren: 0.5 }}
                 >
                     <h1>Add Section</h1>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
+                    <p>Contribute to our mission by uploading posts for dogs or cats in need of shelter at 'PetPals.' Users and sanctuaries can share stories of these adorable companions seeking loving homes. Be a part of their journey towards a forever home upload a post and make a difference today!</p>
                     <button>Learn More</button>
 
                 </motion.div>
@@ -112,7 +112,8 @@ export default function Home() {
                 >
 
                     <h1>Blog Section</h1>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
+                    <p>
+Discover essential tips for responsible dog and cat care in 'PetPals' Pet Welfare Guides. The Dog Welfare Guide covers bedding, nutrition, toys, and vet registration, while the Cat Welfare Guide includes safe spaces, litter setup, food choices, scratching posts, holiday planning, and vet registration. Click icons for specific guides. Rely on 'PetPals' for expert guidance in responsible pet ownership. Happy reading and joyful pet parenting! </p>
                     <button>Learn More</button>
 
                 </motion.div>
