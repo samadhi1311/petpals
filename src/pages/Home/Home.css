@@ -158,7 +158,8 @@
     flex-direction: column;
     background-color: white;
     border-radius: 24px 24px 0 0;
-    padding: 5rem;
+    padding: 2rem 8rem;
+    height: 320px;
 }
 
 .home-footer-container {
@@ -204,8 +205,6 @@
 }
 
 .home-footer-copyright {
-    padding: 4rem;
-    margin-top: 2rem;
     text-align: center;
 }
 
@@ -220,4 +219,16 @@
     .home-footer-support {
         padding: .5rem;
     }
+
+    .home-footer {
+        height:700px;
+    }
 }
+
+@media  screen and (max-width: 448px) {
+    .home-footer {
+        height:800px;
+        padding:1rem;
+    }
+}
+    

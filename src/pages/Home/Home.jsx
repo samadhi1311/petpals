@@ -112,8 +112,7 @@ export default function Home() {
                 >
 
                     <h1>Blog Section</h1>
-                    <p>
-Discover essential tips for responsible dog and cat care in 'PetPals' Pet Welfare Guides. The Dog Welfare Guide covers bedding, nutrition, toys, and vet registration, while the Cat Welfare Guide includes safe spaces, litter setup, food choices, scratching posts, holiday planning, and vet registration. Click icons for specific guides. Rely on 'PetPals' for expert guidance in responsible pet ownership. Happy reading and joyful pet parenting! </p>
+                    <p>Discover essential tips for responsible dog and cat care in 'PetPals' Pet Welfare Guides. The Dog Welfare Guide covers bedding, nutrition, toys, and vet registration, while the Cat Welfare Guide includes safe spaces, litter setup, food choices, scratching posts, holiday planning, and vet registration. Click icons for specific guides. Rely on 'PetPals' for expert guidance in responsible pet ownership. Happy reading and joyful pet parenting! </p>
                     <button>Learn More</button>
 
                 </motion.div>
@@ -124,7 +123,7 @@ Discover essential tips for responsible dog and cat care in 'PetPals' Pet Welfar
                     animate={controlsAbout}>
 
                     <h1>About Section</h1>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, suscipit quasi possimus facere officiis dicta laborum accusantium vero dolorum quaerat magni, mollitia optio aliquid voluptate. Eligendi explicabo animi nemo quia!</p>
+                    <p>PetPals connects adopters, rescuers, and shelters, focusing on dogs and cats. Simplifying the adoption process, it provides a non-judgmental service for rehomers and strives to reduce shelter admissions. Join PetPals in building a compassionate community for a brighter future.</p>
                     <button>Learn More</button>
 
                 </motion.div>
@@ -141,7 +140,7 @@ Discover essential tips for responsible dog and cat care in 'PetPals' Pet Welfar
                             PetPals
                         </h3>
                         <div className="home-info-text">
-                            <p>A brief description of your company or website goes here. This can be a slightly longer text describing your vision, mission, or values.</p>
+                            <p>PetPals was launched to<br/> address the growing issue<br/> of homeless animals,<br/> aiming to create a<br/> meaningful impact on<br/> their lives and alleviate<br/> their hardships.</p>
                         </div>
                     </div>
 
