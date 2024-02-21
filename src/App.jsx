@@ -12,37 +12,38 @@ import SignUp from './pages/SignUp/SignUp';
 import PageNotFound from './global/components/PageNotFound/PageNotFound';
 import Profile from './pages/Profile/Profile';
 import MyProfile from './pages/Profile/MyProfile';
-
+import Test from './pages/Test/Test';
 
 function App() {
+	return (
+		<>
+			<BrowserRouter>
+				<div className='gradient-background'></div>
+				<div className='white-overlay'></div>
+				<header>
+					<Navigation />
+				</header>
 
-    return (
-        <>
-
-            <BrowserRouter>
-                <div className="gradient-background"></div>
-                <div className='white-overlay'></div>
-                <header>
-                    <Navigation />
-                </header>
-
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/*" element={<PageNotFound />} />
-                    <Route path="/user/:uid" element={<Profile />} />
-                    <Route path="/user/me" element={<MyProfile />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/add" element={<Add />} />
-                    <Route path="/blog" element={<Blog />} />
-                    <Route path="/discover" element={<Discover />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/forgot-password" element={<ResetPassword />} />
-                    <Route path="/signup" element={<SignUp />} />
-                </Routes>
-            </BrowserRouter>
-
-        </>
-    );
+				<Routes>
+					<Route path='/' element={<Home />} />
+					<Route path='/*' element={<PageNotFound />} />
+					<Route path='/user/:uid' element={<Profile />} />
+					<Route path='/user/me' element={<MyProfile />} />
+					<Route path='/about' element={<About />} />
+					<Route path='/add' element={<Add />} />
+					<Route path='/blog' element={<Blog />} />
+					<Route path='/discover' element={<Discover />} />
+					<Route path='/login' element={<Login />} />
+					<Route
+						path='/forgot-password'
+						element={<ResetPassword />}
+					/>
+					<Route path='/signup' element={<SignUp />} />
+					<Route path='/PetPals' element={<Test />} />
+				</Routes>
+			</BrowserRouter>
+		</>
+	);
 }
 
-export default App
+export default App;
