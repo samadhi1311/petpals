@@ -1,36 +1,40 @@
 {
-  "name": "petpals",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "start": "npm run dev",
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "boxicons": "^2.1.4",
-    "compressorjs": "^1.2.1",
-    "firebase": "^10.7.1",
-    "formik": "^2.4.5",
-    "framer-motion": "^10.16.16",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^5.0.1",
-    "react-intersection-observer": "^9.5.3",
-    "react-router-dom": "^6.20.0",
-    "yup": "^1.3.3"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
-    "@vitejs/plugin-react": "^4.2.0",
-    "eslint": "^8.53.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.4",
-    "vite": "^5.0.10"
-  }
+	"homepage": "http://PetPals-Team.github.io/PetPals",
+	"name": "petpals",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"start": "npm run dev",
+		"dev": "vite",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d dist",
+		"build": "vite build",
+		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"boxicons": "^2.1.4",
+		"compressorjs": "^1.2.1",
+		"firebase": "^10.7.1",
+		"formik": "^2.4.5",
+		"framer-motion": "^10.16.16",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-icons": "^5.0.1",
+		"react-intersection-observer": "^9.5.3",
+		"react-router-dom": "^6.20.0",
+		"yup": "^1.3.3"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.37",
+		"@types/react-dom": "^18.2.15",
+		"@vitejs/plugin-react": "^4.2.0",
+		"eslint": "^8.53.0",
+		"eslint-plugin-react": "^7.33.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-refresh": "^0.4.4",
+		"gh-pages": "^6.1.1",
+		"vite": "^5.0.10"
+	}
 }
