@@ -6,8 +6,6 @@ import './Home.css'
 import HeroImage from '../../global/assets/Adopt a pet-bro.svg';
 import Logo from '../../global/assets/logo.svg';
 
-
-
 export default function Home() {
 
     const controlsDiscover = useAnimation();
@@ -87,7 +85,9 @@ export default function Home() {
                 >
                     <h1>Discover Section</h1>
                     <p>Explore PetPals for your ideal furry companion. Discover diverse cats and dogs through heartwarming posts. Utilize user-friendly categorizations to find the perfect match. Adopt today and welcome perfection into your life, one paw at a time</p>
-                    <button>Learn More</button>
+                    <Link to="/discover">
+                        <button>Learn More</button>
+                    </Link>
 
                 </motion.div>
             </section>
@@ -100,7 +100,9 @@ export default function Home() {
                 >
                     <h1>Add Section</h1>
                     <p>Contribute to our mission by uploading posts for dogs or cats in need of shelter at 'PetPals.' Users and sanctuaries can share stories of these adorable companions seeking loving homes. Be a part of their journey towards a forever home upload a post and make a difference today!</p>
-                    <button>Learn More</button>
+                    <Link to="/add">
+                        <button>Learn More</button>
+                    </Link>
 
                 </motion.div>
             </section>
@@ -113,7 +115,9 @@ export default function Home() {
 
                     <h1>Blog Section</h1>
                     <p>Discover essential tips for responsible dog and cat care in 'PetPals' Pet Welfare Guides. The Dog Welfare Guide covers bedding, nutrition, toys, and vet registration, while the Cat Welfare Guide includes safe spaces, litter setup, food choices, scratching posts, holiday planning, and vet registration. Click icons for specific guides. Rely on 'PetPals' for expert guidance in responsible pet ownership. Happy reading and joyful pet parenting! </p>
-                    <button>Learn More</button>
+                    <Link to="/blog">
+                        <button>Learn More</button>
+                    </Link>
 
                 </motion.div>
             </section>
@@ -124,7 +128,9 @@ export default function Home() {
 
                     <h1>About Section</h1>
                     <p>PetPals connects adopters, rescuers, and shelters, focusing on dogs and cats. Simplifying the adoption process, it provides a non-judgmental service for rehomers and strives to reduce shelter admissions. Join PetPals in building a compassionate community for a brighter future.</p>
-                    <button>Learn More</button>
+                    <Link to="/about">
+                        <button>Learn More</button>
+                    </Link>
 
                 </motion.div>
             </section>
