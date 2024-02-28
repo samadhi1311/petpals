@@ -1,49 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="./src/global/assets/logo.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Kalnia:wght@600&display=swap"
-    rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PetPals</title>
+		<meta name="title" content="PetPals" />
+		<meta name="description" content="Find and adopt homeless pets" />
 
-  <style>
-    .loader-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://petpals-team.github.io/PetPals/" />
+		<meta property="og:title" content="PetPals" />
+		<meta property="og:description" content="Find and adopt homeless pets" />
+		<meta property="og:image" content="./src/global/assets/social-share.jpg" />
 
-    .logo-outline {
-      width: 5rem;
-      animation: blink 400ms ease-in-out alternate infinite;
-    }
+		<link rel="icon" type="image/svg+xml" href="./src/global/assets/LogoOutline.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Kalnia:wght@600&display=swap" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    @keyframes blink {
-      0% {
-        opacity: 0;
-      }
+		<style>
+			.loader-section {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
 
-      100% {
-        opacity: 1;
-      }
-    }
-  </style>
+			.logo-outline {
+				width: 5rem;
+				animation: blink 400ms ease-in-out alternate infinite;
+			}
 
-  <title>PetPals</title>
-</head>
+			@keyframes blink {
+				0% {
+					opacity: 0;
+				}
 
-<body>
-  <div id="root">
-    <section class="loader-section">
-      <img src="src//global//assets/LogoOutline.svg" alt="loader" class='logo-outline' />
-    </section>
-  </div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
+				100% {
+					opacity: 1;
+				}
+			}
+		</style>
 
+		<title>PetPals</title>
+	</head>
+
+	<body>
+		<div id="root">
+			<section class="loader-section">
+				<img src="src//global//assets/LogoOutline.svg" alt="loader" class="logo-outline" />
+			</section>
+		</div>
+		<script type="module" src="/src/main.jsx"></script>
+	</body>
 </html>
