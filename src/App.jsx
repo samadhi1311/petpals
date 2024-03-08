@@ -12,6 +12,7 @@ import SignUp from './pages/SignUp/SignUp';
 import PageNotFound from './global/components/PageNotFound/PageNotFound';
 import Profile from './pages/Profile/Profile';
 import MyProfile from './pages/Profile/MyProfile';
+import Post from './pages/Post/Post';
 import Test from './pages/Test/Test';
 
 function App() {
@@ -25,21 +26,19 @@ function App() {
 				</header>
 
 				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/*' element={<PageNotFound />} />
-					<Route path='/user/:uid' element={<Profile />} />
-					<Route path='/user/me' element={<MyProfile />} />
-					<Route path='/about' element={<About />} />
-					<Route path='/add' element={<Add />} />
-					<Route path='/blog' element={<Blog />} />
-					<Route path='/discover' element={<Discover />} />
-					<Route path='/login' element={<Login />} />
-					<Route
-						path='/forgot-password'
-						element={<ResetPassword />}
-					/>
-					<Route path='/signup' element={<SignUp />} />
-					<Route path='/PetPals' element={<Test />} />
+					<Route path='PetPals/' element={<Home />} />
+					<Route path='PetPals/users/:uid' element={<Profile />} />
+					<Route path='PetPals/users/me' element={<MyProfile />} />
+					<Route path='PetPals/posts/:postId' element={<Post />} />
+					<Route path='PetPals/about' element={<About />} />
+					<Route path='PetPals/add' element={<Add />} />
+					<Route path='PetPals/blog' element={<Blog />} />
+					<Route path='PetPals/discover' element={<Discover />} />
+					<Route path='PetPals/login' element={<Login />} />
+					<Route path='PetPals/forgot-password' element={<ResetPassword />} />
+					<Route path='PetPals/signup' element={<SignUp />} />
+					<Route path='PetPals/PetPals' element={<Test />} />
+					<Route path='PetPals/*' element={<PageNotFound />} />
 				</Routes>
 			</BrowserRouter>
 		</>
