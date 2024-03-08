@@ -1,139 +1,144 @@
+@import url('./normalize.css');
+
 :root {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.5;
-    font-weight: 500;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+	font-family: 'Inter', sans-serif;
+	line-height: 1.5;
+	font-weight: 500;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 a {
-    color: black;
-    font-weight: 500;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 300ms ease-in-out;
+	color: black;
+	font-weight: 500;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 300ms ease-in-out;
 }
 
 a:hover {
-    color: #7178f6;
+	color: #7178f6;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
-    overscroll-behavior-block: none;
+	margin: 0;
+	min-height: 100vh;
+	overscroll-behavior-block: none;
 }
 
 .gradient-background {
-    background-color: white;
-    background-image:
-        radial-gradient(at 40% 20%, hsla(28, 100%, 74%, 1) 0px, transparent 60%),
-        radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 60%),
-        radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 60%),
-        radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 1) 0px, transparent 60%),
-        radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 1) 0px, transparent 60%),
-        radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 1) 0px, transparent 60%),
-        radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 60%);
-    background-repeat: repeat;
-    background-size: contain;
-    width: 100%;
-    height: 100%;
-    z-index: -999;
-    position: fixed;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
+	background-color: #99a3ff;
+	background-image: radial-gradient(at 63% 95%, hsla(233, 85%, 64%, 1) 0px, transparent 50%), radial-gradient(at 58% 48%, hsla(331, 85%, 66%, 1) 0px, transparent 50%),
+		radial-gradient(at 50% 76%, hsla(221, 89%, 60%, 1) 0px, transparent 50%), radial-gradient(at 50% 39%, hsla(213, 76%, 79%, 1) 0px, transparent 50%),
+		radial-gradient(at 38% 99%, hsla(239, 65%, 66%, 1) 0px, transparent 50%), radial-gradient(at 50% 13%, hsla(172, 72%, 78%, 1) 0px, transparent 50%),
+		radial-gradient(at 27% 15%, hsla(241, 90%, 67%, 1) 0px, transparent 50%);
+	background-repeat: repeat;
+	background-size: contain;
+	width: 100%;
+	height: 100%;
+	z-index: -999;
+	position: fixed;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
 }
 
 .white-overlay {
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
-    z-index: -998;
-    position: fixed;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
+	background-color: transparent;
+	width: 100%;
+	height: 100%;
+	z-index: -998;
+	position: fixed;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
 }
 
 h1 {
-    font-family: 'Kalnia', serif;
-    font-size: 7rem;
-    line-height: 0.9;
-    margin: 0;
+	font-family: 'Kalnia', serif;
+	font-size: 7rem;
+	line-height: 0.9;
+	margin: 0;
 }
 
 h2 {
-    font-size: 2em;
-    line-height: 1.1;
-    margin: 0;
+	font-size: 2em;
+	line-height: 1.1;
+	margin: 0;
 }
 
+h3 {
+	margin: 0;
+}
+p {
+	margin: 0;
+}
 button {
-    color: black;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    padding: 0.6rem 1.25rem;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all 300ms;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: .5rem;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+	color: black;
+	background-color: white;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	padding: 0.6rem 1.25rem;
+	font-size: 1em;
+	font-weight: 500;
+	font-family: inherit;
+	cursor: pointer;
+	transition: all 300ms;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 button:hover {
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
-    border: 1px solid #7178f6;
-    background-color: black;
-    color: white;
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+	border: 1px solid #7178f6;
+	background-color: black;
+	color: white;
 }
 
 button:focus,
 button:focus-visible {
-    outline: none;
+	outline: none;
 }
 
-input {
-    border-radius: 8px;
-    border: 1px solid grey;
-    padding: 0.6rem 1.25rem;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    transition: all 300ms ease;
+input,
+select {
+	border-radius: 8px;
+	border: 1px solid grey;
+	padding: 0.6rem 1.25rem;
+	font-size: 1em;
+	font-weight: 500;
+	font-family: inherit;
+	transition: all 300ms ease;
 }
 
-input:focus {
-    outline: none;
-    border: 1px solid black;
+input:focus,
+select:focus {
+	outline: none;
+	border: 1px solid black;
 }
 
 header {
-    max-height: 20vh;
+	max-height: 20vh;
 }
 
 @media only screen and (max-width: 768px) {
+	html {
+		height: -webkit-fill-available;
+	}
 
-    html {
-        height: -webkit-fill-available;
-    }
-
-    .white-overlay {
-        background-color: hsla(0, 0%, 100%, 0.5);
-        width: 100%;
-        height: 100%;
-        z-index: -998;
-        position: fixed;
-        padding: 0;
-        margin: 0;
-        overflow: hidden;
-    }
+	.white-overlay {
+		background-color: hsla(0, 0%, 100%, 0.5);
+		width: 100%;
+		height: 100%;
+		z-index: -998;
+		position: fixed;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+	}
 }
