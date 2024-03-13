@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navigation from './global/components/Navigation/Navigation';
+import Chat from './global/components/Chat/Chat';
 import About from './pages/About/About';
 import Add from './pages/Add/Add';
 import Blog from './pages/Blog/Blog';
@@ -24,6 +25,8 @@ function App() {
 				<header>
 					<Navigation />
 				</header>
+
+				<Chat />
 
 				<Routes>
 					<Route path='PetPals/' element={<Home />} />
