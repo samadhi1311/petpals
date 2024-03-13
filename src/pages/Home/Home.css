@@ -1,234 +1,226 @@
 .home-page {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 .home-hero-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    min-height: 90vh;
-    max-height: 90vh;
-    width: 95%;
-    margin: 1rem auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	min-height: 80vh;
+	width: 95%;
+	margin: 1rem auto;
 }
 
 .home-hero-div-left {
-    width: 45%;
-    padding-left: 1rem;
+	width: 45%;
+	padding-left: 1rem;
 }
 
 .home-hero-div-right {
-    width: 55%;
-    padding-right: 4rem;
+	width: 55%;
+	padding-right: 4rem;
 }
 
 .home-hero-heading {
-    font-size: 7rem;
-    color: white;
-    text-shadow: 0px 0px 24px rgba(0, 0, 0, 0.1);
+	font-size: 7rem;
+	color: white;
+	text-shadow: 0px 0px 24px rgba(0, 0, 0, 0.1);
 }
 
 .home-hero-text {
-    font-size: 1rem;
+	font-size: 1rem;
 }
 
 .home-hero-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1rem;
 }
 
 @media only screen and (min-width: 640px) {
-    .home-hero-heading {
-        font-size: 1rem;
-    }
+	.home-hero-heading {
+		font-size: 1rem;
+	}
 
-    .home-hero-text {
-        font-size: .5rem;
-    }
-
+	.home-hero-text {
+		font-size: 0.5rem;
+	}
 }
 
 @media only screen and (max-width: 768px) {
+	.home-hero-div-left,
+	.home-hero-div-right {
+		width: 100%;
+		padding: 1rem;
+	}
 
-    .home-hero-div-left,
-    .home-hero-div-right {
-        width: 100%;
-        padding: 1rem;
-    }
+	.home-hero-div-left {
+		text-align: center;
+	}
 
-    .home-hero-div-left {
-        text-align: center;
-    }
+	.home-hero-div-right {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0;
+	}
 
-    .home-hero-div-right {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-    }
+	.home-hero-heading {
+		font-size: 3rem;
+	}
 
-    .home-hero-heading {
-        font-size: 3rem;
-    }
+	.home-hero-text {
+		font-size: 1.5rem;
+	}
 
-    .home-hero-text {
-        font-size: 1.5rem;
-    }
+	.home-hero-section {
+		flex-direction: column-reverse;
+		text-align: center;
+	}
 
-    .home-hero-section {
-        flex-direction: column-reverse;
-        text-align: center;
-    }
+	.home-hero-buttons {
+		justify-content: center;
+	}
 
-    .home-hero-buttons {
-        justify-content: center;
-    }
+	.home-hero-div-left {
+		max-width: 380px;
+	}
 
-    .home-hero-div-left {
-
-        max-width: 380px;
-    }
-
-    .home-sub-section div {
-        margin: 0 1rem;
-    }
-
+	.home-sub-section div {
+		margin: 0 1rem;
+	}
 }
 
 @media screen and (min-width: 1024px) {
-    .home-hero-div-right {
-        width: 60%;
-        padding-right: 3rem;
-    }
+	.home-hero-div-right {
+		width: 60%;
+		padding-right: 3rem;
+	}
 
-    .home-hero-div-left {
-        width: 40%;
-        padding-left: 3rem;
-    }
+	.home-hero-div-left {
+		width: 40%;
+		padding-left: 3rem;
+	}
 
-    .home-hero-heading {
-        font-size: 7rem;
-    }
+	.home-hero-heading {
+		font-size: 7rem;
+	}
 
-    .home-hero-text {
-        font-size: 1.2rem;
-    }
-
+	.home-hero-text {
+		font-size: 1.2rem;
+	}
 }
 
 .home-sub-section {
-    width: 100%;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(64px);
-    display: grid;
-    place-items: center;
-    padding: 3rem 0;
-    margin-bottom: 4rem;
-    outline: 1px solid gray;
-    min-height: 50vh;
-    max-height: 100vh;
+	width: 100%;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(64px);
+	display: grid;
+	place-items: center;
+	padding: 3rem 0;
+	margin-bottom: 4rem;
+	outline: 1px solid gray;
+	min-height: 50vh;
+	max-height: 100vh;
 }
 
 .home-sub-section div {
-    display: grid;
-    place-items: center;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 32rem;
-    text-align: center;
-    padding: 1rem 0;
+	display: grid;
+	place-items: center;
+	flex-direction: column;
+	gap: 1rem;
+	max-width: 32rem;
+	text-align: center;
+	padding: 1rem 0;
 }
 
 .home-sub-section h1 {
-    margin: 0;
-    font-size: 3rem;
+	margin: 0;
+	font-size: 3rem;
 }
 
 .home-footer {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 24px 24px 0 0;
-    padding: 2rem 8rem;
-    height: 320px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	background-color: white;
+	border-radius: 24px 24px 0 0;
+	padding: 2rem 8rem;
+	height: 320px;
 }
 
 .home-footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
 }
 
 .home-footer-info,
 .home-footer-links,
 .home-footer-support {
-    max-width: max-content;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
+	max-width: max-content;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
 }
 
 .home-footer-info {
-    align-items: flex-start;
+	align-items: flex-start;
 }
 
 .home-footer-info h3 {
-    font-size: 3rem;
-    margin: 0;
+	font-size: 3rem;
+	margin: 0;
 }
 
 .home-info-text {
-    max-width: 400px;
-    margin: 0;
-    padding: 0;
-    padding-top: 1rem;
+	max-width: 400px;
+	margin: 0;
+	padding: 0;
+	padding-top: 1rem;
 }
 
 .home-footer-info p {
-    margin: 0;
-    align-self: start;
+	margin: 0;
+	align-self: start;
 }
 
 .home-footer-links a,
 .home-footer-support a {
-    padding-left: 1rem;
+	padding-left: 1rem;
 }
 
 .home-footer-copyright {
-    text-align: center;
+	text-align: center;
 }
 
 @media screen and (max-width: 1024px) {
+	.home-footer-container {
+		flex-direction: column;
+	}
 
-    .home-footer-container {
-        flex-direction: column;
-    }
+	.home-footer-info,
+	.home-footer-links,
+	.home-footer-support {
+		padding: 0.5rem;
+	}
 
-    .home-footer-info,
-    .home-footer-links,
-    .home-footer-support {
-        padding: .5rem;
-    }
-
-    .home-footer {
-        height:700px;
-    }
+	.home-footer {
+		height: 700px;
+	}
 }
 
-@media  screen and (max-width: 448px) {
-    .home-footer {
-        height:800px;
-        padding:1rem;
-    }
+@media screen and (max-width: 448px) {
+	.home-footer {
+		height: 800px;
+		padding: 1rem;
+	}
 }
-    
