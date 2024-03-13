@@ -29,6 +29,7 @@ export default function Add() {
 		img1: '',
 		img2: '',
 		img3: '',
+		createdAt: '',
 	});
 
 	const [petImages, setPetImages] = useState({
@@ -42,9 +43,9 @@ export default function Add() {
 		gender: Yup.string().required('Please select a gender'),
 		ageFormat: Yup.string().required('Please select one.'),
 		age: Yup.number().min(1, 'Please enter a valid age').max(30, 'Please enter a valid age').required('Age is required'),
-		img1: Yup.string().required('Please upload 3 images'),
-		img2: Yup.string().required('Please upload 3 images'),
-		img3: Yup.string().required('Please upload 3 images'),
+		img1: Yup.string(),
+		img2: Yup.string(),
+		img3: Yup.string(),
 		petDescription: Yup.string().min(20, 'Description must be at least 20 characters').max(200, 'Description must be at most 200 characters').required('Description is required'),
 	});
 
@@ -56,6 +57,7 @@ export default function Add() {
 			}
 
 			console.log(values);
+			const timestamp = serverTimestamp();
 
 			const postRef = await addDoc(collection(db, 'posts'), {
 				userId: uid,
@@ -67,6 +69,7 @@ export default function Add() {
 				img1: '',
 				img2: '',
 				img3: '',
+				createdAt: timestamp,
 			});
 
 			console.log('Post added to Firestore with ID:', postRef.id);
@@ -85,12 +88,6 @@ export default function Add() {
 			try {
 				// Compress the image before updating the state
 				const compressedImage = await compressImage(file);
-
-				//check file size
-				if (size <= 1024) {
-					console.log('File size must be greater than 1 KB');
-				}
-
 				// Show the thumbnail immediately after selecting the image
 				const imageUrl = URL.createObjectURL(compressedImage);
 				setPetImages((prevData) => ({ ...prevData, [imgKey]: imageUrl }));
@@ -98,7 +95,6 @@ export default function Add() {
 				setPetData((prevData) => ({ ...prevData, [imgKey]: compressedImage }));
 			} catch (error) {
 				console.error('Error compressing or uploading image:', error);
-				alert('Error compressing or uploading image: ' + error);
 			}
 		}
 	}
@@ -108,7 +104,7 @@ export default function Add() {
 			// Add a check to ensure that the file is a valid File or Blob object
 			if (!(file instanceof File || file instanceof Blob)) {
 				console.error('Invalid file type for compression:', file);
-				resolve({ compressImage: file, size: file.size });
+				resolve(file);
 				return;
 			}
 
@@ -118,11 +114,11 @@ export default function Add() {
 				width: 512,
 				height: 512,
 				success(result) {
-					resolve({ compressedImage: result, size: result.size });
+					resolve(result);
 				},
 				error(error) {
 					console.error('Error compressing image:', error);
-					resolve({ compressedImage: file, size: file.size });
+					resolve(file);
 				},
 			});
 		});
@@ -210,12 +206,12 @@ export default function Add() {
 
 											<div className='add-radio-inputs'>
 												<label className='add-radio'>
-													<Field type='radio' name='animalType' value='Cat' />
+													<Field type='radio' name='animalType' value='cat' />
 													<span className='add-name'>Cat</span>
 												</label>
 
 												<label className='add-radio'>
-													<Field type='radio' name='animalType' value='Dog' />
+													<Field type='radio' name='animalType' value='dog' />
 													<span className='add-name'>Dog</span>
 												</label>
 											</div>
@@ -231,12 +227,12 @@ export default function Add() {
 
 											<div className='add-radio-inputs'>
 												<label className='add-radio'>
-													<Field type='radio' name='gender' value='Male' />
+													<Field type='radio' name='gender' value='male' />
 													<span className='add-name'>Handsome boy</span>
 												</label>
 
 												<label className='add-radio'>
-													<Field type='radio' name='gender' value='Female' />
+													<Field type='radio' name='gender' value='female' />
 													<span className='add-name'>Pretty girl</span>
 												</label>
 											</div>
