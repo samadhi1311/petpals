@@ -4,9 +4,13 @@ import { useParams } from 'react-router-dom';
 import { collection, query, doc, getDoc, getDocs, where } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import MiniLoader from '../../global/components/MiniLoader/MiniLoader';
+import Chat from '../../global/components/Chat/Chat';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import './Post.css';
 
-export default function Post() {
+export default function Post({ isLoggedIn, currentUser }) {
 	const { postId } = useParams();
 	const [post, setPost] = useState(null);
 	const [authorId, setAuthorId] = useState('');
@@ -14,6 +18,15 @@ export default function Post() {
 	const [ageFormat, setAgeFormat] = useState('');
 
 	const usersCollection = collection(db, 'users');
+
+	const sliderSettings = {
+		dots: true,
+		fade: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+	};
 
 	useEffect(() => {
 		const fetchPostData = async () => {
@@ -68,8 +81,17 @@ export default function Post() {
 		<main className='post-page'>
 			{post ? (
 				<div className='post-post-container'>
+					<h2>Post Details</h2>
+					<div className='slider-container'>
+						<Slider {...sliderSettings}>
+							<img src={post.img1} alt='' className='slider-image' />
+
+							<img src={post.img2} alt='' className='slider-image' />
+
+							<img src={post.img3} alt='' className='slider-image' />
+						</Slider>
+					</div>
 					<div className='post-main-post-container'>
-						<h2>Post Details</h2>
 						<p>Posted by: {post.userId}</p>
 						<p>Animal Type: {post.animalType}</p>
 						<p>Age: {post.age + ' ' + ageFormat}</p>
@@ -78,6 +100,7 @@ export default function Post() {
 						<Link to={`/PetPals/users/${authorId}`}>
 							<button>Contact owner</button>
 						</Link>
+						{isLoggedIn ? <Chat isLoggedIn={isLoggedIn} postId={postId} authorId={authorId} currentUser={currentUser} /> : null}
 					</div>
 					<div className='profile-sub-profile-container'></div>
 				</div>
