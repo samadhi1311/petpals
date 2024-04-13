@@ -43,6 +43,22 @@ export default function About() {
                     </div>
 
                 </div>
+                <div className="about-content-panel">
+
+                    <div className="about-content-card">
+
+                        <div className="about-card-text">
+
+                            <h3 className='about-card-title'>Our Mission</h3>
+
+                            <p>At our core, our mission is to advocate for the well-being and happiness of every pet.<br /><br />
+                             We are dedicated to providing comprehensive resources, guidance, and support to pet owners, ensuring that every pet receives the love, care, and attention they deserve. <br /><br />Through education, outreach, and community engagement, we strive to create a world where every pet is cherished, healthy, and thriving.
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
 
             </main>
 

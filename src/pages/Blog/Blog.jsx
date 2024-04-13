@@ -245,7 +245,7 @@ export default function Blog() {
                             onMouseOut={() => setIsMouseOver(false)}
                         >
                             <h3>Dog Welfare</h3>
-                            <br/><br/><br/><br/><br/><br/><br/><br/>
+                            <br/><br/>
                             {/* Content for the first form container */}
                             <div className="dog-icon-container">
                                 <box-icon type="solid" name="dog" style={{ width: '60px', height: '60px' }}></box-icon>
@@ -264,7 +264,7 @@ export default function Blog() {
                                 <box-icon type='solid' name='cat' style={{ width: '60px', height: '60px' }}></box-icon>
                             </div>
                             <h3>Cat Welfare</h3>
-                            <br/><br/><br/><br/><br/><br/><br/>
+                            <br/><br/>
                             <p>{displayText2}</p>
                         </button>
                     </div>

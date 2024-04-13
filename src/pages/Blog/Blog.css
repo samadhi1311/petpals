@@ -29,7 +29,7 @@
 
 .dog-icon-container {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100px;
@@ -40,6 +40,10 @@
     align-items: center;
     justify-content: center;
     display: flex;
+}
+
+.dog-icon-container~p{
+    margin-top: 120px;
 }
 
 .form-container:hover .dog-icon-container {
@@ -141,6 +145,12 @@
     }
 }
 
+@media screen and (min-width: 769px) and (max-width: 1200px){
+    .dog-icon-container{
+        top:30%;
+    }
+}
+
 @media screen and (min-width: 769px) {
     .content-text {
         width: 50%;
@@ -159,6 +169,12 @@
     .content-image {
         width: 100%;
     }
+
+    .dog-icon-container~p{
+        margin-top: 150px;
+    }
+
+    
 }
 
 @media screen and (min-width: 1366px) {

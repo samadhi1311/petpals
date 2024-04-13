@@ -12,6 +12,13 @@
     margin-bottom: 2rem;
 }
 
+.about-para-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 @media screen and (max-width: 768px) {
     .about-content-panel {
         width: 95%;
