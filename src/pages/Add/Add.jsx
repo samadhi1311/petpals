@@ -10,7 +10,7 @@ import Modal from '../../global/components/Modal/Modal';
 import { useNavigate } from 'react-router-dom';
 import './Add.css';
 
-export default function Add() {
+export default function Add({ isLoggedIn }) {
 	let uid = '';
 
 	const navigate = useNavigate();
@@ -181,177 +181,207 @@ export default function Add() {
 	return (
 		<main className='add-page'>
 			<AnimatePresence mode='wait'>
-				{success ? (
-					<Modal title='Good Job!!' content='Your pet pal has been added successfully!' success={true} />
-				) : (
-					<Formik initialValues={petData} validationSchema={validationSchema} onSubmit={handleSubmit}>
-						{(values) => (
-							<motion.div
-								layout
-								className='add-form-container'
-								initial={{ opacity: 0, x: '-5%' }}
-								animate={{ opacity: 1, x: 0 }}
-								exit={{ opacity: 0, x: '5%' }}
-								transition={{
-									duration: 0.5,
-									delay: 0.1,
-									ease: [0, 0.71, 0.2, 1.01],
-								}}>
-								<h2 className='add-form-title'>Add a pet</h2>
+				{isLoggedIn ? (
+					<>
+						{success ? (
+							<Modal title='Good Job!!' content='Your pet pal has been added successfully!' success={true} />
+						) : (
+							<Formik initialValues={petData} validationSchema={validationSchema} onSubmit={handleSubmit}>
+								{(values) => (
+									<motion.div
+										layout
+										className='add-form-container'
+										initial={{ opacity: 0, x: '-5%' }}
+										animate={{ opacity: 1, x: 0 }}
+										exit={{ opacity: 0, x: '5%' }}
+										transition={{
+											duration: 0.5,
+											delay: 0.1,
+											ease: [0, 0.71, 0.2, 1.01],
+										}}>
+										<h2 className='add-form-title'>Add a pet</h2>
 
-								<Form className='add-form'>
-									<div className='add-animal-toggle'>
-										<div className='add-animal-type'>
-											<label htmlFor='animalType'>What kind of pet do you have? </label>
+										<Form className='add-form'>
+											<div className='add-animal-toggle'>
+												<div className='add-animal-type'>
+													<label htmlFor='animalType'>What kind of pet do you have? </label>
 
-											<div className='add-radio-inputs'>
-												<label className='add-radio'>
-													<Field type='radio' name='animalType' value='cat' />
-													<span className='add-name'>Cat</span>
-												</label>
+													<div className='add-radio-inputs'>
+														<label className='add-radio'>
+															<Field type='radio' name='animalType' value='cat' />
+															<span className='add-name'>Cat</span>
+														</label>
 
-												<label className='add-radio'>
-													<Field type='radio' name='animalType' value='dog' />
-													<span className='add-name'>Dog</span>
-												</label>
-											</div>
-										</div>
-										<div className='add-warning'>
-											<ErrorMessage name='animalType' />
-										</div>
-									</div>
-
-									<div className='add-gender-toggle'>
-										<div className='add-gender'>
-											<label htmlFor='gender'>Is your pet a? </label>
-
-											<div className='add-radio-inputs'>
-												<label className='add-radio'>
-													<Field type='radio' name='gender' value='male' />
-													<span className='add-name'>Handsome boy</span>
-												</label>
-
-												<label className='add-radio'>
-													<Field type='radio' name='gender' value='female' />
-													<span className='add-name'>Pretty girl</span>
-												</label>
-											</div>
-										</div>
-										<div className='add-warning'>
-											<ErrorMessage name='gender' />
-										</div>
-									</div>
-
-									<div className='add-age-selector'>
-										<div className='add-select-age'>
-											<label htmlFor='age'>How old is your pet? </label>
-
-											<div className='add-age-format-selector'>
-												<Field type='number' name='age' className='add-age-input' />
-
-												<div className='add-radio-inputs'>
-													<label className='add-radio'>
-														<Field type='radio' name='ageFormat' value='days' />
-														<span className='add-name'>Days</span>
-													</label>
-
-													<label className='add-radio'>
-														<Field type='radio' name='ageFormat' value='months' />
-														<span className='add-name'>Months</span>
-													</label>
-
-													<label className='add-radio'>
-														<Field type='radio' name='ageFormat' value='years' />
-														<span className='add-name'>Years</span>
-													</label>
+														<label className='add-radio'>
+															<Field type='radio' name='animalType' value='dog' />
+															<span className='add-name'>Dog</span>
+														</label>
+													</div>
+												</div>
+												<div className='add-warning'>
+													<ErrorMessage name='animalType' />
 												</div>
 											</div>
-										</div>
 
-										<div className='add-warning'>
-											<ErrorMessage name='age' />
-										</div>
-									</div>
+											<div className='add-gender-toggle'>
+												<div className='add-gender'>
+													<label htmlFor='gender'>Is your pet a? </label>
 
-									<div className='add-image-selector'>
-										<div className='add-select-images'>
-											<p className='add-image-selector-label'>Select up to 3 images</p>
+													<div className='add-radio-inputs'>
+														<label className='add-radio'>
+															<Field type='radio' name='gender' value='male' />
+															<span className='add-name'>Handsome boy</span>
+														</label>
 
-											<div className='add-image-containers'>
-												<label
-													htmlFor='img1'
-													style={{
-														backgroundImage: petImages.img1 ? `url(${petImages.img1})` : 'none',
-														backgroundColor: petImages.img1 ? 'transparent' : 'white',
-														borderRadius: '12px',
-														backgroundSize: 'cover',
-														boxShadow: petImages.img1 ? 'inset 0 0 0 100vmax rgba(0, 0, 0, 0.5)' : 'none',
-													}}>
-													<div className='add-image-container'>
-														{<i className='bx bx-image-add bx-md upload-icon' style={{ color: petImages.img1 ? 'white' : 'black' }}></i>}
+														<label className='add-radio'>
+															<Field type='radio' name='gender' value='female' />
+															<span className='add-name'>Pretty girl</span>
+														</label>
 													</div>
-												</label>
-
-												<label
-													htmlFor='img2'
-													style={{
-														backgroundImage: petImages.img2 ? `url(${petImages.img2})` : 'none',
-														backgroundColor: petImages.img2 ? 'transparent' : 'white',
-														borderRadius: '12px',
-														backgroundSize: 'cover',
-														boxShadow: petImages.img2 ? 'inset 0 0 0 100vmax rgba(0, 0, 0, 0.5)' : 'none',
-													}}>
-													<div className='add-image-container'>
-														{<i className='bx bx-image-add bx-md upload-icon' style={{ color: petImages.img2 ? 'white' : 'black' }}></i>}
-													</div>
-												</label>
-
-												<label
-													htmlFor='img3'
-													style={{
-														backgroundImage: petImages.img3 ? `url(${petImages.img3})` : 'none',
-														backgroundColor: petImages.img3 ? 'transparent' : 'white',
-														borderRadius: '12px',
-														backgroundSize: 'cover',
-														boxShadow: petImages.img3 ? 'inset 0 0 0 100vmax rgba(0, 0, 0, 0.5)' : 'none',
-													}}>
-													<div className='add-image-container'>
-														{<i className='bx bx-image-add bx-md upload-icon' style={{ color: petImages.img3 ? 'white' : 'black' }}></i>}
-													</div>
-												</label>
+												</div>
+												<div className='add-warning'>
+													<ErrorMessage name='gender' />
+												</div>
 											</div>
 
-											<input type='file' name='img1' id='img1' accept='image/*' className='add-image-upload' onChange={(e) => handleImageChange(e, 'img1', values)} required />
-											<input type='file' name='img2' id='img2' accept='image/*' className='add-image-upload' onChange={(e) => handleImageChange(e, 'img2', values)} required />
-											<input type='file' name='img3' id='img3' accept='image/*' className='add-image-upload' onChange={(e) => handleImageChange(e, 'img3', values)} required />
-										</div>
+											<div className='add-age-selector'>
+												<div className='add-select-age'>
+													<label htmlFor='age'>How old is your pet? </label>
 
-										<div className='add-warning'>
-											<ErrorMessage name='img1' />
-											<ErrorMessage name='img2' />
-											<ErrorMessage name='img3' />
-										</div>
-									</div>
-									<div className='add-description-section'>
-										<div className='add-write-description'>
-											<label htmlFor='pet-description' className='add-description'>
-												A brief description about your pet:
-											</label>
-											<Field as='textarea' rows={5} name='petDescription' className='add-pet-description' />
-										</div>
+													<div className='add-age-format-selector'>
+														<Field type='number' name='age' className='add-age-input' />
 
-										<div className='add-warning' style={{ marginTop: '0.5rem' }}>
-											<ErrorMessage name='petDescription' />
-										</div>
-									</div>
+														<div className='add-radio-inputs'>
+															<label className='add-radio'>
+																<Field type='radio' name='ageFormat' value='days' />
+																<span className='add-name'>Days</span>
+															</label>
 
-									<button className='add-page-submit' type='submit'>
-										Submit
-									</button>
-								</Form>
-							</motion.div>
+															<label className='add-radio'>
+																<Field type='radio' name='ageFormat' value='months' />
+																<span className='add-name'>Months</span>
+															</label>
+
+															<label className='add-radio'>
+																<Field type='radio' name='ageFormat' value='years' />
+																<span className='add-name'>Years</span>
+															</label>
+														</div>
+													</div>
+												</div>
+
+												<div className='add-warning'>
+													<ErrorMessage name='age' />
+												</div>
+											</div>
+
+											<div className='add-image-selector'>
+												<div className='add-select-images'>
+													<p className='add-image-selector-label'>Select up to 3 images</p>
+
+													<div className='add-image-containers'>
+														<label
+															htmlFor='img1'
+															style={{
+																backgroundImage: petImages.img1 ? `url(${petImages.img1})` : 'none',
+																backgroundColor: petImages.img1 ? 'transparent' : 'white',
+																borderRadius: '12px',
+																backgroundSize: 'cover',
+																boxShadow: petImages.img1 ? 'inset 0 0 0 100vmax rgba(0, 0, 0, 0.5)' : 'none',
+															}}>
+															<div className='add-image-container'>
+																{<i className='bx bx-image-add bx-md upload-icon' style={{ color: petImages.img1 ? 'white' : 'black' }}></i>}
+															</div>
+														</label>
+
+														<label
+															htmlFor='img2'
+															style={{
+																backgroundImage: petImages.img2 ? `url(${petImages.img2})` : 'none',
+																backgroundColor: petImages.img2 ? 'transparent' : 'white',
+																borderRadius: '12px',
+																backgroundSize: 'cover',
+																boxShadow: petImages.img2 ? 'inset 0 0 0 100vmax rgba(0, 0, 0, 0.5)' : 'none',
+															}}>
+															<div className='add-image-container'>
+																{<i className='bx bx-image-add bx-md upload-icon' style={{ color: petImages.img2 ? 'white' : 'black' }}></i>}
+															</div>
+														</label>
+
+														<label
+															htmlFor='img3'
+															style={{
+																backgroundImage: petImages.img3 ? `url(${petImages.img3})` : 'none',
+																backgroundColor: petImages.img3 ? 'transparent' : 'white',
+																borderRadius: '12px',
+																backgroundSize: 'cover',
+																boxShadow: petImages.img3 ? 'inset 0 0 0 100vmax rgba(0, 0, 0, 0.5)' : 'none',
+															}}>
+															<div className='add-image-container'>
+																{<i className='bx bx-image-add bx-md upload-icon' style={{ color: petImages.img3 ? 'white' : 'black' }}></i>}
+															</div>
+														</label>
+													</div>
+
+													<input
+														type='file'
+														name='img1'
+														id='img1'
+														accept='image/*'
+														className='add-image-upload'
+														onChange={(e) => handleImageChange(e, 'img1', values)}
+														required
+													/>
+													<input
+														type='file'
+														name='img2'
+														id='img2'
+														accept='image/*'
+														className='add-image-upload'
+														onChange={(e) => handleImageChange(e, 'img2', values)}
+														required
+													/>
+													<input
+														type='file'
+														name='img3'
+														id='img3'
+														accept='image/*'
+														className='add-image-upload'
+														onChange={(e) => handleImageChange(e, 'img3', values)}
+														required
+													/>
+												</div>
+
+												<div className='add-warning'>
+													<ErrorMessage name='img1' />
+													<ErrorMessage name='img2' />
+													<ErrorMessage name='img3' />
+												</div>
+											</div>
+											<div className='add-description-section'>
+												<div className='add-write-description'>
+													<label htmlFor='pet-description' className='add-description'>
+														A brief description about your pet:
+													</label>
+													<Field as='textarea' rows={5} name='petDescription' className='add-pet-description' />
+												</div>
+
+												<div className='add-warning' style={{ marginTop: '0.5rem' }}>
+													<ErrorMessage name='petDescription' />
+												</div>
+											</div>
+
+											<button className='add-page-submit' type='submit'>
+												Submit
+											</button>
+										</Form>
+									</motion.div>
+								)}
+							</Formik>
 						)}
-					</Formik>
+					</>
+				) : (
+					<Modal title="You can't do that!" content='Only registred users can add pets. Please log in or create a new profile.' success={false} navigate='/Petpals/login' />
 				)}
 			</AnimatePresence>
 		</main>

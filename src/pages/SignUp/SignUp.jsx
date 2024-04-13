@@ -6,7 +6,7 @@ import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../../firebase.config';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import MiniLoader from '../../global/components/MiniLoader/MiniLoader';
 import './SignUp.css';
 import GoogleIcon from '../../global/assets/icons8-google.svg';
@@ -184,6 +184,12 @@ export default function SignUp() {
 							<button className='signup-google' onClick={signUpWithGoogle}>
 								<img src={GoogleIcon} alt='Google' style={{ width: '1rem', height: '1rem', paddingRight: '1rem' }} /> Google
 							</button>
+						</div>
+
+						<div className='sign-up-login'>
+							<p>
+								Already have an account? <Link to='/Petpals/Login'>Login</Link>
+							</p>
 						</div>
 					</motion.div>
 				)}

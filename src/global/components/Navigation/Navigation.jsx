@@ -7,17 +7,8 @@ import './Navigation.css';
 
 import { useState, useEffect } from 'react';
 
-export default function Navigation() {
+export default function Navigation({ isLoggedIn }) {
 	const [showMenu, setShowMenu] = useState();
-	const [isLoggedIn, setIsLoggedIn] = useState(!!auth.currentUser);
-
-	useEffect(() => {
-		const unsubscribe = auth.onAuthStateChanged((user) => {
-			setIsLoggedIn(!!user);
-		});
-
-		return () => unsubscribe();
-	}, []);
 
 	const handleMenuClick = () => {
 		setShowMenu((prevShowMenu) => !prevShowMenu);
@@ -73,10 +64,10 @@ export default function Navigation() {
 									</button>
 								</Link>
 							) : (
-								<Link to='PetPals/login' onClick={handleLinkClick}>
+								<Link to='PetPals/signup' onClick={handleLinkClick}>
 									<button>
 										<i className='bx bxs-log-in-circle bx-sm'></i>
-										Login
+										Sign Up
 									</button>
 								</Link>
 							)}

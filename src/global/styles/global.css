@@ -121,6 +121,10 @@ select:focus {
 	border: 1px solid black;
 }
 
+header {
+	max-height: 20vh;
+}
+
 @media only screen and (max-width: 768px) {
 	html {
 		height: -webkit-fill-available;
