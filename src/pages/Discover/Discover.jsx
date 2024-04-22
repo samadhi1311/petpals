@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import PostItem from './components/PostItem';
+import { useState, useEffect, lazy, Suspense } from 'react';
+const PostItem = lazy(() => import('./components/PostItem'));
 import './Discover.css';
 import { db } from '../../../firebase.config';
 import { collection, getDocs, query, where } from 'firebase/firestore';
@@ -241,11 +241,13 @@ export default function Discover() {
 							delay: 0.1,
 							ease: [0, 0.71, 0.2, 1.01],
 						}}>
-						{posts.map((post) => (
-							<>
-								<PostItem key={post.id} post={post} />
-							</>
-						))}
+						<Suspense fallback={<div>Loading...</div>}>
+							{posts.map((post) => (
+								<>
+									<PostItem key={post.id} post={post} />
+								</>
+							))}
+						</Suspense>
 					</motion.div>
 				</div>
 			</AnimatePresence>
