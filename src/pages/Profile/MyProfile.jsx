@@ -39,7 +39,7 @@ export default function MyProfile() {
 
 	const handleLogOut = async () => {
 		await signOut(auth);
-		navigate('/PetPals/login');
+		navigate('PetPals/login');
 	};
 
 	useEffect(() => {
