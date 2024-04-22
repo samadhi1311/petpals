@@ -3,28 +3,15 @@ import { db } from '../../../firebase.config';
 import { useParams } from 'react-router-dom';
 import { collection, query, doc, getDoc, getDocs, where } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
-import Chat from '../../global/components/Chat/Chat';
 import MiniLoader from '../../global/components/MiniLoader/MiniLoader';
-import Slider from 'react-slick';
-
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import './Post.css';
 
-export default function Post({ isLoggedIn, currentUser }) {
+export default function Post() {
 	const { postId } = useParams();
 	const [post, setPost] = useState(null);
 	const [authorId, setAuthorId] = useState('');
 	const [author, setAuthor] = useState(null);
 	const [ageFormat, setAgeFormat] = useState('');
-
-	const sliderSettings = {
-		dots: true,
-		infinite: true,
-		speed: 500,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-	};
 
 	const usersCollection = collection(db, 'users');
 
@@ -83,24 +70,15 @@ export default function Post({ isLoggedIn, currentUser }) {
 				<div className='post-post-container'>
 					<div className='post-main-post-container'>
 						<h2>Post Details</h2>
-						<div className='slider-container'>
-							<Slider {...sliderSettings}>
-								{post.img1 && <img src={post.img1} alt='' />}
-								{post.img2 && <img src={post.img2} alt='' />}
-								{post.img3 && <img src={post.img3} alt='' />}
-							</Slider>
-						</div>
-						<p>
-							Posted by:
-							<Link to={`/PetPals/users/${authorId}`}>{' ' + author?.firstName + ' ' + author?.lastName}</Link>
-						</p>
+						<p>Posted by: {post.userId}</p>
 						<p>Animal Type: {post.animalType}</p>
 						<p>Age: {post.age + ' ' + ageFormat}</p>
 						<p>Gender: {post.gender}</p>
 						<p>Hello {post.petDescription}</p>
+						<Link to={`/PetPals/users/${authorId}`}>
+							<button>Contact owner</button>
+						</Link>
 					</div>
-
-					{isLoggedIn ? <Chat authorId={authorId} postId={postId} currentUser={currentUser} /> : null}
 					<div className='profile-sub-profile-container'></div>
 				</div>
 			) : (
