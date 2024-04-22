@@ -45,3 +45,40 @@
 	align-items: flex-start;
 	text-align: center;
 }
+
+.slider-container {
+	max-width: 512px;
+	width: 100%;
+	padding: 0.5rem;
+}
+
+.slider-container img {
+	border-radius: 12px;
+}
+
+.slider-container button,
+.slick-next,
+.slick-prev {
+	z-index: 1;
+	width: 36px;
+	height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100%;
+	box-shadow: none;
+}
+
+.slick-prev {
+	transform: translateX(-100%);
+	left: -0.5rem;
+}
+
+.slick-next {
+	transform: translateX(100%);
+	right: -0.5rem;
+}
+
+.slick-list > div {
+	margin-left: 0;
+}
