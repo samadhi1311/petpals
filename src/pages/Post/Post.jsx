@@ -22,7 +22,7 @@ export default function Post({ isLoggedIn, currentUser }) {
 	const [ageFormat, setAgeFormat] = useState('');
 
 	const { isLoaded } = useJsApiLoader({
-		googleMapsApiKey: 'AIzaSyCEbbsHa_BMoQ7J00ULBTX9_a0NAAOEAxE',
+		googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
 	});
 
 	const sliderSettings = {
