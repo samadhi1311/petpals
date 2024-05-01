@@ -1,3 +1,5 @@
+import { transitions } from '../../global/Transitions';
+import { motion } from 'framer-motion';
 import Shelter from '../../global/assets/Animal shelter-cuate.svg';
 
 import './About.css';
@@ -5,7 +7,7 @@ import './About.css';
 export default function About() {
 	return (
 		<>
-			<main>
+			<motion.main variants={transitions} initial='hidden' animate='visible' exit='exit'>
 				<div className='about-content-panel'>
 					<div className='about-content-text'>
 						<h1 className='about-content-heading'>Connecting potential adopters, animal rescuers, and shelters.</h1>
@@ -38,7 +40,7 @@ export default function About() {
 						</div>
 					</div>
 				</div>
-			</main>
+			</motion.main>
 		</>
 	);
 }

@@ -1,117 +1,64 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import { db } from '../../../firebase.config';
 import { useParams } from 'react-router-dom';
-import { collection, onSnapshot, query, where } from "firebase/firestore";
+import { collection, onSnapshot, query, where } from 'firebase/firestore';
+import { motion } from 'framer-motion';
 import MiniLoader from '../../global/components/MiniLoader/MiniLoader';
 import Pet from '../../global/assets/pet.png';
 import PetHouse from '../../global/assets/pet-house.png';
 import './Profile.css';
+import { transitions } from '../../global/Transitions';
 
-export default function Profile() {
-    const { uid } = useParams();
-    const [user, setUser] = useState(null);
-    const [latitude, setLatitude] = useState(null);
-    const [longitude, setLongitude] = useState(null);
-    const [addressLatitude, setAddressLatitude] = useState(null);
-    const [addressLongitude, setAddressLongitude] = useState(null);
-    const usersCollection = collection(db, "users");
-    const q = query(usersCollection, where("uid", "==", uid));
-    const ProfilePhoto = user?.accountType === "individual" ? Pet : PetHouse;
+export default function Profile({ isLoggedIn, currentUser }) {
+	const { uid } = useParams();
+	const [user, setUser] = useState(null);
+	const usersCollection = collection(db, 'users');
+	const ProfilePhoto = user?.accountType === 'individual' ? Pet : PetHouse;
 
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                onSnapshot(q, (snapshot) => {
-                    const userData = snapshot.docs[0].data();
-                    setUser(userData);
-                    if (userData.address) {
-                        // Perform geocoding to convert the address into coordinates
-                        geocodeAddress(userData.address);
-                    }
-                });
-            } catch (error) {
-                console.error("Error fetching document:", error);
-            }
-        };
+	useEffect(() => {
+		const fetchUserData = async () => {
+			try {
+				const q = query(usersCollection, where('uid', '==', uid));
+				onSnapshot(q, (snapshot) => {
+					const userData = snapshot.docs[0].data();
+					setUser(userData);
+					if (userData.city) {
+						// Perform geocoding to convert the address into coordinates
+						console.log('address', userData.city);
+					}
+				});
+			} catch (error) {
+				console.error('Error fetching document:', error);
+			}
+		};
 
-        fetchUserData();
-    }, [uid]);
+		fetchUserData();
+	}, [uid]);
 
-    const geocodeAddress = (address) => {
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=YOUR_API_KEY`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.results && data.results.length > 0) {
-                    const { lat, lng } = data.results[0].geometry.location;
-                    setAddressLatitude(lat);
-                    setAddressLongitude(lng);
-                } else {
-                    console.error("No results found for the address");
-                }
-            })
-            .catch(error => {
-                console.error("Error geocoding address:", error);
-            });
-    };
-
-    const handleFindLocation = () => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const { latitude, longitude } = position.coords;
-                    setLatitude(latitude);
-                    setLongitude(longitude);
-                },
-                (error) => {
-                    console.error("Error getting geolocation:", error);
-                }
-            );
-        } else {
-            console.error("Geolocation is not supported by this browser.");
-        }
-    };
-
-    return (
-        <main className='profile-page'>
-            {
-                user ?
-                    (
-                        <div className='profile-profile-container'>
-                            <div className="profile-main-profile-container">
-                                <h2>{user.firstName + " " + user.lastName}</h2>
-                                <img src={ProfilePhoto} alt="profile" className='profile-profile-photo' />
-                            </div>
-                            <div className="profile-sub-profile-container">
-                                <p>Account type: {user.accountType}</p>
-                                <p>Contact: {user.contactNumber}</p>
-                                <p>Address: {user.buildingNumber + ", " + user.street + ", " + user.city + ", " + user.zipCode}</p>
-                                <button onClick={handleFindLocation}>Find Location</button>
-                                {latitude && longitude && (
-                                    <div>
-                                        <p>Latitude: {latitude}</p>
-                                        <p>Longitude: {longitude}</p>
-                                    </div>
-                                )}
-                                {addressLatitude && addressLongitude && (
-                                    <div>
-                                        <p>Address Latitude: {addressLatitude}</p>
-                                        <p>Address Longitude: {addressLongitude}</p>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    ) : <MiniLoader title="Please Wait" message="Fetching user data" />
-            }
-        </main>
-    )
+	return (
+		<motion.main className='profile-page' variants={transitions} initial='hidden' animate='visible' exit='exit'>
+			{user ? (
+				<div className='profile-profile-container'>
+					<div className='profile-main-profile-container'>
+						<h2>{user.firstName + ' ' + user.lastName}</h2>
+						<img src={ProfilePhoto} alt='profile' className='profile-profile-photo' />
+					</div>
+					<div className='profile-sub-profile-container'>
+						<p>Account type: {user.accountType}</p>
+						<p>Contact: {user.contactNumber}</p>
+						<p>Address: {user.buildingNumber + ', ' + user.street + ', ' + user.city + ', ' + user.zipCode}</p>
+						<button>Find Location</button>
+					</div>
+				</div>
+			) : (
+				<MiniLoader title='Please Wait' message='Fetching user data' />
+			)}
+		</motion.main>
+	);
 }
 
-
-
-
-
-
-{/**
+{
+	/**
 !!!!My Google Cloud authentication for the payment details is said to be invalid
 
 
@@ -206,4 +153,5 @@ export default function Profile() {
     )
 }
 
-*/}
+*/
+}

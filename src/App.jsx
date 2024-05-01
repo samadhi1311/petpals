@@ -2,8 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { auth } from '../firebase.config';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import Navigation from './global/components/Navigation/Navigation';
-import Chat from './global/components/Chat/Chat';
 import About from './pages/About/About';
 import Add from './pages/Add/Add';
 import Blog from './pages/Blog/Blog';
@@ -40,21 +40,23 @@ function App() {
 					<Navigation isLoggedIn={isLoggedIn} />
 				</header>
 
-				<Routes>
-					<Route path='PetPals/' element={<Home />} />
-					<Route path='PetPals/users/:uid' element={<Profile isLoggedIn={isLoggedIn} />} />
-					<Route path='PetPals/users/me' element={<MyProfile isLoggedIn={isLoggedIn} />} />
-					<Route path='PetPals/posts/:postId' element={<Post isLoggedIn={isLoggedIn} currentUser={currentUser} />} />
-					<Route path='PetPals/about' element={<About />} />
-					<Route path='PetPals/add' element={<Add isLoggedIn={isLoggedIn} />} />
-					<Route path='PetPals/blog' element={<Blog />} />
-					<Route path='PetPals/discover' element={<Discover isLoggedIn={isLoggedIn} />} />
-					<Route path='PetPals/login' element={<Login />} />
-					<Route path='PetPals/forgot-password' element={<ResetPassword isLoggedIn={isLoggedIn} />} />
-					<Route path='PetPals/signup' element={<SignUp />} />
-					<Route path='PetPals/PetPals' element={<Test />} />
-					<Route path='PetPals/*' element={<PageNotFound />} />
-				</Routes>
+				<AnimatePresence>
+					<Routes>
+						<Route path='PetPals/' element={<Home />} />
+						<Route path='PetPals/users/:uid' element={<Profile isLoggedIn={isLoggedIn} currentUser={currentUser} />} />
+						<Route path='PetPals/users/me' element={<MyProfile isLoggedIn={isLoggedIn} />} />
+						<Route path='PetPals/posts/:postId' element={<Post isLoggedIn={isLoggedIn} currentUser={currentUser} />} />
+						<Route path='PetPals/about' element={<About />} />
+						<Route path='PetPals/add' element={<Add isLoggedIn={isLoggedIn} />} />
+						<Route path='PetPals/blog' element={<Blog />} />
+						<Route path='PetPals/discover' element={<Discover isLoggedIn={isLoggedIn} />} />
+						<Route path='PetPals/login' element={<Login />} />
+						<Route path='PetPals/forgot-password' element={<ResetPassword isLoggedIn={isLoggedIn} />} />
+						<Route path='PetPals/signup' element={<SignUp />} />
+						<Route path='PetPals/PetPals' element={<Test />} />
+						<Route path='PetPals/*' element={<PageNotFound />} />
+					</Routes>
+				</AnimatePresence>
 			</BrowserRouter>
 		</>
 	);

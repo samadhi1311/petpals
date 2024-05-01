@@ -9,6 +9,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Modal from '../../global/components/Modal/Modal';
 import { useNavigate } from 'react-router-dom';
 import './Add.css';
+import { transitions } from '../../global/Transitions';
 
 export default function Add({ isLoggedIn }) {
 	let uid = '';
@@ -179,7 +180,7 @@ export default function Add({ isLoggedIn }) {
 	}
 
 	return (
-		<main className='add-page'>
+		<motion.main className='add-page' variants={transitions} initial='hidden' animate='visible' exit='exit'>
 			<AnimatePresence mode='wait'>
 				{isLoggedIn ? (
 					<>
@@ -384,6 +385,6 @@ export default function Add({ isLoggedIn }) {
 					<Modal title="You can't do that!" content='Only registred users can add pets. Please log in or create a new profile.' success={false} navigate='/Petpals/login' />
 				)}
 			</AnimatePresence>
-		</main>
+		</motion.main>
 	);
 }

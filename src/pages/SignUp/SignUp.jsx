@@ -10,6 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import MiniLoader from '../../global/components/MiniLoader/MiniLoader';
 import './SignUp.css';
 import GoogleIcon from '../../global/assets/icons8-google.svg';
+import { transitions } from '../../global/Transitions';
 
 export default function SignUp() {
 	// Object to store authentication data
@@ -368,8 +369,8 @@ export default function SignUp() {
 	const steps = [<StepOne />, <StepTwo />];
 
 	return (
-		<section className='signup-page'>
+		<motion.section className='signup-page' variants={transitions} initial='hidden' animate='visible' exit='exit'>
 			<AnimatePresence mode='wait'>{loading ? <MiniLoader title='Please wait.' message='We are configuring your account...' /> : steps[currentStep]}</AnimatePresence>
-		</section>
+		</motion.section>
 	);
 }

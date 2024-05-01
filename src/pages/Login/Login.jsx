@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 import { AnimatePresence, motion } from 'framer-motion';
 import './Login.css';
 import GoogleIcon from '../../global/assets/icons8-google.svg';
+import { transitions } from '../../global/Transitions';
 
 export default function Login() {
 	const [loginData, setLoginData] = useState({
@@ -35,7 +36,7 @@ export default function Login() {
 		navigate('/PetPals');
 	}
 	return (
-		<section className='login-page'>
+		<motion.section className='login-page' variants={transitions} initial='hidden' animate='visible' exit='exit'>
 			<AnimatePresence mode='wait'>
 				<Formik initialValues={loginData} validationSchema={validationSchema} onSubmit={handleSubmit}>
 					{() => (
@@ -93,6 +94,6 @@ export default function Login() {
 					)}
 				</Formik>
 			</AnimatePresence>
-		</section>
+		</motion.section>
 	);
 }

@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { transitions } from '../../global/Transitions';
 import './Test.css';
 
 export default function Test() {
 	return (
-		<main className='test-main'>
+		<motion.main className='test-main' variants={transitions} initial='hidden' animate='visible' exit='exit'>
 			<section className='test-main-container'>
 				<div className='test-container'>
 					<h2 className='test-main-heading'>_welcome beta tester!</h2>
@@ -16,6 +18,6 @@ export default function Test() {
 					</Link>
 				</div>
 			</section>
-		</main>
+		</motion.main>
 	);
 }

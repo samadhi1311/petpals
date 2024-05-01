@@ -5,6 +5,7 @@ import { db } from '../../../firebase.config';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import ReactSlider from 'react-slider';
 import { AnimatePresence, motion } from 'framer-motion';
+import { transitions } from '../../global/Transitions';
 
 export default function Discover() {
 	const [posts, setPosts] = useState([]);
@@ -78,7 +79,7 @@ export default function Discover() {
 	}, [filterOptions]); // Fetch posts on component mount
 
 	return (
-		<main className='discover-page'>
+		<motion.main className='discover-page' variants={transitions} initial='hidden' animate='visible' exit='exit'>
 			<AnimatePresence mode='wait'>
 				<div className='discover-main-container'>
 					{showFilters ? (
@@ -249,6 +250,6 @@ export default function Discover() {
 					</motion.div>
 				</div>
 			</AnimatePresence>
-		</main>
+		</motion.main>
 	);
 }
