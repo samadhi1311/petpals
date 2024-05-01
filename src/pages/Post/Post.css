@@ -2,16 +2,17 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	min-height: 90vh;
+	padding-top: 1rem;
 }
 
 .post-post-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 1rem;
+	justify-content: center;
+	gap: 2rem;
 	width: 95%;
-	max-width: 768px;
+	margin-top: 1rem;
 	padding: 1rem;
 	border-radius: 12px;
 	background-color: hsla(0, 100%, 100%, 0.5);
@@ -22,33 +23,18 @@
 
 .post-main-post-container {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
-	gap: 1rem;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-}
-
-.post-post-photo {
-	width: 128px;
+	gap: 4rem;
 	padding: 1rem;
-	border-radius: 12px;
-	background-color: hsla(0, 100%, 100%, 0.5);
-	backdrop-filter: blur(64px);
-	box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.post-sub-post-container {
-	width: max-content;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	text-align: center;
+.post-text-container p:not(:nth-last-child(1)) {
+	text-transform: capitalize;
 }
 
 .slider-container {
 	max-width: 512px;
-	width: 100%;
 	padding: 0.5rem;
 }
 
@@ -70,15 +56,38 @@
 }
 
 .slick-prev {
-	transform: translateX(-100%);
-	left: -0.5rem;
+	transform: translateX(+50%);
+	left: -1rem;
 }
 
 .slick-next {
-	transform: translateX(100%);
-	right: -0.5rem;
+	transform: translateX(-50%);
+	right: -1rem;
 }
 
 .slick-list > div {
 	margin-left: 0;
+}
+
+.post-directions {
+	width: 100%;
+	padding: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid black;
+}
+
+.post-map-container {
+	width: 50%;
+	aspect-ratio: 1;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.directions-container {
+	width: 50%;
+	display: block;
+	flex-direction: column;
+	align-items: flex-start;
 }
