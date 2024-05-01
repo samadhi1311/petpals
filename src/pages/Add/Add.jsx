@@ -110,7 +110,7 @@ export default function Add({ isLoggedIn }) {
 			}
 
 			new Compressor(file, {
-				quality: 0.8,
+				quality: 1,
 				resize: 'cover',
 				width: 512,
 				height: 512,
