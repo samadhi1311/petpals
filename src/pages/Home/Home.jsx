@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 import HeroImage from '../../global/assets/Adopt a pet-bro.svg';
 import Logo from '../../global/assets/logo.svg';
+import { transitions } from '../../global/Transitions';
 
 export default function Home() {
 	const controlsDiscover = useAnimation();
@@ -61,7 +62,7 @@ export default function Home() {
 
 	return (
 		<>
-			<main className='home-page'>
+			<motion.main className='home-page' variants={transitions} initial='hidden' animate='visible' exit='exit'>
 				<section className='home-hero-section'>
 					<div className='home-hero-div-left'>
 						<h1 className='home-hero-heading'>
@@ -83,7 +84,7 @@ export default function Home() {
 						<img src={HeroImage} style={{ width: '100%' }}></img>
 					</div>
 				</section>
-			</main>
+			</motion.main>
 
 			<section ref={refDiscover} className='home-sub-section home-discover-section'>
 				<motion.div initial={{ opacity: 0, x: 50 }} animate={controlsDiscover}>
@@ -171,7 +172,6 @@ export default function Home() {
 						<Link to='https://github.com/PetPals-Team/PetPals'>Contribute on GitHub</Link>
 					</div>
 				</div>
-
 				<div className='home-footer-copyright'>
 					<p>&copy; {new Date().getFullYear()} PetPals Team. All Rights Reserved.</p>
 				</div>
