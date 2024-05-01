@@ -170,7 +170,7 @@
 	width: 20px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 640px) {
 	.rcw-conversation-container .rcw-header {
 		border-radius: 0;
 		flex-shrink: 0;
@@ -473,9 +473,9 @@
 	-webkit-animation-delay: 0;
 	-moz-animation-delay: 0;
 	animation-delay: 0;
-	-webkit-animation-duration: 0.5s;
-	-moz-animation-duration: 0.5s;
-	animation-duration: 0.5s;
+	-webkit-animation-duration: 0.3s;
+	-moz-animation-duration: 0.3s;
+	animation-duration: 0.3s;
 	-webkit-animation-fill-mode: forwards;
 	-moz-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
