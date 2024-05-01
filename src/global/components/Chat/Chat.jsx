@@ -45,12 +45,25 @@ function Chat({ postId, authorId, currentUser }) {
 
 	// Custom launcher for the chat widget
 	const getCustomLauncher = (handleToggle) => (
-		<button onClick={handleToggle}>
-			<i className='bx bx-message bx-sm'></i>
+		<button onClick={handleToggle} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+			<i className='bx bx-message bx-sm' style={{ marginTop: '8px', marginRight: '0.5rem' }}></i>
+			Chat about this pet
 		</button>
 	);
 
-	return <Widget handleNewUserMessage={handleNewUserMessage} profileAvatar={Logo} title={`Chat with ${authorId}`} subtitle='Start chatting!' showCloseButton={true} fullScreenMode={false} />;
+	return (
+		<Widget
+			handleNewUserMessage={handleNewUserMessage}
+			profileAvatar={Logo}
+			title={`Chat with ${authorId}`}
+			subtitle='Start chatting!'
+			showCloseButton={true}
+			fullScreenMode={false}
+			showTimeStamps={false}
+			showBadge={false}
+			launcher={getCustomLauncher}
+		/>
+	);
 }
 
 export default Chat;
