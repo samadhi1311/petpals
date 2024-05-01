@@ -15,6 +15,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@react-google-maps/api": "^2.19.3",
 		"@ryaneewx/react-chat-widget": "^3.4.1",
 		"boxicons": "^2.1.4",
 		"compressorjs": "^1.2.1",
