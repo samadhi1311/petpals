@@ -157,3 +157,13 @@ option {
 	font-size: smaller;
 	top: -0.5rem;
 }
+
+.signup-google img {
+	width: 1.5rem !important;
+	padding: 0 !important;
+	margin-right: 1rem;
+}
+
+.sign-up-login {
+	margin-top: 1rem;
+}

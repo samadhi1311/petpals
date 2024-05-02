@@ -183,7 +183,7 @@ export default function SignUp() {
 
 						<div className='signup-social'>
 							<button className='signup-google' onClick={signUpWithGoogle}>
-								<img src={GoogleIcon} alt='Google' style={{ width: '1rem', height: '1rem', paddingRight: '1rem' }} /> Google
+								<img src={GoogleIcon} alt='Google' style={{ width: '1.5rem', height: '1.5rem', paddingRight: '1rem' }} /> Google
 							</button>
 						</div>
 
