@@ -75,18 +75,18 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 1px solid black;
 }
 
 .post-map-container {
-	width: 50%;
+	width: 60%;
 	aspect-ratio: 1;
 	border-radius: 12px;
 	overflow: hidden;
 }
 
 .directions-container {
-	width: 50%;
+	width: 40%;
+	aspect-ratio: 40/60;
 	display: block;
 	flex-direction: column;
 	align-items: flex-start;

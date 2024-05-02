@@ -17,6 +17,7 @@
 	"dependencies": {
 		"@react-google-maps/api": "^2.19.3",
 		"@ryaneewx/react-chat-widget": "^3.4.1",
+		"@vis.gl/react-google-maps": "^0.9.0",
 		"boxicons": "^2.1.4",
 		"compressorjs": "^1.2.1",
 		"firebase": "^10.7.1",

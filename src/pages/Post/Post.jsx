@@ -4,11 +4,11 @@ import { useParams } from 'react-router-dom';
 import { collection, query, doc, getDoc, getDocs, where } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useJsApiLoader, GoogleMap, Marker } from '@react-google-maps/api';
 import Chat from '../../global/components/Chat/Chat';
 import MiniLoader from '../../global/components/MiniLoader/MiniLoader';
 import Slider from 'react-slick';
 import { transitions } from '../../global/Transitions';
+import { APIProvider, Map, useMapsLibrary, useMap } from '@vis.gl/react-google-maps';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -19,11 +19,56 @@ export default function Post({ isLoggedIn, currentUser }) {
 	const [post, setPost] = useState(null);
 	const [authorId, setAuthorId] = useState('');
 	const [author, setAuthor] = useState(null);
+	const [user, setUser] = useState(null);
 	const [ageFormat, setAgeFormat] = useState('');
+	const [origin, setOrigin] = useState('');
+	const [destination, setDestination] = useState('');
+	const [distance, setDistance] = useState('');
 
-	const { isLoaded } = useJsApiLoader({
-		googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
-	});
+	// Chunnakkam coordinates
+	// No. 60, Iynar Kovil Veethy, Chunnakkam
+	const position = { lat: 9.7376, lng: 80.0245 };
+
+	function Directions() {
+		const map = useMap();
+		const routesLibrary = useMapsLibrary('routes');
+		const [directionsService, setDirectionsService] = useState(/** google.maps.DirectionService*/ null);
+		const [directionsRenderer, setDirectionsRenderer] = useState(/** google.maps.DirectionRenderer*/ null);
+		const [routes, setRoutes] = useState(/** google.maps.DirectionsRoute[] */ null);
+
+		useEffect(() => {
+			if (!map || !routesLibrary) {
+				return;
+			}
+			setDirectionsService(new routesLibrary.DirectionsService());
+			setDirectionsRenderer(new routesLibrary.DirectionsRenderer({ map }));
+		}, [routesLibrary, map]);
+
+		useEffect(() => {
+			if (!directionsService || !directionsRenderer) {
+				return;
+			}
+
+			directionsService
+				.route({
+					origin: origin,
+					destination: destination,
+					travelMode: google.maps.TravelMode.DRIVING,
+				})
+				.then((response) => {
+					directionsRenderer.setDirections(response);
+					setRoutes(response.routes);
+				});
+		}, [directionsService, directionsRenderer]);
+
+		useEffect(() => {
+			if (routes && routes[0] && routes[0].legs[0] && routes[0].legs[0].distance && routes[0].legs[0].distance.value) {
+				setDistance(routes[0].legs[0].distance.value); // Set distance only when it's available
+			}
+		}, [routes]);
+
+		return null;
+	}
 
 	const sliderSettings = {
 		dots: true,
@@ -84,10 +129,41 @@ export default function Post({ isLoggedIn, currentUser }) {
 		}
 	}, [authorId]);
 
+	useEffect(() => {
+		const fetchUserData = async () => {
+			try {
+				// Fetch user data based on userId
+				const q = query(usersCollection, where('uid', '==', currentUser.uid));
+				const querySnapshot = await getDocs(q);
+				if (!querySnapshot.empty) {
+					// Check if any documents are returned
+					setUser(querySnapshot.docs[0].data());
+					console.log(querySnapshot.docs[0].data());
+				}
+			} catch (error) {
+				console.error('Error fetching author:', error);
+			}
+		};
+
+		if (currentUser) {
+			fetchUserData();
+		}
+	}, [currentUser]);
+
+	useEffect(() => {
+		setDestination(author?.buildingNumber + ', ' + author?.street + ', ' + author?.city + ', ' + author?.district);
+		console.log(destination);
+	}, [author, destination]);
+
+	useEffect(() => {
+		setOrigin(user?.buildingNumber + ', ' + user?.street + ', ' + user?.city + ', ' + user?.district);
+		console.log(origin);
+	}, [author, origin]);
+
 	return (
 		<>
 			<motion.main className='post-page'>
-				{post && isLoaded ? (
+				{post ? (
 					<div className='post-post-container'>
 						<div className='post-main-post-container'>
 							<div className='post-img-container'>
@@ -116,13 +192,17 @@ export default function Post({ isLoggedIn, currentUser }) {
 						<div className='post-directions'>
 							<div className='directions-container'>
 								<h2>Find Directions</h2>
-								<h3>Your location: </h3>
-								<h3>Destination: </h3>
+								<br />
+								<h3>Your location: {origin}</h3>
+								<h3>Destination: {destination}</h3>
+								<h3>Distance: {distance / 1000 + ' km'}</h3>
 							</div>
 							<div className='post-map-container'>
-								<GoogleMap mapContainerStyle={{ height: '100%', width: '100%' }} zoom={12} center={{ lat: 8.7, lng: 34.5 }} options={{ disableDefaultUI: true }}>
-									<Marker position={{ lat: 8.7, lng: 34.5 }} />
-								</GoogleMap>
+								<APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
+									<Map mapId={import.meta.env.VITE_GOOGLE_MAPS_ID}>
+										<Directions />
+									</Map>
+								</APIProvider>
 							</div>
 						</div>
 					</div>
