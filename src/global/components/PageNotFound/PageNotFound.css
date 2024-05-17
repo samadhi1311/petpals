@@ -1,55 +1,59 @@
 .error-404 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 95%;
-    min-height: 90vh;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 95%;
+	min-height: 100vh;
 }
 
 .error-404-image,
 .error-404-text {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
+	display: flex;
+	flex-direction: column;
+	width: 50%;
 }
 
 .cat-astronaut {
-    width: 100%;
+	width: 100%;
 }
 
 .error-404-text h1 {
-    font-size: 5rem;
-    color: white;
-    text-shadow: 0px 0px 24px rgba(0, 0, 0, 0.1);
-    margin: 0;
-    padding-bottom: 1rem;
+	font-size: 5rem;
+	color: #7178f6;
+	text-shadow: 0px 0px 24px rgba(255, 255, 255, 081);
+	margin: 0;
+	padding-bottom: 1rem;
+}
+
+.error-404-text p {
+	margin: 1rem 0;
 }
 
 .error-404-button {
-    width: fit-content;
+	width: fit-content;
 }
 
 @media screen and (max-width: 768px) {
-    .error-404 {
-        flex-direction: column;
-        width: 100%;
-    }
+	.error-404 {
+		flex-direction: column;
+		width: 100%;
+	}
 
-    .error-404-image,
-    .error-404-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        text-align: center;
-    }
+	.error-404-image,
+	.error-404-text {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		text-align: center;
+	}
 
-    .error-404-button {
-        align-self: center;
-    }
+	.error-404-button {
+		align-self: center;
+	}
 
-    .error-404-text h1 {
-        font-size: 3rem;
-    }
+	.error-404-text h1 {
+		font-size: 3rem;
+	}
 }

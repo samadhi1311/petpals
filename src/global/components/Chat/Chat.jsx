@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Widget, addResponseMessage, addUserMessage, dropMessages } from '@ryaneewx/react-chat-widget';
 import { db } from '../../../../firebase.config';
 import { collection, addDoc, doc, serverTimestamp, onSnapshot, query, orderBy } from 'firebase/firestore';
+import Modal from '../Modal/Modal';
 import Logo from '../../assets/LogoOutline.svg';
 import './styles.css';
 
-function Chat({ postId, authorId, currentUser }) {
+function Chat({ postId, authorId, currentUser, author }) {
 	const [messages, setMessages] = useState([]);
 
 	useEffect(() => {
@@ -25,9 +26,8 @@ function Chat({ postId, authorId, currentUser }) {
 				senderId: currentUser.uid,
 				timestamp: serverTimestamp(),
 			});
-			console.log('currentUser: ', currentUser.uid);
 		} catch (error) {
-			console.error('Error adding message:', error);
+			return <Modal success={false} title='Error' content={error.message} />;
 		}
 	};
 
@@ -55,7 +55,7 @@ function Chat({ postId, authorId, currentUser }) {
 		<Widget
 			handleNewUserMessage={handleNewUserMessage}
 			profileAvatar={Logo}
-			title={`Chat with ${authorId}`}
+			title={`Chat with ${author.firstName} ${author.lastName}`}
 			subtitle='Start chatting!'
 			showCloseButton={true}
 			fullScreenMode={false}

@@ -1,62 +1,60 @@
 .modal-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 999;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(16px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 999;
+	background-color: hsla(0, 0%, 100%, 0.1);
+	backdrop-filter: blur(8px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .modal {
-    width: 90%;
-    max-width: 512px;
-    padding: .5rem;
-    text-align: center;
-    border-radius: 12px;
-    background-color: white;
-    backdrop-filter: blur(64px);
-    border: 1px solid #ccc;
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05);
+	width: 90%;
+	max-width: 512px;
+	padding: 0.5rem;
+	text-align: center;
+	border-radius: 12px;
+	background-color: var(--acrylic-bg);
+	backdrop-filter: var(--acrylic-blur);
+	border: var(--acrylic-border);
+	box-shadow: var(--acrylic-shadow);
 }
 
 .title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    gap: 1rem;
-    padding: 2rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	gap: 1rem;
+	margin: 1rem 0;
 }
 
 .close-button {
-    width: 100%;
-    text-align: right;
+	width: 100%;
+	text-align: right;
 }
 
 .bx-x {
-    color: black;
-    cursor: pointer;
-    transition: all 300ms;
+	color: black;
+	cursor: pointer;
+	transition: all 300ms;
 }
 
 .bx-x:hover {
-    color: white;
+	color: #7178f6;
 }
 
 .content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 2rem;
-    padding-top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem 0;
 }
 
 .content p {
-    width: 60%;
-    text-align: left;
+	text-align: left;
 }

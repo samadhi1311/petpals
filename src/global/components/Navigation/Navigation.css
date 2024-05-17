@@ -4,9 +4,25 @@ nav {
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem 1rem;
-	background-color: white;
+	border-radius: 18px;
+
+	background-color: hsla(0, 0%, 100%, 0.95);
+	border: var(--acrylic-border);
+	box-shadow: var(--acrylic-shadow);
 	z-index: 50;
 	max-height: 7vh;
+	margin: 1rem;
+	position: fixed;
+	box-sizing: border-box;
+	width: calc(100% - 2rem);
+}
+
+nav a {
+	color: black;
+}
+
+nav a:hover {
+	color: #7178f6;
 }
 
 .nav-logo {
@@ -56,6 +72,10 @@ nav ul li button {
 
 nav ul {
 	float: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 nav ul li {
@@ -76,6 +96,11 @@ nav ul li Link {
 }
 
 @media screen and (max-width: 768px) {
+	nav ul {
+		flex-direction: column;
+		justify-content: center;
+	}
+
 	.logo {
 		padding: 0;
 	}
@@ -89,9 +114,9 @@ nav ul li Link {
 		z-index: -1;
 		opacity: 0;
 		transition: all 300ms ease-in-out;
-		background: rgba(255, 255, 255, 0.8);
+		background: rgba(255, 255, 255, 0.75);
 		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-		backdrop-filter: blur(9px);
+		backdrop-filter: blur(16px);
 	}
 
 	.nav-wrapper ul {

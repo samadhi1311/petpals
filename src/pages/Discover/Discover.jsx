@@ -4,8 +4,9 @@ import './Discover.css';
 import { db } from '../../../firebase.config';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import ReactSlider from 'react-slider';
-import { AnimatePresence, motion } from 'framer-motion';
+import { color, motion } from 'framer-motion';
 import { transitions } from '../../global/Transitions';
+import Modal from '../../global/components/Modal/Modal';
 
 export default function Discover() {
 	const [posts, setPosts] = useState([]);
@@ -52,7 +53,6 @@ export default function Discover() {
 				if (filterOptions.ageEnabled) {
 					ageRange.push(filterOptions.age[0]);
 					ageRange.push(filterOptions.age[1]);
-					console.log(ageRange);
 					q = query(
 						postsCollectionRef,
 						where('animalType', 'in', animalTypes),
@@ -69,9 +69,8 @@ export default function Discover() {
 				const postData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 				setPosts(postData);
 				setLoading(false); // Set loading to false after fetching data
-				console.log('Posts fetched:', postData);
 			} catch (error) {
-				console.error('Error fetching posts:', error);
+				return <Modal success={false} title='Error' content={error.message} />;
 			}
 		};
 
@@ -79,8 +78,9 @@ export default function Discover() {
 	}, [filterOptions]); // Fetch posts on component mount
 
 	return (
-		<motion.main className='discover-page' variants={transitions} initial='hidden' animate='visible' exit='exit'>
-			<AnimatePresence mode='wait'>
+		<>
+			<div className='subtle-gradient-background'></div>
+			<motion.main className='discover-page' variants={transitions} initial='hidden' animate='visible' exit='exit'>
 				<div className='discover-main-container'>
 					{showFilters ? (
 						<motion.div
@@ -158,75 +158,83 @@ export default function Discover() {
 
 							<div className='age-range'>
 								<p className='filter-option-text'>- Age range -</p>
-								<label htmlFor='age' className='age'>
-									Set custom age range
-								</label>
-								<input
-									type='checkbox'
-									name='ageEnabled'
-									value='ageEnabled'
-									id='ageEnabled'
-									checked={filterOptions.ageEnabled}
-									onChange={(e) => setFilterOptions({ ...filterOptions, ageEnabled: e.target.checked })}
-								/>
-								<ReactSlider
-									className='horizontal-slider'
-									thumbClassName='example-thumb'
-									trackClassName='example-track'
-									defaultValue={filterOptions.age}
-									min={1}
-									max={30}
-									ariaLabel={['Lower thumb', 'Upper thumb']}
-									ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
-									renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
-									pearling
-									minDistance={1}
-									onAfterChange={(newValue) => setFilterOptions({ ...filterOptions, age: newValue })}
-									disabled={!filterOptions.ageEnabled}
-								/>
+								<span className='age-toggle'>
+									<input
+										type='checkbox'
+										name='ageEnabled'
+										value='ageEnabled'
+										className='age'
+										id='ageEnabled'
+										checked={filterOptions.ageEnabled}
+										onChange={(e) => setFilterOptions({ ...filterOptions, ageEnabled: e.target.checked })}
+									/>
+									<label htmlFor='ageEnabled' className='age'>
+										Enable age range
+									</label>
+								</span>
 
-								<br />
+								<div style={{ opacity: filterOptions.ageEnabled ? '1' : '0.5', transition: 'opacity 300ms ease' }}>
+									<ReactSlider
+										className='horizontal-slider'
+										thumbClassName='example-thumb'
+										trackClassName='example-track'
+										defaultValue={filterOptions.age}
+										min={1}
+										max={30}
+										ariaLabel={['Lower thumb', 'Upper thumb']}
+										ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
+										renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+										pearling
+										minDistance={1}
+										onAfterChange={(newValue) => setFilterOptions({ ...filterOptions, age: newValue })}
+										disabled={!filterOptions.ageEnabled}
+									/>
 
-								<div className='discover-age-format-selector'>
-									<div className='discover-radio-inputs'>
-										<label className='discover-radio'>
-											<input
-												type='radio'
-												name='ageFormat'
-												value='days'
-												onChange={(e) => setFilterOptions({ ...filterOptions, ageFormat: e.target.value })}
-												disabled={!filterOptions.ageEnabled}
-											/>
-											<span className='discover-name'>Days</span>
-										</label>
+									<br />
 
-										<label className='discover-radio'>
-											<input
-												type='radio'
-												name='ageFormat'
-												value='months'
-												onChange={(e) => setFilterOptions({ ...filterOptions, ageFormat: e.target.value })}
-												disabled={!filterOptions.ageEnabled}
-											/>
-											<span className='discover-name'>Months</span>
-										</label>
+									<div className='discover-age-format-selector'>
+										<div className='discover-radio-inputs'>
+											<label className='discover-radio'>
+												<input
+													type='radio'
+													name='ageFormat'
+													value='days'
+													onChange={(e) => setFilterOptions({ ...filterOptions, ageFormat: e.target.value })}
+													disabled={!filterOptions.ageEnabled}
+												/>
+												<span className='discover-name'>Days</span>
+											</label>
 
-										<label className='discover-radio'>
-											<input
-												type='radio'
-												name='ageFormat'
-												value='years'
-												onChange={(e) => setFilterOptions({ ...filterOptions, ageFormat: e.target.value })}
-												disabled={!filterOptions.ageEnabled}
-											/>
-											<span className='discover-name'>Years</span>
-										</label>
+											<label className='discover-radio'>
+												<input
+													type='radio'
+													name='ageFormat'
+													value='months'
+													defaultChecked
+													onChange={(e) => setFilterOptions({ ...filterOptions, ageFormat: e.target.value })}
+													disabled={!filterOptions.ageEnabled}
+												/>
+												<span className='discover-name'>Months</span>
+											</label>
+
+											<label className='discover-radio'>
+												<input
+													type='radio'
+													name='ageFormat'
+													value='years'
+													onChange={(e) => setFilterOptions({ ...filterOptions, ageFormat: e.target.value })}
+													disabled={!filterOptions.ageEnabled}
+												/>
+												<span className='discover-name'>Years</span>
+											</label>
+										</div>
 									</div>
 								</div>
 							</div>
 						</motion.div>
 					) : (
 						<button className='filter-toggle' onClick={() => setShowFilters(true)}>
+							<i className='bx bx-slider-alt bx-sm'></i>
 							Filters
 						</button>
 					)}
@@ -249,7 +257,7 @@ export default function Discover() {
 						))}
 					</motion.div>
 				</div>
-			</AnimatePresence>
-		</motion.main>
+			</motion.main>
+		</>
 	);
 }

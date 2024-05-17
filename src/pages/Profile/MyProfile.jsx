@@ -47,10 +47,9 @@ export default function MyProfile() {
 			try {
 				onSnapshot(q, (snapshot) => {
 					setUser(snapshot.docs[0]?.data()); // Use optional chaining to avoid errors if the data is null
-					console.log(snapshot.docs[0]?.data());
 				});
 			} catch (error) {
-				console.error('Error fetching document:', error);
+				return <Modal success={false} title='Error' content={error.message} />;
 			}
 		};
 
@@ -58,23 +57,26 @@ export default function MyProfile() {
 	}, [uid]);
 
 	return (
-		<main className='profile-page'>
-			{user ? (
-				<div className='profile-profile-container'>
-					<div className='profile-main-profile-container'>
-						<h2>{user ? user.firstName + ' ' + user.lastName : ''}</h2>
-						<img src={ProfilePhoto} alt='profile' className='profile-profile-photo' />
+		<>
+			<div className='subtle-gradient-background'></div>
+			<main className='profile-page'>
+				{user ? (
+					<div className='profile-profile-container'>
+						<div className='profile-main-profile-container'>
+							<h2>{user ? user.firstName + ' ' + user.lastName : ''}</h2>
+							<img src={ProfilePhoto} alt='profile photo' className='profile-profile-photo' />
+						</div>
+						<div className='profile-sub-profile-container'>
+							<p>Account type: {user ? user.accountType : ''}</p>
+							<p>Contact: {user ? user.contactNumber : ''}</p>
+							<p>Address: {user ? user.buildingNumber + ', ' + user.street + ', ' + user.city + ', ' + user.zipCode : ''}</p>
+							<button onClick={handleLogOut}>Log Out</button>
+						</div>
 					</div>
-					<div className='profile-sub-profile-container'>
-						<p>Account type: {user ? user.accountType : ''}</p>
-						<p>Contact: {user ? user.contactNumber : ''}</p>
-						<p>Address: {user ? user.buildingNumber + ', ' + user.street + ', ' + user.city + ', ' + user.zipCode : ''}</p>
-						<button onClick={handleLogOut}>Log Out</button>
-					</div>
-				</div>
-			) : (
-				<MiniLoader title='Please Wait' message='Fetching user data' />
-			)}
-		</main>
+				) : (
+					<MiniLoader title='Please Wait' message='Fetching user data' />
+				)}
+			</main>
+		</>
 	);
 }

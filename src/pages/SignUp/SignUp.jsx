@@ -125,11 +125,9 @@ export default function SignUp() {
 		async function stepOneHandleSubmit(values) {
 			setLoading(true);
 			setAuthData(values);
-			console.log('step 1 - auth: ', authData);
 
 			if (values.email && values.password && values.confirmPassword) {
 				setAuthMethod('email');
-				console.log('step 1 - auth: ', authData);
 				await createUserWithEmailAndPassword(auth, values.email, values.password);
 			}
 
@@ -139,7 +137,7 @@ export default function SignUp() {
 
 		return (
 			<Formik initialValues={authData} validationSchema={validationSchema1} onSubmit={stepOneHandleSubmit} enableReinitialize>
-				{() => (
+				{({ values, errors, touched }) => (
 					<motion.div
 						layout
 						className='signup-form-container'
@@ -155,7 +153,7 @@ export default function SignUp() {
 						<h2>Welcome to PetPals</h2>
 
 						<Form className='signup-form'>
-							<Field name='email' placeholder='Email' />
+							<Field type='email' name='email' placeholder='Email' />
 							<div className='signup-warning'>
 								<ErrorMessage name='email' />
 							</div>
@@ -171,19 +169,22 @@ export default function SignUp() {
 							</div>
 
 							<div className='signup-submit'>
-								<button type='submit'>Continue</button>
+								<button type='submit' disabled={!touched.email || !touched.password || !touched.confirmPassword || errors.email || errors.password || errors.confirmPassword}>
+									<i className='bx bxs-user-plus bx-sm'></i>
+									Sign Up
+								</button>
 							</div>
 						</Form>
 
 						<div className='signup-seperator'>
 							<hr />
-							<span>or continue with</span>
+							<span>or sign up with</span>
 							<hr />
 						</div>
 
 						<div className='signup-social'>
 							<button className='signup-google' onClick={signUpWithGoogle}>
-								<img src={GoogleIcon} alt='Google' style={{ width: '1.5rem', height: '1.5rem', paddingRight: '1rem' }} /> Google
+								<i class='bx bxl-google bx-sm'></i> Google
 							</button>
 						</div>
 
@@ -204,7 +205,6 @@ export default function SignUp() {
 			setLoading(true);
 			const uid = auth.currentUser.uid;
 			setPersonalData(values);
-			console.log('step 2 - personal: ', personalData);
 			try {
 				if (values.accountType === 'organization') {
 					const docRef = await addDoc(collection(db, 'users'), {
@@ -220,7 +220,6 @@ export default function SignUp() {
 						zipCode: values.zipCode,
 						contactNumber: values.contactNumber,
 					});
-					console.log('Document written with ID: ', docRef.id);
 				} else if (values.accountType === 'individual') {
 					const docRef = await addDoc(collection(db, 'users'), {
 						uid: uid,
@@ -235,10 +234,9 @@ export default function SignUp() {
 						zipCode: values.zipCode,
 						contactNumber: values.contactNumber,
 					});
-					console.log('Document written with ID: ', docRef.id);
 				}
-			} catch (e) {
-				console.error('Error adding document: ', e);
+			} catch (error) {
+				return <Modal success={false} title='Error' content={error.message} />;
 			}
 
 			navigate('/PetPals');
@@ -247,7 +245,7 @@ export default function SignUp() {
 
 		return (
 			<Formik initialValues={personalData} validationSchema={validationSchema2} onSubmit={stepTwoHandleSubmit} enableReinitialize>
-				{({ values }) => (
+				{({ values, errors, touched }) => (
 					<motion.div
 						layout
 						className='signup-form-container'
@@ -293,12 +291,12 @@ export default function SignUp() {
 									transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.1 }}
 									animate={{ opacity: 1 }}
 									exit={{ opacity: 0 }}>
-									<Field name='firstName' placeholder='First name' />
+									<Field type='text' name='firstName' placeholder='First name' />
 									<div className='signup-warning'>
 										<ErrorMessage name='firstName' />
 									</div>
 
-									<Field name='lastName' placeholder='Last name' />
+									<Field type='text' name='lastName' placeholder='Last name' />
 									<div className='signup-warning'>
 										<ErrorMessage name='lastName' />
 									</div>
@@ -312,24 +310,24 @@ export default function SignUp() {
 									transition={{ type: 'spring', stiffness: 100, damping: 50, delay: 0.1 }}
 									animate={{ opacity: 1 }}
 									exit={{ opacity: 0 }}>
-									<Field name='orgName' placeholder='Organization name' />
+									<Field type='text' name='orgName' placeholder='Organization name' />
 									<div className='signup-warning'>
 										<ErrorMessage name='orgName' />
 									</div>
 								</motion.div>
 							)}
 
-							<Field name='buildingNumber' placeholder='Building/House number' />
+							<Field type='text' name='buildingNumber' placeholder='Building/House number' />
 							<div className='signup-warning'>
 								<ErrorMessage name='buildingNumber' />
 							</div>
 
-							<Field name='street' placeholder='Street name' />
+							<Field type='text' name='street' placeholder='Street name' />
 							<div className='signup-warning'>
 								<ErrorMessage name='street' />
 							</div>
 
-							<Field name='city' placeholder='City' />
+							<Field type='text' name='city' placeholder='City' />
 							<div className='signup-warning'>
 								<ErrorMessage name='city' />
 							</div>
@@ -347,18 +345,26 @@ export default function SignUp() {
 								<ErrorMessage name='district' />
 							</div>
 
-							<Field name='zipCode' placeholder='Zip/Postal code' />
+							<Field type='number' name='zipCode' placeholder='Zip/Postal code' />
 							<div className='signup-warning'>
 								<ErrorMessage name='zipCode' />
 							</div>
 
-							<Field name='contactNumber' placeholder='Contact number' />
+							<Field type='text' name='contactNumber' placeholder='Contact number' />
 							<div className='signup-warning'>
 								<ErrorMessage name='contactNumber' />
 							</div>
 
+							<span>
+								<p>By clicking 'Submit', you agree to our terms of use.</p>
+							</span>
+
 							<div className='signup-action-buttons'>
-								<button type='submit'>Submit</button>
+								<button
+									type='submit'
+									disabled={!touched.contactNumber || errors.buildingNumber || errors.street || errors.city || errors.district || errors.zipCode || errors.contactNumber}>
+									Submit
+								</button>
 							</div>
 						</Form>
 					</motion.div>
@@ -369,8 +375,11 @@ export default function SignUp() {
 	const steps = [<StepOne />, <StepTwo />];
 
 	return (
-		<motion.section className='signup-page' variants={transitions} initial='hidden' animate='visible' exit='exit'>
-			<AnimatePresence mode='wait'>{loading ? <MiniLoader title='Please wait.' message='We are configuring your account...' /> : steps[currentStep]}</AnimatePresence>
-		</motion.section>
+		<>
+			<div className='subtle-gradient-background'></div>
+			<motion.section className='signup-page' variants={transitions} initial='hidden' animate='visible' exit='exit'>
+				<AnimatePresence mode='wait'>{loading ? <MiniLoader title='Please wait.' message='We are configuring your account...' /> : steps[currentStep]}</AnimatePresence>
+			</motion.section>
+		</>
 	);
 }

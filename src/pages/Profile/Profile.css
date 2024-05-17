@@ -1,55 +1,56 @@
 .profile-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 90vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 90vh;
 }
 
 .profile-profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    width: 95%;
-    max-width: 768px;
-    padding: 1rem;
-    border-radius: 12px;
-    background-color: hsla(0, 100%, 100%, 0.5);
-    backdrop-filter: blur(64px);
-    border: 1px solid #ccc;
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	width: 95%;
+	max-width: 768px;
+	padding: 1rem;
+	border-radius: 12px;
+	background-color: var(--acrylic-bg);
+	backdrop-filter: var(--acrylic-blur);
+	border: var(--acrylic-border);
+	box-shadow: var(--acrylic-shadow);
 }
 
 .profile-main-profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
 .profile-profile-photo {
-    width: 128px;
-    padding: 1rem;
-    border-radius: 12px;
-    background-color: hsla(0, 100%, 100%, 0.5);
-    backdrop-filter: blur(64px);
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05);
+	width: 128px;
+	padding: 1rem;
+	border-radius: 12px;
+	background-color: var(--acrylic-bg);
+	backdrop-filter: var(--acrylic-blur);
+	border: var(--acrylic-border);
+	box-shadow: var(--acrylic-shadow);
 }
 
 .profile-sub-profile-container {
-    width: max-content;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: center;
+	width: max-content;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: center;
 }
 
 .fullscreen-map {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }

@@ -15,10 +15,10 @@
 	margin-top: 1rem;
 	padding: 1rem;
 	border-radius: 12px;
-	background-color: hsla(0, 100%, 100%, 0.5);
-	backdrop-filter: blur(64px);
-	border: 1px solid #ccc;
-	box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05);
+	background-color: var(--acrylic-bg);
+	backdrop-filter: var(--acrylic-blur);
+	border: var(--acrylic-border);
+	box-shadow: var(--acrylic-shadow);
 }
 
 .post-main-post-container {

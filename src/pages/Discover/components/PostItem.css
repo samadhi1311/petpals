@@ -1,15 +1,18 @@
 .post-container {
-	min-width: 256px;
+	position: relative;
+	min-width: 320px;
 	height: max-content;
 	padding: 1rem;
 	margin: 0 auto;
 	border-radius: 8px;
-	background-color: white;
+	background-color: #fdfdfd;
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
 }
 
 .post-container .post-img {
-	max-width: 256px;
+	width: 320px;
+	height: 320px;
 	border-radius: 8px;
 }
 
@@ -29,9 +32,31 @@
 	color: white;
 	background-color: #7178f6;
 	border-radius: 8px;
+	pointer-events: none;
 }
 
 .post-container button {
 	width: 100%;
 	margin-top: 1rem;
+}
+
+.post-status {
+	position: absolute;
+	right: 1.25rem;
+	top: 1.25rem;
+	padding: 0.5rem;
+	font-size: 0.75rem;
+	line-height: 1.1;
+	letter-spacing: 0.02rem;
+	font-weight: 600;
+	text-transform: capitalize;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.25rem;
+	background-color: hsla(0, 0%, 100%, 0.75);
+	backdrop-filter: blur(16px);
+	border: 1px solid hsla(0, 0%, 0%, 0.1);
+	pointer-events: none;
 }

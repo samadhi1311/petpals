@@ -1,22 +1,29 @@
 .discover-main-container {
 	width: 100%;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
+	padding-top: calc(7vh + 1rem);
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .discover-filters {
-	width: 384px;
+	max-width: 384px;
 	padding: 1rem;
-	background-color: white;
+	height: fit-content;
+	background-color: var(--acrylic-bg);
+	backdrop-filter: var(--acrylic-blur);
+	border: var(--acrylic-border);
+	box-shadow: var(--acrylic-shadow);
 	display: flex;
 	flex-direction: column;
 	align-items: normal;
 	justify-content: flex-start;
 	border-radius: 8px;
-	margin-left: 1rem;
 	margin-top: 1rem;
-	height: fit-content;
+	margin-right: 1rem;
 }
 
 .filter-text {
@@ -26,16 +33,12 @@
 
 .posts-container {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(calc(256px + 2rem), 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(calc(320px + 2rem), 1fr));
 	grid-template-rows: min-content;
 	row-gap: 2rem;
-	padding: 2rem 1rem;
-	width: calc(100% - 384px + 4rem);
-	margin-left: 1rem;
-	margin-right: 1rem;
+	width: 100%;
 	margin-top: 1rem;
 	border-radius: 8px;
-	background-color: hsla(0, 100%, 100%, 0.8);
 }
 
 .filter-toggle {
@@ -43,7 +46,15 @@
 	height: max-content;
 	margin-top: 1rem;
 	justify-self: center;
-	margin-left: 1rem;
+}
+
+.age-toggle {
+	display: flex;
+}
+
+.age-toggle input {
+	width: 1rem;
+	margin-right: 0.5rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -63,6 +74,7 @@
 		position: fixed;
 		display: flex;
 		box-shadow: 0px 0px 8px hsla(0, 100%, 0%, 0.3);
+		z-index: 1;
 	}
 
 	.filter-toggle {
@@ -70,6 +82,7 @@
 		bottom: 1rem;
 		left: 50vw;
 		transform: translateX(-50%);
+		z-index: 1;
 	}
 
 	.posts-container {
@@ -96,6 +109,7 @@
 	font-size: 0.9rem;
 	margin-top: 2rem;
 }
+
 .discover-radio-inputs {
 	display: flex;
 	justify-content: center;
@@ -133,7 +147,7 @@
 }
 
 .discover-radio-inputs .discover-radio input:checked + .discover-name {
-	background-color: black;
+	background-color: #656bdd;
 	color: white;
 }
 
@@ -160,7 +174,7 @@
 
 #dogs:checked + .dogs,
 #cats:checked + .cats {
-	background-color: black;
+	background-color: #656bdd;
 	color: white;
 	box-shadow: 0 0 0px 1px #7178f6;
 }
@@ -247,7 +261,7 @@
 
 #male:checked + .male,
 #female:checked + .female {
-	background-color: black;
+	background-color: #656bdd;
 	color: white;
 	box-shadow: 0 0 0px 1px #7178f6;
 }

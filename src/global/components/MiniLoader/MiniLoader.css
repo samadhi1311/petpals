@@ -1,29 +1,28 @@
 .miniLoader-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    border-radius: 12px;
-    background-color: hsla(0, 100%, 100%, 0.5);
-    backdrop-filter: blur(64px);
-    border: 1px solid #ccc;
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05);
-    width: max-content;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+	border-radius: 12px;
+	background-color: var(--acrylic-bg);
+	backdrop-filter: var(--acrylic-blur);
+	border: var(--acrylic-border);
+	box-shadow: var(--acrylic-shadow);
+	width: max-content;
 }
 
 @keyframes blink {
-    0% {
-        opacity: 0;
-    }
+	0% {
+		opacity: 0;
+	}
 
-    100% {
-        opacity: 1;
-    }
-
+	100% {
+		opacity: 1;
+	}
 }
 
 .logo-outline {
-    width: 5rem;
-    animation: blink 400ms ease-in-out alternate infinite;
+	width: 5rem;
+	animation: blink 400ms ease-in-out alternate infinite;
 }

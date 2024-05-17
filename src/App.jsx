@@ -34,8 +34,6 @@ function App() {
 	return (
 		<>
 			<BrowserRouter>
-				<div className='gradient-background'></div>
-				<div className='white-overlay'></div>
 				<header>
 					<Navigation isLoggedIn={isLoggedIn} />
 				</header>

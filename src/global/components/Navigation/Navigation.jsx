@@ -8,7 +8,7 @@ import './Navigation.css';
 import { useState, useEffect } from 'react';
 
 export default function Navigation({ isLoggedIn }) {
-	const [showMenu, setShowMenu] = useState();
+	const [showMenu, setShowMenu] = useState('');
 
 	const handleMenuClick = () => {
 		setShowMenu((prevShowMenu) => !prevShowMenu);
@@ -22,7 +22,7 @@ export default function Navigation({ isLoggedIn }) {
 		<>
 			<nav>
 				<Link to='/PetPals' className='logo'>
-					<img src={Logo} className='nav-logo' alt='PetPals' />
+					<img src={Logo} className='nav-logo' alt='PetPals logo' />
 					PetPals
 				</Link>
 
@@ -66,7 +66,7 @@ export default function Navigation({ isLoggedIn }) {
 							) : (
 								<Link to='PetPals/signup' onClick={handleLinkClick}>
 									<button>
-										<i className='bx bxs-log-in-circle bx-sm'></i>
+										<i className='bx bx-user-plus bx-sm'></i>
 										Sign Up
 									</button>
 								</Link>

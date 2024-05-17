@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { db } from '../../../firebase.config';
 import { useParams } from 'react-router-dom';
-import { collection, query, doc, getDoc, getDocs, where } from 'firebase/firestore';
+import { collection, query, doc, getDoc, getDocs, where, updateDoc } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Chat from '../../global/components/Chat/Chat';
@@ -87,10 +87,8 @@ export default function Post({ isLoggedIn, currentUser }) {
 
 				if (postSnap.exists()) {
 					const postData = postSnap.data();
-					console.log(postData);
 					setPost(postData);
 					setAuthorId(postData.userId);
-					console.log(postData.userId);
 
 					if (postData.age === 1) {
 						setAgeFormat(postData.ageFormat.slice(0, -1));
@@ -98,10 +96,10 @@ export default function Post({ isLoggedIn, currentUser }) {
 						setAgeFormat(postData.ageFormat);
 					}
 				} else {
-					console.log('No such post');
+					return <Modal success={false} title='Error' content='No such post.' />;
 				}
 			} catch (error) {
-				console.error('Error fetching post:', error);
+				return <Modal success={false} title='Error' content={error.message} />;
 			}
 		};
 
@@ -117,10 +115,9 @@ export default function Post({ isLoggedIn, currentUser }) {
 				if (!querySnapshot.empty) {
 					// Check if any documents are returned
 					setAuthor(querySnapshot.docs[0].data());
-					console.log(querySnapshot.docs[0].data());
 				}
 			} catch (error) {
-				console.error('Error fetching author:', error);
+				return <Modal success={false} title='Error' content={error.message} />;
 			}
 		};
 
@@ -138,10 +135,9 @@ export default function Post({ isLoggedIn, currentUser }) {
 				if (!querySnapshot.empty) {
 					// Check if any documents are returned
 					setUser(querySnapshot.docs[0].data());
-					console.log(querySnapshot.docs[0].data());
 				}
 			} catch (error) {
-				console.error('Error fetching author:', error);
+				return <Modal success={false} title='Error' content={error.message} />;
 			}
 		};
 
@@ -152,17 +148,21 @@ export default function Post({ isLoggedIn, currentUser }) {
 
 	useEffect(() => {
 		setDestination(author?.buildingNumber + ', ' + author?.street + ', ' + author?.city + ', ' + author?.district);
-		console.log(destination);
 	}, [author, destination]);
 
 	useEffect(() => {
 		setOrigin(user?.buildingNumber + ', ' + user?.street + ', ' + user?.city + ', ' + user?.district);
-		console.log(origin);
 	}, [author, origin]);
+
+	const handleAdopt = async () => {
+		const postRef = doc(db, 'posts', postId);
+		await updateDoc(postRef, { status: 'someone else wants me' });
+	};
 
 	return (
 		<>
-			<motion.main className='post-page'>
+			<div className='subtle-gradient-background'></div>
+			<motion.main className='post-page' variants={transitions} initial='hidden' animate='visible' exit='exit'>
 				{post ? (
 					<div className='post-post-container'>
 						<div className='post-main-post-container'>
@@ -170,9 +170,9 @@ export default function Post({ isLoggedIn, currentUser }) {
 								<h2>Post Details</h2>
 								<div className='slider-container'>
 									<Slider {...sliderSettings}>
-										{post.img1 && <img src={post.img1} alt='' />}
-										{post.img2 && <img src={post.img2} alt='' />}
-										{post.img3 && <img src={post.img3} alt='' />}
+										{post.img1 && <img src={post.img1} alt='post image 1' />}
+										{post.img2 && <img src={post.img2} alt='post image 2' />}
+										{post.img3 && <img src={post.img3} alt='post image 3' />}
 									</Slider>
 								</div>
 							</div>
@@ -186,30 +186,40 @@ export default function Post({ isLoggedIn, currentUser }) {
 								<p>Gender: {post.gender}</p>
 								<br />
 								<p>Hello {post.petDescription}</p>
+								<br />
+								<button onClick={handleAdopt}>
+									<i className='bx bxs-happy-heart-eyes bx-sm'></i>
+									Request to adopt
+								</button>
 							</div>
 						</div>
 
-						<div className='post-directions'>
-							<div className='directions-container'>
-								<h2>Find Directions</h2>
-								<br />
-								<h3>Your location: {origin}</h3>
-								<h3>Destination: {destination}</h3>
-								<h3>Distance: {distance / 1000 + ' km'}</h3>
+						{isLoggedIn ? (
+							<div className='post-directions'>
+								<div className='directions-container'>
+									<h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+										<i className='bx bxs-map bx-md'></i>
+										Find Directions
+									</h2>
+									<br />
+									<p>Your location: {origin}</p>
+									<p>Destination: {destination}</p>
+									<p>Distance: {distance / 1000 + ' km'}</p>
+								</div>
+								<div className='post-map-container'>
+									<APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
+										<Map mapId={import.meta.env.VITE_GOOGLE_MAPS_ID}>
+											<Directions />
+										</Map>
+									</APIProvider>
+								</div>
 							</div>
-							<div className='post-map-container'>
-								<APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-									<Map mapId={import.meta.env.VITE_GOOGLE_MAPS_ID}>
-										<Directions />
-									</Map>
-								</APIProvider>
-							</div>
-						</div>
+						) : null}
 					</div>
 				) : (
 					<MiniLoader title='Please Wait' message='Fetching user data' />
 				)}
-				{isLoggedIn ? <Chat authorId={authorId} postId={postId} currentUser={currentUser} /> : null}
+				{isLoggedIn && author ? <Chat authorId={authorId} postId={postId} author={author} currentUser={currentUser} /> : null}
 			</motion.main>
 		</>
 	);

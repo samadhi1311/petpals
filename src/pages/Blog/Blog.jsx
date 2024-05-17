@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { transitions } from '../../global/Transitions';
 import './Blog.css';
@@ -26,28 +27,28 @@ export default function Blog() {
 
 	const dogtext = () => (
 		<p>
-			Here, you'll find out how to <br />
+			{/* {Here, you'll find out how to <br />
 			prepare for your new dog. Find
 			<br /> out how to provide the right diet,
 			<br /> exercise, companionship, and
-			<br /> veterinary care for your dog.
+			<br /> veterinary care for your dog.} */}
 		</p>
 	);
 
 	const cattext = () => (
 		<p>
-			Here, you'll find out how to <br />
+			{/* {Here, you'll find out how to <br />
 			prepare for your new cat. Find
 			<br /> out how to provide the right diet,
 			<br /> exercise, companionship, and
-			<br /> veterinary care for your cat.
+			<br /> veterinary care for your cat.} */}
 		</p>
 	);
 
 	const blogContent = () => <p>dededededed</p>;
 
 	const dogTextContent = () => (
-		<div className='content-card-2'>
+		<div className='content-card-2' id='content'>
 			<h2>How to prepare for your new dog:</h2>
 			<h3>5 things you must do</h3>
 			<p>
@@ -94,14 +95,14 @@ export default function Blog() {
 				</div>
 				<div className='dog-shelter-img'>
 					<div className='content-image'>
-						<img src={DogShelter} style={{ width: '100%' }} alt='Adoption Image' />
+						<img src={DogShelter} style={{ width: '100%' }} alt='Dog shelter' />
 					</div>
 				</div>
 			</div>
 			<div className='dog-shelter-div'>
 				<div className='dog-shelter-img'>
 					<div className='content-image'>
-						<img src={DogFood} style={{ width: '100%' }} alt='Adoption Image' />
+						<img src={DogFood} style={{ width: '100%' }} alt='Dog food ' />
 					</div>
 				</div>
 				<div className='dog-shelter-text'>
@@ -133,14 +134,14 @@ export default function Blog() {
 				</div>
 				<div className='dog-shelter-img'>
 					<div className='content-image'>
-						<img src={DogPlay} style={{ width: '100%' }} alt='Adoption Image' />
+						<img src={DogPlay} style={{ width: '100%' }} alt='Dog playing' />
 					</div>
 				</div>
 			</div>
 			<div className='dog-shelter-div'>
 				<div className='dog-shelter-img'>
 					<div className='content-image'>
-						<img src={DogVet} style={{ width: '100%' }} alt='Adoption Image' />
+						<img src={DogVet} style={{ width: '100%' }} alt='Dog vet' />
 					</div>
 				</div>
 				<div className='dog-shelter-text'>
@@ -162,7 +163,7 @@ export default function Blog() {
 	);
 
 	const catTextContent = () => (
-		<div className='content-card-2'>
+		<div className='content-card-2' id='content'>
 			<h2>How to prepare for your new cat:</h2>
 			<h3>5 things you must do</h3>
 			<p>
@@ -204,14 +205,14 @@ export default function Blog() {
 				</div>
 				<div className='dog-shelter-img'>
 					<div className='content-image'>
-						<img src={CatShelter} style={{ width: '100%' }} alt='Adoption Image' />
+						<img src={CatShelter} style={{ width: '100%' }} alt='Cat shelter' />
 					</div>
 				</div>
 			</div>
 			<div className='dog-shelter-div'>
 				<div className='dog-shelter-img'>
 					<div className='content-image'>
-						<img src={CatOff} style={{ width: '100%' }} alt='Adoption Image' />
+						<img src={CatOff} style={{ width: '100%' }} alt='cat Image' />
 					</div>
 				</div>
 				<div className='dog-shelter-text'>
@@ -245,14 +246,14 @@ export default function Blog() {
 				</div>
 				<div className='dog-shelter-img'>
 					<div className='content-image'>
-						<img src={CatFood} style={{ width: '100%' }} alt='Adoption Image' />
+						<img src={CatFood} style={{ width: '100%' }} alt='cat food' />
 					</div>
 				</div>
 			</div>
 			<div className='dog-shelter-div'>
 				<div className='dog-shelter-img'>
 					<div className='content-image'>
-						<img src={CatPlay} style={{ width: '100%' }} alt='Adoption Image' />
+						<img src={CatPlay} style={{ width: '100%' }} alt='cat playing' />
 					</div>
 				</div>
 				<div className='dog-shelter-text'>
@@ -278,14 +279,14 @@ export default function Blog() {
 				</div>
 				<div className='dog-shelter-img'>
 					<div className='content-image'>
-						<img src={CatHoliday} style={{ width: '100%' }} alt='Adoption Image' />
+						<img src={CatHoliday} style={{ width: '100%' }} alt='cat holiday' />
 					</div>
 				</div>
 			</div>
 			<div className='dog-shelter-div'>
 				<div className='dog-shelter-img'>
 					<div className='content-image'>
-						<img src={CatVet} style={{ width: '100%' }} alt='Adoption Image' />
+						<img src={CatVet} style={{ width: '100%' }} alt='cat vet' />
 					</div>
 				</div>
 				<div className='dog-shelter-text'>
@@ -334,53 +335,58 @@ export default function Blog() {
 	}, []);
 
 	return (
-		<motion.main variants={transitions} initial='hidden' animate='visible' exit='exit'>
-			<div className='blog-container'>
-				<div className='content-text'>
-					<h1 className='content-heading'>
-						Pet Welfare
-						<br /> Guides
-					</h1>
-					<div className='form-row'>
-						{/* First form container */}
-						<button
-							className={`form-container ${isMouseOver ? 'mouse-over' : ''}`}
-							onClick={handleFormClick}
-							onMouseOver={() => setIsMouseOver(true)}
-							onMouseOut={() => setIsMouseOver(false)}>
-							<h3>Dog Welfare</h3>
-							<br />
-							<br />
-							{/* Content for the first form container */}
-							<div className='dog-icon-container'>
-								<box-icon type='solid' name='dog' style={{ width: '60px', height: '60px' }}></box-icon>
-							</div>
-							<p>{displayText}</p>
-						</button>
-						{/* Second form container */}
-						<button
-							className={`form-container ${isMouseOver ? 'mouse-over' : ''}`}
-							onClick={() => handleFormClick2()}
-							onMouseOver={() => setIsMouseOver(true)}
-							onMouseOut={() => setIsMouseOver(false)}>
-							{/* Content for the second form container */}
-							<div className='dog-icon-container'>
-								<box-icon type='solid' name='cat' style={{ width: '60px', height: '60px' }}></box-icon>
-							</div>
-							<h3>Cat Welfare</h3>
-							<br />
-							<br />
-							<p>{displayText2}</p>
-						</button>
+		<>
+			<div className='subtle-gradient-background'></div>
+			<motion.main variants={transitions} initial='hidden' animate='visible' exit='exit'>
+				<div className='blog-container'>
+					<div className='content-text'>
+						<h1 className='content-heading'>
+							Pet Welfare
+							<br /> Guides
+						</h1>
+						<div className='form-row'>
+							{/* First form container */}
+							<button
+								className={`form-container ${isMouseOver ? 'mouse-over' : ''}`}
+								onClick={handleFormClick}
+								onMouseOver={() => setIsMouseOver(true)}
+								onMouseOut={() => setIsMouseOver(false)}>
+								<a href='#content'>
+									<h3>Dog Welfare</h3>
+									<br />
+									{/* Content for the first form container */}
+									<div className='dog-icon-container'>
+										<box-icon type='solid' name='dog' style={{ width: '60px', height: '60px' }}></box-icon>
+									</div>
+									<p>{displayText}</p>
+								</a>
+							</button>
+							{/* Second form container */}
+							<button
+								className={`form-container ${isMouseOver ? 'mouse-over' : ''}`}
+								onClick={() => handleFormClick2()}
+								onMouseOver={() => setIsMouseOver(true)}
+								onMouseOut={() => setIsMouseOver(false)}>
+								<a href='#content'>
+									<h3>Cat Welfare</h3>
+									<br />
+									{/* Content for the second form container */}
+									<div className='dog-icon-container'>
+										<box-icon type='solid' name='cat' style={{ width: '60px', height: '60px' }}></box-icon>
+									</div>
+									<p>{displayText2}</p>
+								</a>
+							</button>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			{dogBlogBody === '' ? null : (
-				<div className='content-card-1'>
-					<p>{changeText}</p>
-				</div>
-			)}
-		</motion.main>
+				{dogBlogBody === '' ? null : (
+					<div className='content-card-1'>
+						<p>{changeText}</p>
+					</div>
+				)}
+			</motion.main>
+		</>
 	);
 }

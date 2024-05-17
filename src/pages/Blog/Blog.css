@@ -1,184 +1,182 @@
 .blog-container {
-    max-width: 100%;
-    height: auto;
-    justify-content: center;
-    display: flex;
-    align-items: center;
+	max-width: 100%;
+	min-height: 100vh;
+	justify-content: center;
+	display: flex;
+	align-items: center;
 }
 
 .content-heading {
-    color: white;
-    text-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+	color: black;
 }
 
 .form-row {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .form-container {
-    /* existing styles */
-    position: relative; /* Make sure the container is positioned relative for absolute positioning inside */
+	/* existing styles */
+	position: relative; /* Make sure the container is positioned relative for absolute positioning inside */
 
-    /* Additional styles for centering the icon */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+	/* Additional styles for centering the icon */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+
+	max-width: 256px;
+	width: 40%;
+	height: 256px;
 }
 
 .dog-icon-container {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 1px solid black;
-    transition: border 0.3s ease-out; /* Add transition for smooth color change */
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
-
-.dog-icon-container~p{
-    margin-top: 120px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	border: 1px solid black;
+	transition: border 0.3s ease-out; /* Add transition for smooth color change */
+	align-items: center;
+	justify-content: center;
+	display: flex;
 }
 
 .form-container:hover .dog-icon-container {
-    border: 1px solid white; /* Change border color on hover */
-    filter: brightness(0) invert(1); /* Apply the same filter as dogicon */
+	border: 1px solid white; /* Change border color on hover */
+	filter: brightness(0) invert(1); /* Apply the same filter as dogicon */
 }
 
 .content-card-1 {
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%; /* Set width to 100% */
-    max-width: 89.1vw; /* Set max-width to 100vw to avoid overflow */
-    height: auto;
-    margin-bottom: 2rem;
-    padding-left: 5%;
-    padding-right: 5%;
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	max-width: 1200px; /* Set width to 100% */
+	width: 90%; /* Set max-width to 100vw to avoid overflow */
+	height: auto;
+	margin-bottom: 2rem;
+	margin: 1rem auto;
 }
 
-
 .content-card-2 {
-    border-radius: 12px;
-    background-color: hsla(0, 100%, 100%, 0.5);
-    backdrop-filter: blur(64px);
-    border: 1px solid #ccc;
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05);
-    position: relative;
-    width: auto;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 5%;
-    margin-top: 2rem;
+	border-radius: 12px;
+	background-color: hsla(0, 100%, 100%, 1);
+	backdrop-filter: blur(64px);
+	border: 1px solid #ccc;
+	box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05);
+	position: relative;
+	width: auto;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 5%;
+	margin-top: 2rem;
 }
 
 .dog-shelter-div {
-    display: flex;
-    flex-direction: column; /* Set to column for screen width < 768 pixels */
-    height: auto;
-    width: 100%;
-    box-sizing: border-box;
+	display: flex;
+	flex-direction: column; /* Set to column for screen width < 768 pixels */
+	height: auto;
+	width: 100%;
+	box-sizing: border-box;
 
-    @media screen and (min-width: 769px) {
-        flex-direction: row; /* Change to row for screen width >= 769 pixels */
-    }
+	@media screen and (min-width: 769px) {
+		flex-direction: row; /* Change to row for screen width >= 769 pixels */
+	}
 }
 
 .dog-shelter-text,
 .dog-shelter-img {
-    flex: 1;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 5%;
-    width: 100%; /* Set width to 100% to take up the full width in column layout */
+	flex: 1;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 5%;
+	width: 100%; /* Set width to 100% to take up the full width in column layout */
 }
 
 @media screen and (max-width: 768px) {
-    .dog-shelter-div {
-        flex-direction: column; /* Ensure column layout for small screens */
-    }
+	.dog-shelter-div {
+		flex-direction: column; /* Ensure column layout for small screens */
+	}
 
-    .dog-shelter-img {
-        order: -1; /* Move image to the top of the column */
-    }
+	.dog-shelter-img {
+		order: -1; /* Move image to the top of the column */
+	}
 }
 
 @media screen and (max-width: 768px) {
-    .content-text {
-        width: 100%;
-    }
+	.content-text {
+		width: 100%;
+	}
 
-    .content-heading {
-        text-align: center;
-        font-size: 2rem;
-        line-height: 1.1;
-        padding-bottom: 1rem;
-    }
+	.content-heading {
+		text-align: center;
+		font-size: 2rem;
+		line-height: 1.1;
+		padding-bottom: 1rem;
+	}
 
-    .form-row {
-        flex-direction: column;
-        align-items: center; /* Optional: to center the forms in the column */
-    }
+	.form-row {
+		flex-direction: column;
+		align-items: center; /* Optional: to center the forms in the column */
+	}
 
-    .form-container {
-        width: 100%;
-        margin: 5% 2%; /* Optional: adjust margin for spacing between forms in the column */
-    }
+	.form-container {
+		width: 100%;
+		margin-bottom: 2rem;
+		padding: 1rem;
+		height: 256px;
+	}
 
-    .content-image {
-        width: 100%;
-    }
+	.content-image {
+		width: 100%;
+	}
 }
 
-@media screen and (min-width: 769px) and (max-width: 1200px){
-    .dog-icon-container{
-        top:30%;
-    }
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+	.dog-icon-container {
+		top: 30%;
+	}
 }
 
 @media screen and (min-width: 769px) {
-    .content-text {
-        width: 50%;
-    }
+	.content-text {
+		width: 50%;
+	}
 
-    .content-heading {
-        text-align: center;
-        font-size: 3rem;
-        line-height: 1.1;
-    }
+	.content-heading {
+		text-align: center;
+		font-size: 3rem;
+		line-height: 1.1;
+	}
 
-    .form-container {
-        margin-left: 5%;
-    }
+	.form-container {
+		margin-left: 5%;
+	}
 
-    .content-image {
-        width: 100%;
-    }
+	.content-image {
+		width: 100%;
+	}
 
-    .dog-icon-container~p{
-        margin-top: 150px;
-    }
-
-    
+	.dog-icon-container ~ p {
+		margin-top: 150px;
+	}
 }
 
 @media screen and (min-width: 1366px) {
-    .content-heading {
-        font-size: 5rem;
-    }
+	.content-heading {
+		font-size: 5rem;
+	}
 }
