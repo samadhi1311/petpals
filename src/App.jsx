@@ -40,19 +40,19 @@ function App() {
 
 				<AnimatePresence>
 					<Routes>
-						<Route path='PetPals/' element={<Home />} />
-						<Route path='PetPals/users/:uid' element={<Profile isLoggedIn={isLoggedIn} currentUser={currentUser} />} />
-						<Route path='PetPals/users/me' element={<MyProfile isLoggedIn={isLoggedIn} />} />
-						<Route path='PetPals/posts/:postId' element={<Post isLoggedIn={isLoggedIn} currentUser={currentUser} />} />
-						<Route path='PetPals/about' element={<About />} />
-						<Route path='PetPals/add' element={<Add isLoggedIn={isLoggedIn} />} />
-						<Route path='PetPals/blog' element={<Blog />} />
-						<Route path='PetPals/discover' element={<Discover isLoggedIn={isLoggedIn} />} />
-						<Route path='PetPals/login' element={<Login />} />
-						<Route path='PetPals/forgot-password' element={<ResetPassword isLoggedIn={isLoggedIn} />} />
-						<Route path='PetPals/signup' element={<SignUp />} />
-						<Route path='PetPals/PetPals' element={<Test />} />
-						<Route path='PetPals/*' element={<PageNotFound />} />
+						<Route path='petpals/' element={<Home />} />
+						<Route path='petpals/users/:uid' element={<Profile isLoggedIn={isLoggedIn} currentUser={currentUser} />} />
+						<Route path='petpals/users/me' element={<MyProfile isLoggedIn={isLoggedIn} />} />
+						<Route path='petpals/posts/:postId' element={<Post isLoggedIn={isLoggedIn} currentUser={currentUser} />} />
+						<Route path='petpals/about' element={<About />} />
+						<Route path='petpals/add' element={<Add isLoggedIn={isLoggedIn} />} />
+						<Route path='petpals/blog' element={<Blog />} />
+						<Route path='petpals/discover' element={<Discover isLoggedIn={isLoggedIn} />} />
+						<Route path='petpals/login' element={<Login />} />
+						<Route path='petpals/forgot-password' element={<ResetPassword isLoggedIn={isLoggedIn} />} />
+						<Route path='petpals/signup' element={<SignUp />} />
+						<Route path='petpals/petpals' element={<Test />} />
+						<Route path='petpals/*' element={<PageNotFound />} />
 					</Routes>
 				</AnimatePresence>
 			</BrowserRouter>

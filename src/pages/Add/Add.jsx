@@ -162,7 +162,7 @@ export default function Add({ isLoggedIn }) {
 			});
 
 			setSuccess(true);
-			setTimeout(() => navigate('/PetPals/discover'), 3000);
+			setTimeout(() => navigate('/petpals/discover'), 3000);
 		} catch (error) {
 			return <Modal success={false} title='Error' content={error.message} />;
 		}
@@ -374,7 +374,7 @@ export default function Add({ isLoggedIn }) {
 							)}
 						</>
 					) : (
-						<Modal title="You can't do that!" content='Please log in or create a new profile.' success={false} navigate='/Petpals/login' />
+						<Modal title="You can't do that!" content='Please log in or create a new profile.' success={false} navigate='/petpals/login' />
 					)}
 				</AnimatePresence>
 			</motion.main>

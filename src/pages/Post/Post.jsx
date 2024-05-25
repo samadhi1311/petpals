@@ -179,7 +179,7 @@ export default function Post({ isLoggedIn, currentUser }) {
 							<div className='post-text-container'>
 								<p>
 									Posted by:
-									<Link to={`/PetPals/users/${authorId}`}>{' ' + author?.firstName + ' ' + author?.lastName}</Link>
+									<Link to={`/petpals/users/${authorId}`}>{' ' + author?.firstName + ' ' + author?.lastName}</Link>
 								</p>
 								<p>Animal Type: {post.animalType}</p>
 								<p>Age: {post.age + ' ' + ageFormat}</p>

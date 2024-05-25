@@ -72,13 +72,13 @@ export default function Home() {
 							Adopt a pet!
 						</h1>
 						<div className='home-hero-buttons'>
-							<Link to='/PetPals/discover'>
+							<Link to='/petpals/discover'>
 								<button>
 									<i className='bx bxs-baby-carriage bx-sm'></i>
 									Adopt now
 								</button>
 							</Link>
-							<Link to='/PetPals/add' style={{ color: 'white', fontSize: '1.25rem', marginLeft: '1rem' }}>
+							<Link to='/petpals/add' style={{ color: 'white', fontSize: '1.25rem', marginLeft: '1rem' }}>
 								Rescue
 							</Link>
 						</div>
@@ -94,7 +94,7 @@ export default function Home() {
 				<motion.div initial={{ opacity: 0, x: 50 }} animate={controlsDiscover}>
 					<h1>Discover Your New Pet</h1>
 					<p>Explore PetPals for your new ideal furry companion.</p>
-					<Link to='/PetPals/discover'>
+					<Link to='/petpals/discover'>
 						<button>
 							<i className='bx bxs-compass bx-md'></i>
 							Discover Pets
@@ -107,7 +107,7 @@ export default function Home() {
 				<motion.div initial={{ opacity: 0, x: 50 }} animate={controlsAdd} transition={{ staggerChildren: 0.5 }}>
 					<h1>Find a New Home for a Lost Pet</h1>
 					<p>Contribute to our mission by uploading posts for dogs or cats in need of shelter at 'PetPals.'</p>
-					<Link to='/PetPals/add'>
+					<Link to='/petpals/add'>
 						<button>
 							<i className='bx bxs-plus-circle bx-md'></i>
 							Add a New Pet
@@ -120,7 +120,7 @@ export default function Home() {
 				<motion.div initial={{ opacity: 0, x: 50 }} animate={controlsBlog}>
 					<h1>Take Care of Your Pet</h1>
 					<p>Discover essential tips for responsible dog and cat care in 'PetPals' Pet Welfare Guides.</p>
-					<Link to='/PetPals/blog'>
+					<Link to='/petpals/blog'>
 						<button>
 							<i className='bx bxs-book-reader bx-md'></i>
 							Read the Blog
@@ -163,16 +163,16 @@ export default function Home() {
 
 					<div className='home-footer-links'>
 						<h3>Quick Links</h3>
-						<Link to='/PetPals'>Home</Link>
-						<Link to='/PetPals/discover'>Discover</Link>
-						<Link to='/PetPals/about'>About</Link>
-						<Link to='/PetPals/blog'>Blog</Link>
+						<Link to='/petpals'>Home</Link>
+						<Link to='/petpals/discover'>Discover</Link>
+						<Link to='/petpals/about'>About</Link>
+						<Link to='/petpals/blog'>Blog</Link>
 					</div>
 
 					<div className='home-footer-support'>
 						<h3>Support Us</h3>
-						<Link to='/PetPals'>Donate</Link>
-						<Link to='https://github.com/PetPals-Team/PetPals'>Contribute on GitHub</Link>
+						<Link to='/petpals'>Donate</Link>
+						<Link to='https://github.com/samadhi1311/petpals'>Contribute on GitHub</Link>
 					</div>
 				</div>
 				<div className='home-footer-copyright'>

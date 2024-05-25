@@ -22,7 +22,7 @@ export default function PostItem({ post }) {
 				<p>{post.gender}</p>
 				<p>{post.age + ' ' + post.ageFormat}</p>
 			</div>
-			<Link to={`/PetPals/posts/${post.id}`}>
+			<Link to={`/petpals/posts/${post.id}`}>
 				<button style={{ width: 'max-content', textAlign: 'center', marginLeft: ' auto', marginRight: 'auto' }}>
 					<i className='bx bx-right-top-arrow-circle bx-sm'></i>
 					More details

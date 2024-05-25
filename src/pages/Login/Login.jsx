@@ -28,7 +28,7 @@ export default function Login() {
 	const handleSubmit = async (values) => {
 		try {
 			await signInWithEmailAndPassword(auth, values.email, values.password);
-			navigate('/PetPals');
+			navigate('/petpals');
 		} catch (error) {
 			if (error.code === 'auth/invalid-credential') {
 				setError(true);
@@ -39,7 +39,7 @@ export default function Login() {
 
 	async function signUpWithGoogle() {
 		await signInWithPopup(auth, googleAuthProvider);
-		navigate('/PetPals');
+		navigate('/petpals');
 	}
 	return (
 		<>
@@ -82,7 +82,7 @@ export default function Login() {
 									</div>
 
 									<div className='login-forgot-password'>
-										<Link to='/PetPals/forgot-password'>Forgot password?</Link>
+										<Link to='/petpals/forgot-password'>Forgot password?</Link>
 									</div>
 								</Form>
 
@@ -100,7 +100,7 @@ export default function Login() {
 
 								<div className='login-sign-up'>
 									<p>
-										Not a member yet? <Link to='/PetPals/signup'>Sign up</Link>
+										Not a member yet? <Link to='/petpals/signup'>Sign up</Link>
 									</p>
 								</div>
 							</motion.div>

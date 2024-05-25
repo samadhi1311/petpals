@@ -17,7 +17,7 @@ export default function PageNotFound() {
 						You seems to be lost.
 					</h1>
 					<p className='404-description'>Let's head back home safely, okay?</p>
-					<Link to='/PetPals/'>
+					<Link to='/petpals/'>
 						<button className='error-404-button'>
 							<i className='bx bxs-home-heart bx-sm'></i>
 							Home

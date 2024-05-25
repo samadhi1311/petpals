@@ -190,7 +190,7 @@ export default function SignUp() {
 
 						<div className='sign-up-login'>
 							<p>
-								Already have an account? <Link to='/Petpals/Login'>Login</Link>
+								Already have an account? <Link to='/petpals/Login'>Login</Link>
 							</p>
 						</div>
 					</motion.div>
@@ -239,7 +239,7 @@ export default function SignUp() {
 				return <Modal success={false} title='Error' content={error.message} />;
 			}
 
-			navigate('/PetPals');
+			navigate('/petpals');
 			setLoading(false);
 		}
 

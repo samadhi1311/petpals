@@ -21,7 +21,7 @@ export default function Navigation({ isLoggedIn }) {
 	return (
 		<>
 			<nav>
-				<Link to='/PetPals' className='logo'>
+				<Link to='/petpals' className='logo'>
 					<img src={Logo} className='nav-logo' alt='PetPals logo' />
 					PetPals
 				</Link>
@@ -36,35 +36,35 @@ export default function Navigation({ isLoggedIn }) {
 				<div className={`nav-wrapper ${showMenu ? 'show' : ''}`}>
 					<ul>
 						<li>
-							<Link to='PetPals/add' onClick={handleLinkClick}>
+							<Link to='petpals/add' onClick={handleLinkClick}>
 								Add
 							</Link>
 						</li>
 						<li>
-							<Link to='PetPals/discover' onClick={handleLinkClick}>
+							<Link to='petpals/discover' onClick={handleLinkClick}>
 								Discover
 							</Link>
 						</li>
 						<li>
-							<Link to='PetPals/blog' onClick={handleLinkClick}>
+							<Link to='petpals/blog' onClick={handleLinkClick}>
 								Blog
 							</Link>
 						</li>
 						<li>
-							<Link to='PetPals/about' onClick={handleLinkClick}>
+							<Link to='petpals/about' onClick={handleLinkClick}>
 								About
 							</Link>
 						</li>
 						<li>
 							{isLoggedIn ? (
-								<Link to='PetPals/users/me' onClick={handleLinkClick}>
+								<Link to='petpals/users/me' onClick={handleLinkClick}>
 									<button>
 										<i className='bx bxs-cat bx-sm'></i>
 										{auth.currentUser.displayName || auth.currentUser.email}
 									</button>
 								</Link>
 							) : (
-								<Link to='PetPals/signup' onClick={handleLinkClick}>
+								<Link to='petpals/signup' onClick={handleLinkClick}>
 									<button>
 										<i className='bx bx-user-plus bx-sm'></i>
 										Sign Up
