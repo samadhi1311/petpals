@@ -9,7 +9,7 @@ PetPals is a web app designed to find and adopt homeless pets.
 &nbsp;
 
 <img src="assets/20240928_090348_Screenshot_89.png" width="80%" alt="home" />
-<img src="assets/20240526_131350_Screenshot_121.png" width="80%" alt="discover" />
+<img src="assets/20240928_093589_Screenshot_89.png" width="80%" alt="discover" />
 <img src="assets/20240526_131350_Screenshot_139.png" width="80%" alt="post" />
 
 &nbsp;
