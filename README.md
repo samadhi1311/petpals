@@ -2,11 +2,15 @@
 
 # **PetPals**
 
+<img src='src/global/assets/social-share.jpg' width="320px" alt="logo" />
+
 PetPals is a web app designed to find and adopt homeless pets.
 
-<img src="assets/20240526_131350_Screenshot_113.png" width="80%" alt="home">
-<img src="assets/20240526_131350_Screenshot_121.png" width="80%" alt="discover">
-<img src="assets/20240526_131350_Screenshot_139.png" width="80%" alt="post">
+&nbsp;
+
+<img src="assets/20240526_131350_Screenshot_113.png" width="80%" alt="home" />
+<img src="assets/20240526_131350_Screenshot_121.png" width="80%" alt="discover" />
+<img src="assets/20240526_131350_Screenshot_139.png" width="80%" alt="post" />
 
 &nbsp;
 
