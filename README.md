@@ -8,7 +8,7 @@ PetPals is a web app designed to find and adopt homeless pets.
 
 &nbsp;
 
-<img src="assets/20240526_131350_Screenshot_113.png" width="80%" alt="home" />
+<img src="assets/20240928_090348_Screenshot_89.png" width="80%" alt="home" />
 <img src="assets/20240526_131350_Screenshot_121.png" width="80%" alt="discover" />
 <img src="assets/20240526_131350_Screenshot_139.png" width="80%" alt="post" />
 
@@ -58,7 +58,7 @@ In Sri Lanka, the rising population of stray animals is a pressing concern that 
 
 #### Development team:
 
-<div align="center">
+<div align="left">
 
 |                                                                                                                          |                                                                                                                       |                                                                                                                             |                                                                                                                             |
 | :----------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: |
@@ -69,10 +69,10 @@ In Sri Lanka, the rising population of stray animals is a pressing concern that 
 
 #### Special thanks to:
 
-<div align="center">
+<div align="left">
 
-|                                                                                                                |                                                                                                                                     |                                                                                                             |                                                                                                                |                                                                                                                            |
-| :------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: |
-| <img src="https://github.com/sithruby.png" width="96"><br /><a href="https://github.com/sithruby">sithruby</a> | <img src="https://github.com/radeeshanuka123.png" width="96"><br /><a href="https://github.com/radeeshanuka123">radeeshanuka123</a> | <img src="https://github.com/vini070.png" width="96"><br /><a href="https://github.com/vini070">vini070</a> | <img src="https://github.com/sankavi5.png" width="96"><br /><a href="https://github.com/sankavi5">sankavi5</a> | <img src="https://github.com/nipunigamage.png" width="96"><br /><a href="https://github.com/nipunigamage">nipunigamage</a> |
+|                                                                                                                |                                                                                                                            |
+| :------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://github.com/sithruby.png" width="96"><br /><a href="https://github.com/sithruby">sithruby</a> | <img src="https://github.com/nipunigamage.png" width="96"><br /><a href="https://github.com/nipunigamage">nipunigamage</a> |
 
 </div>
