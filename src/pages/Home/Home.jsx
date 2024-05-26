@@ -78,7 +78,7 @@ export default function Home() {
 									Adopt now
 								</button>
 							</Link>
-							<Link to='/petpals/add' style={{ color: 'white', fontSize: '1.25rem', marginLeft: '1rem' }}>
+							<Link to='/petpals/add' style={{ color: 'black', fontSize: '1.25rem', marginLeft: '1rem' }}>
 								Rescue
 							</Link>
 						</div>

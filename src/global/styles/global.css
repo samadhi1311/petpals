@@ -50,11 +50,11 @@ body {
 }
 
 .gradient-background {
-	background-color: #99a3ff55;
-	background-image: radial-gradient(at 63% 95%, hsla(233, 85%, 64%, 1) 0px, transparent 50%), radial-gradient(at 58% 48%, hsla(331, 85%, 66%, 1) 0px, transparent 50%),
-		radial-gradient(at 50% 76%, hsla(221, 89%, 60%, 1) 0px, transparent 50%), radial-gradient(at 50% 39%, hsla(213, 76%, 79%, 1) 0px, transparent 50%),
-		radial-gradient(at 38% 99%, hsla(239, 65%, 66%, 1) 0px, transparent 50%), radial-gradient(at 50% 13%, hsla(172, 72%, 78%, 1) 0px, transparent 50%),
-		radial-gradient(at 27% 15%, hsla(241, 90%, 67%, 1) 0px, transparent 50%);
+	background-color: rgb(255, 255, 255);
+	background-image: radial-gradient(at 55% 41%, rgb(229, 190, 252) 0px, transparent 50%), radial-gradient(at 10% 15%, rgb(230, 240, 255) 0px, transparent 50%),
+		radial-gradient(at 95% 95%, hsla(0, 0%, 100%, 1) 0px, transparent 50%), radial-gradient(at 56% 9%, hsla(0, 0%, 100%, 1) 0px, transparent 50%),
+		radial-gradient(at 34% 54%, rgb(179, 220, 255) 0px, transparent 50%), radial-gradient(at 6% 66%, hsla(0, 0%, 100%, 1) 0px, transparent 50%),
+		radial-gradient(at 80% 56%, hsla(0, 0%, 100%, 1) 0px, transparent 50%), radial-gradient(at 59% 79%, rgb(255, 236, 236) 0px, transparent 50%);
 	background-repeat: repeat;
 	background-size: contain;
 	width: 100%;
