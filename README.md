@@ -71,8 +71,8 @@ In Sri Lanka, the rising population of stray animals is a pressing concern that 
 
 <div align="left">
 
-|                                                                                                                |                                                                                                                            |
-| :------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: |
-| <img src="https://github.com/sithruby.png" width="96"><br /><a href="https://github.com/sithruby">sithruby</a> | <img src="https://github.com/nipunigamage.png" width="96"><br /><a href="https://github.com/nipunigamage">nipunigamage</a> |
+|                                                                                                                            |                                                                                                                |
+| :------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------: |
+| <img src="https://github.com/nipunigamage.png" width="96"><br /><a href="https://github.com/nipunigamage">nipunigamage</a> | <img src="https://github.com/sithruby.png" width="96"><br /><a href="https://github.com/sithruby">sithruby</a> |
 
 </div>
