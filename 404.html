@@ -4,9 +4,9 @@
       <script type="text/javascript">
   // Redirect to the index.html file for the React Router to handle the routing
   var pathname = window.location.pathname;
-  var baseUrl = ''; // Set this to your repository name
+  var baseUrl = '/petpals'; // Set this to your repository name
   if (!pathname.startsWith(baseUrl + '/')) {
-    pathname = baseUrl + pathname;
+    pathname = pathname;
   }
   window.location.replace(baseUrl + '/index.html?redirect=' + pathname);
 </script>
