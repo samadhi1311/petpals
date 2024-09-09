@@ -6,7 +6,7 @@
   var pathname = window.location.pathname;
   var baseUrl = '/petpals'; // Set this to your repository name
   if (!pathname.startsWith(baseUrl + '/')) {
-    pathname = pathname;
+    pathname = baseUrl + pathname;
   }
   window.location.replace(baseUrl + '/index.html?redirect=' + pathname);
 </script>
